@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="什么是 HEXO    Hexo 是一款基于 Node.js 的静态博客框架，依赖少易于安装使用，可以方便的生成静态网页托管在 GitHub 和 Heroku 上，是搭建博客的首选框架。这里我们选用的是 GitHub。Hexo 同时也是 GitHub 上的开源项目。如果想要更加全面的了解 Hexo，可以到其官网 Hexo 官网 了解更多的细节，因为 Hexo 的创建者是台湾人，对中文的支持很友好，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo+Github+阿里云 搭建个人博客总结">
+<meta property="og:url" content="http://example.com/2021/09/08/Hexo-Github-%E9%98%BF%E9%87%8C%E4%BA%91-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="Wu&#39;s Blog">
+<meta property="og:description" content="什么是 HEXO    Hexo 是一款基于 Node.js 的静态博客框架，依赖少易于安装使用，可以方便的生成静态网页托管在 GitHub 和 Heroku 上，是搭建博客的首选框架。这里我们选用的是 GitHub。Hexo 同时也是 GitHub 上的开源项目。如果想要更加全面的了解 Hexo，可以到其官网 Hexo 官网 了解更多的细节，因为 Hexo 的创建者是台湾人，对中文的支持很友好，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/09/08/fL7PmkRjrpx2OSt.png">
+<meta property="og:image" content="https://i.loli.net/2021/09/09/MDXoRGvk9nKqfrJ.png">
+<meta property="og:image" content="https://i.loli.net/2021/09/09/pqwu9aSUJVxs5yg.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/09/09/ophWzFOAadf6wEH.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/09/09/oQzdB6SUrnuvZ1q.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/09/09/qD7HOb9pvgMEy8Q.png">
+<meta property="og:image" content="https://i.loli.net/2021/09/09/rjUYIG8M3Ovie7s.png">
+<meta property="og:image" content="https://i.loli.net/2021/09/09/NtckrIw8jxXYOLz.png">
+<meta property="og:image" content="https://i.loli.net/2021/09/09/jxYnRiHsBXhIVN4.png">
+<meta property="og:image" content="https://i.loli.net/2021/09/09/OKd4amD7iVphjo5.png">
+<meta property="og:image" content="https://i.loli.net/2021/09/09/8PN6evs5SWrVdGf.png">
+<meta property="og:image" content="https://i.loli.net/2021/09/09/SZ3JzXKU19A7qnN.png">
+<meta property="og:image" content="https://i.loli.net/2021/09/09/RjVYQ5ytHXIK7LU.png">
+<meta property="og:image" content="https://i.loli.net/2021/09/09/qCnYIxfNyOdUzme.png">
+<meta property="og:image" content="https://i.loli.net/2021/09/09/IgOFajRMXJ9nr7m.png">
+<meta property="og:image" content="https://i.loli.net/2021/09/09/iRlXeO9SuYtxjmA.png">
+<meta property="og:image" content="https://i.loli.net/2021/09/09/TQeo8JLaZu1ztgO.png">
+<meta property="og:image" content="https://i.loli.net/2021/09/09/D59uHOIilC7Zay2.png">
+<meta property="og:image" content="https://i.loli.net/2021/09/09/YtPaD4jbocEnq7O.png">
+<meta property="article:published_time" content="2021-09-08T12:50:12.000Z">
+<meta property="article:modified_time" content="2021-09-13T08:19:08.385Z">
+<meta property="article:author" content="Wu Chaojie">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/09/08/fL7PmkRjrpx2OSt.png">
+
+
+<link rel="canonical" href="http://example.com/2021/09/08/Hexo-Github-%E9%98%BF%E9%87%8C%E4%BA%91-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%80%BB%E7%BB%93/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2021/09/08/Hexo-Github-%E9%98%BF%E9%87%8C%E4%BA%91-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%80%BB%E7%BB%93/","path":"2021/09/08/Hexo-Github-阿里云-搭建个人博客总结/","title":"Hexo+Github+阿里云 搭建个人博客总结"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Hexo+Github+阿里云 搭建个人博客总结 | Wu's Blog</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Wu's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">CS Tech</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-HEXO"><span class="nav-number">1.</span> <span class="nav-text">什么是 HEXO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%BE%97%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E5%9F%9F%E5%90%8D"><span class="nav-number">2.</span> <span class="nav-text">获得个人网站域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Github-%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA%E4%BB%93%E5%BA%93"><span class="nav-number">3.</span> <span class="nav-text">Github 创建个人仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Git"><span class="nav-number">4.</span> <span class="nav-text">安装 Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Node-js"><span class="nav-number">5.</span> <span class="nav-text">安装 Node.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Hexo"><span class="nav-number">6.</span> <span class="nav-text">安装 Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A9%E7%94%A8-Hexo-%E5%88%9B%E5%BB%BA%E6%9C%AC%E5%9C%B0%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2"><span class="nav-number">7.</span> <span class="nav-text">利用 Hexo 创建本地静态博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8D%A2%E4%B8%80%E4%B8%AA%E5%A5%BD%E7%9C%8B%E7%9A%84%E4%B8%BB%E9%A2%98"><span class="nav-number">8.</span> <span class="nav-text">换一个好看的主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E5%88%B0-Github"><span class="nav-number">9.</span> <span class="nav-text">部署到 Github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D"><span class="nav-number">10.</span> <span class="nav-text">绑定域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99%EF%BC%9A"><span class="nav-number">11.</span> <span class="nav-text">参考资料：</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Wu Chaojie"
+      src="/images/miao.gif">
+  <p class="site-author-name" itemprop="name">Wu Chaojie</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wuuu0" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wuuu0" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/08/Hexo-Github-%E9%98%BF%E9%87%8C%E4%BA%91-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/miao.gif">
+      <meta itemprop="name" content="Wu Chaojie">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hexo+Github+阿里云 搭建个人博客总结
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-09-08 20:50:12" itemprop="dateCreated datePublished" datetime="2021-09-08T20:50:12+08:00">2021-09-08</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-09-13 16:19:08" itemprop="dateModified" datetime="2021-09-13T16:19:08+08:00">2021-09-13</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="什么是-HEXO"><a href="#什么是-HEXO" class="headerlink" title="什么是 HEXO"></a>什么是 HEXO</h2><div align="center">
+<img src="https://i.loli.net/2021/09/08/fL7PmkRjrpx2OSt.png" width="70%" height="70%">
+</div>
+
+<p>Hexo 是一款基于 Node.js 的静态博客框架，依赖少易于安装使用，可以方便的生成静态网页托管在 GitHub 和 Heroku 上，是搭建博客的首选框架。这里我们选用的是 GitHub。Hexo 同时也是 GitHub 上的开源项目。如果想要更加全面的了解 Hexo，可以到其官网 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">Hexo 官网</a> 了解更多的细节，因为 Hexo 的创建者是台湾人，对中文的支持很友好，可以选择中文进行查看。</p>
+<p>此次我搭建个人博客的技术选型是：Hexo + Github + 阿里云。接下来是具体的步骤。</p>
+<h2 id="获得个人网站域名"><a href="#获得个人网站域名" class="headerlink" title="获得个人网站域名"></a>获得个人网站域名</h2><p>申请域名的地方有很多，这里推荐 <a href="https://link.zhihu.com/?target=https://www.aliyun.com/">阿里云：阿里云-为了无法计算的价值</a> 申请入口：<a href="https://link.zhihu.com/?target=https://wanwang.aliyun.com/domain/">域名注册</a> 购买域名这也是我们整个搭建过程中惟一一个需要花钱的地方。如果你已经有了空闲域名就无需购买，直接使用即可。</p>
+<h2 id="Github-创建个人仓库"><a href="#Github-创建个人仓库" class="headerlink" title="Github 创建个人仓库"></a>Github 创建个人仓库</h2><p>仓库名应该为：_&lt;用户名&gt;_ .github.io。这个用户名使用你的 <em>GitHub 帐号名称</em> 代替，这是固定写法，比如我的仓库名为：</p>
+<div align="center">
+<img src="https://i.loli.net/2021/09/09/MDXoRGvk9nKqfrJ.png">
+</div>
+
+<h2 id="安装-Git"><a href="#安装-Git" class="headerlink" title="安装 Git"></a>安装 Git</h2><p>在官网下载，按默认配置安装完成。</p>
+<p>在菜单里搜索 Git Bash，设置 user.name 和 user.email 配置信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;你的GitHub用户名</span><br><span class="line">git config --global user.email &quot;你的GitHub注册邮箱&quot;</span><br></pre></td></tr></table></figure>
+
+<p>生成 ssh 密钥文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;你的GitHub注册邮箱&quot;</span><br></pre></td></tr></table></figure>
+
+<p>然后直接三个回车即可，默认不需要设置密码。</p>
+<p>然后找到生成的.ssh 的文件夹中的 id_rsa.pub 密钥（注册完 bash 界面会告诉你），将内容全部复制。</p>
+<div align="center">
+<img src="https://i.loli.net/2021/09/09/pqwu9aSUJVxs5yg.jpg" width="70%">
+</div>
+
+<p>打开 Github Settings-SSH keys 页面，新建 new SSH key</p>
+<div align="center">
+<img src="https://i.loli.net/2021/09/09/ophWzFOAadf6wEH.jpg" width="70%">
+</div>
+
+<p>Title 为标题，任意填即可，将刚刚复制的 id_rsa.pub 内容粘贴进去，最后点击 Add SSH key。<br>在 Git Bash 中检测 GitHub 公钥设置是否成功，输入 ssh <a href="mailto:&#x67;&#105;&#x74;&#64;&#x67;&#x69;&#116;&#104;&#x75;&#98;&#x2e;&#x63;&#111;&#x6d;">&#x67;&#105;&#x74;&#64;&#x67;&#x69;&#116;&#104;&#x75;&#98;&#x2e;&#x63;&#111;&#x6d;</a> ：</p>
+<div align="center">
+<img src="https://i.loli.net/2021/09/09/oQzdB6SUrnuvZ1q.jpg" width="70%">
+</div>
+
+<p>如上则说明成功。这里之所以设置 GitHub 密钥原因是，通过非对称加密的公钥与私钥来完成加密，公钥放置在 GitHub 上，私钥放置在自己的电脑里。GitHub 要求每次推送代码都是合法用户，所以每次推送都需要输入账号密码验证推送用户是否是合法用户，为了省去每次输入密码的步骤，采用了 ssh，当你推送的时候，git 就会匹配你的私钥跟 GitHub 上面的公钥是否是配对的，若是匹配就认为你是合法用户，则允许推送。这样可以保证每次的推送都是正确合法的。</p>
+<h2 id="安装-Node-js"><a href="#安装-Node-js" class="headerlink" title="安装 Node.js"></a>安装 Node.js</h2><p>Hexo 基于 Node.js，Node.js 下载地址：Download | Node.js 下载安装包，注意安装 Node.js 会包含环境变量及 npm 的安装，安装后，检测 Node.js 是否安装成功，在命令行中输入 <code>node -v</code></p>
+<div align="center">
+<img src="https://i.loli.net/2021/09/09/qD7HOb9pvgMEy8Q.png">
+</div>
+
+<p>检测 npm 是否安装成功，在命令行中输入 <code>npm -v</code></p>
+<div align="center">
+<img src="https://i.loli.net/2021/09/09/rjUYIG8M3Ovie7s.png">
+</div>
+
+<p>到这了，安装 Hexo 的环境已经全部搭建完成。</p>
+<h2 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h2><p>继续在命令行中（不限定在哪，win+R: cmd 即可），输入命令：<code>npm install -g hexo-cli</code><br>检查 hexo 是否安装成功：</p>
+<div align="center">
+<img src="https://i.loli.net/2021/09/09/NtckrIw8jxXYOLz.png" width="60%">
+</div>
+
+<h2 id="利用-Hexo-创建本地静态博客"><a href="#利用-Hexo-创建本地静态博客" class="headerlink" title="利用 Hexo 创建本地静态博客"></a>利用 Hexo 创建本地静态博客</h2><ul>
+<li>初始化博客</li>
+</ul>
+<p>这里需要自己在电脑常里创建一个<strong>文件夹</strong>，可以命名为 **<em>Blog</em>**，创建好后，进入文件夹中，*按住 **shift 键*<strong>，右击鼠标，点击进入命令行。初始化一个</strong>工作文件夹 <em>blog</em>**，Hexo 框架与以后你自己发布的网页都在这个文件夹中。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意，以下命令都是在 Blog/blog 中发出</p>
+</blockquote>
+<ul>
+<li>生成静态页面</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>本地运行</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>发表一篇文章</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new test</span><br></pre></td></tr></table></figure>
+
+<p>此时会在 Blog/blog/source/_posts 目录下生成 test.md 文件，输入些许内容，然后保存。生成下，看看效果。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p>直接生成文章的方式：在 source/_posts/ 下创建 .md 文件，然后重新生成部署即可。</p>
+<ul>
+<li>网站的配置</li>
+</ul>
+<p>网站的设置大部分都在 <strong>config.yml</strong> 文件中，详细配置可以查看 Hexo 官方文档。</p>
+<blockquote>
+<p>注意坑：进行配置时，需要在冒号:后加一个英文空格 title: Droidlover。</p>
+</blockquote>
+<h2 id="换一个好看的主题"><a href="#换一个好看的主题" class="headerlink" title="换一个好看的主题"></a>换一个好看的主题</h2><p>Hexo 中有很多主题，可以在 <a target="_blank" rel="noopener" href="https://hexo.io/themes/">Hexo 官网</a>查看。 这里我推荐 <a target="_blank" rel="noopener" href="https://github.com/next-theme/hexo-theme-next">hexo-theme-next</a>，下面列举更换主题的一般套路。</p>
+<blockquote>
+<p>注意：各个主题具体如何使用，建议看各主题对应的文档和 Github 说明。</p>
+</blockquote>
+<ul>
+<li>下载主题资源</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/next-theme/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>应用下载的主题</li>
+</ul>
+<p>在网站配置文件 _config.yml 中，配置 theme。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+
+<p>next 是主题名称，具体的可查看主题的文档</p>
+<ul>
+<li>主题的相关配置</li>
+</ul>
+<p>可在 /theme/next/_config.yml 主题的配置文件下进行主题的配置。</p>
+<p>接下来，可以执行万能的调试命令看看效果</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<h2 id="部署到-Github"><a href="#部署到-Github" class="headerlink" title="部署到 Github"></a>部署到 Github</h2><ul>
+<li>安装 hexo-deployer-git</li>
+</ul>
+<p>在命令行中（不限定在哪，win+R: cmd 即可），输入命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git –save</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>网站配置 git<br>在网站的_config.yml 中配置 deploy</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">&lt;repository</span> <span class="string">url&gt;</span></span><br><span class="line">  <span class="attr">branch:</span> [<span class="string">branch</span>]</span><br></pre></td></tr></table></figure>
+
+<p>输入仓库链接，branch 设置为 master。示例如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/wuuu0/wuuu0.github.io</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Github 网页仓库设置 Page</li>
+</ul>
+<div align="center">
+<img src="https://i.loli.net/2021/09/09/jxYnRiHsBXhIVN4.png" width="70%">
+</div>
+
+<ul>
+<li>部署网页到 Github</li>
+</ul>
+<p>在 blog 文件夹下的命令行输入：<code>hexo d</code></p>
+<p>然后，即可以在浏览器中输入：&lt;用户名&gt;.github.com 来访问部署的网页了</p>
+<p>此后的基本操作也就是，先在本地增加、修改网页，操作主题样式；然后再推送到 Github 上，即可在线浏览。基本操作和此前《创建本地博客》相同，但是将 <code>hexo s</code> 换成了 <code>hexo d</code></p>
+<blockquote>
+<p>踩坑：</p>
+<ul>
+<li>梯子有时候不稳定，导致 git clone，hexo d 等操作因为网络问题而失败。多换换梯子节点，多试试就好。</li>
+<li>hexo d 始终连接不到 github 的话，打开 git bash 输入 ssh -T <a href="mailto:&#103;&#x69;&#x74;&#x40;&#103;&#105;&#x74;&#104;&#117;&#98;&#46;&#x63;&#x6f;&#x6d;">&#103;&#x69;&#x74;&#x40;&#103;&#105;&#x74;&#104;&#117;&#98;&#46;&#x63;&#x6f;&#x6d;</a> 看看能不能连上，不能的话参考 <a target="_blank" rel="noopener" href="https://docs.github.com/cn/github/authenticating-to-github/troubleshooting-ssh/error-permission-denied-publickey">错误：权限被拒绝（公钥） - GitHub Docs</a>；能的话说明是 hexo 配置的问题，再谷歌找找原因，<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c60ad2a33a1e">Hexo部署出现错误err: Error: Spawn failed解决方式</a>。</li>
+<li>hexo s 在本地已显示出了正常的网页，但 hexo d 到 github 后，xxxx.gihub.com 能访问，但是一片空白。确保此前步骤无误的话，多刷新一下 github 就好了……</li>
+<li>本地能正常显示页面，但访问网址不行的时候：检查是否部署成功，检查 github page 设置，检查域名（阿里云）问题</li>
+</ul>
+</blockquote>
+<div align="center">
+<img src="https://i.loli.net/2021/09/09/OKd4amD7iVphjo5.png" width="70%">
+</div>
+<div align="center">
+<img src="https://i.loli.net/2021/09/09/8PN6evs5SWrVdGf.png" width="70%">
+</div>
+
+<ul>
+<li>添加 CNAME 文件</li>
+</ul>
+<p>找到 hexo 博客根目录下的 source 文件夹。新建一个文件，名为 CNAME ，内容为你的域名（不包括 www.或 http 等等）。不然每次 <code>hexo d</code> 部署后，Github Pages 页面设置的域名会被清空</p>
+<div align="center">
+<img src="https://i.loli.net/2021/09/09/SZ3JzXKU19A7qnN.png" width="50%">
+</div>
+
+<h2 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h2><p>虽然在 Internet 上可以访问我们的网站，但是网址是 GitHub 提供的:<a target="_blank" rel="noopener" href="http://xxxx.github.io/">http://xxxx.github.io</a> (知乎排版可能会出现”http://“字样) 而我们想使用我们自己的个性化域名，这就需要绑定我们自己的域名。这里演示的是在阿里云万网的域名绑定，在国内主流的域名代理厂商也就阿里云和腾讯云。登录到阿里云，进入管理控制台的域名列表，找到你的个性化域名，进入解析。</p>
+<ul>
+<li>根据 <a target="_blank" rel="noopener" href="https://docs.github.com/cn/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site">Github Pages 官方文档</a> 的要求，进入阿里云官网，添加域名解析</li>
+</ul>
+<div align="center">
+<img src="https://i.loli.net/2021/09/09/RjVYQ5ytHXIK7LU.png" width="70%">
+</div>
+<div align="center">
+<img src="https://i.loli.net/2021/09/09/qCnYIxfNyOdUzme.png" width="70%">
+</div><div align="center">
+<img src="https://i.loli.net/2021/09/09/IgOFajRMXJ9nr7m.png" width="70%">
+</div>
+
+<div align="center">
+<img src="https://i.loli.net/2021/09/09/iRlXeO9SuYtxjmA.png" width="70%">
+</div>
+阿里云配置
+<div align="center">
+<img src="https://i.loli.net/2021/09/09/TQeo8JLaZu1ztgO.png" width="70%">
+</div>
+
+<ul>
+<li>配置 Github Pages<div align="center">
+<img src="https://i.loli.net/2021/09/09/D59uHOIilC7Zay2.png" width="70%">
+</div></li>
+</ul>
+<p>等候一段时间，尝试勾选和取消 Enforce 选项。换个浏览器，重启机器等一顿操作后。发现自定义域名设置成功且可以访问了。</p>
+<div align="center">
+<img src="https://i.loli.net/2021/09/09/YtPaD4jbocEnq7O.png" width="70%">
+</div>
+
+<h2 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h2><blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/26625249">GitHub+Hexo 搭建个人网站详细教程 - 知乎</a> (zhihu.com)</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/limedroid/HexoLearning">limedroid/HexoLearning: Hexo 博客搭建全攻略 (github.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">文档 | Hexo</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.github.com/cn/pages">Github Pages 文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/getting-started/">Getting Started | NexT (theme-next.js.org)</a></li>
+</ul>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/09/07/hello-world/" rel="prev" title="Hello World">
+                  <i class="fa fa-chevron-left"></i> Hello World
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/09/09/Hexo-NexT-%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8/" rel="next" title="Hexo NexT 主题配置和使用">
+                  Hexo NexT 主题配置和使用 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wu Chaojie</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
