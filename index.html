@@ -444,7 +444,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-11-18 10:34:15" itemprop="dateModified" datetime="2021-11-18T10:34:15+08:00">2021-11-18</time>
+        <time title="修改时间：2021-11-26 11:30:36" itemprop="dateModified" datetime="2021-11-26T11:30:36+08:00">2021-11-26</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -490,11 +490,24 @@
 
 <p>前端牛客网面经：<a target="_blank" rel="noopener" href="https://www.nowcoder.com/search?type=post&query=%E5%89%8D%E7%AB%AF%E9%9D%A2%E7%BB%8F">牛客网 前端面经</a>， <a target="_blank" rel="noopener" href="https://www.nowcoder.com/tutorial/96/f5212664ab664984882b00635066ded2">前端工程师面试宝典</a></p>
 <h2 id="学习日志"><a href="#学习日志" class="headerlink" title="学习日志"></a>学习日志</h2><h3 id="阶段一"><a href="#阶段一" class="headerlink" title="阶段一"></a>阶段一</h3><h4 id="浏览器原理"><a href="#浏览器原理" class="headerlink" title="浏览器原理"></a>浏览器原理</h4><ul>
-<li>Luke的视频：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1x54y1B7RE">浏览器是如何运作的？</a><blockquote>
+<li><p>Luke的视频：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1x54y1B7RE">浏览器是如何运作的？</a></p>
+<blockquote>
 <p>详细讲解了 从打开窗口输入 url 地址，到呈现出页面这个过程中，浏览器内部发生了什么事情。将浏览器的各个程序模块和初次加载流程讲的很清楚。<br>  不足之处在于，没有讲清楚 JS 在初次加载后的执行情景，没有讲到屏幕每帧刷新时浏览器会做什么。</p>
 </blockquote>
+<blockquote>
+<p>初次解析渲染完 html 后，JS 修改页面（代码修改dom和cssom），和重绘重排是怎么个对应关系？JS 每改变一处地方，就重新渲染一次？还是取决于屏幕刷新率？</p>
+</blockquote>
 </li>
-<li>JavaScript 权威指南 - 15.1章节 Web编程基础。<blockquote>
+<li><p>红宝书第二章，介绍script标签</p>
+<blockquote>
+<p>defer和async script标签，到底何时执行（书里面说，defer的话，在html解析完成后执行，又说在DomContentLoad事件前执行，这不是矛盾吗）</p>
+</blockquote>
+<blockquote>
+<p>还说异步加载的 script标签 最好不要（直接）修改页面结构，但其实是可以修改的，只是可能需要重新渲染（document.write 需要重新解析构造DOM，而document.body.appenChild 这种直接操作DOM的是否会好一些？）</p>
+</blockquote>
+</li>
+<li><p>JavaScript 权威指南 - 15.1章节 Web编程基础。</p>
+<blockquote>
 <p>较详细地讲解了 JS 在浏览器中的执行情景。</p>
 </blockquote>
 </li>
@@ -567,7 +580,7 @@
 </li>
 <li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1a741197Hn?from=search&seid=2612221376936868226&spm_id_from=333.337.0.0">3h Webpack从原理到实战-深入浅出</a></p>
 <blockquote>
-<p>侧重 Webpack 原理，重点讲解了 JS 模块化和 Webpack 的关系，webpack 的打包机制。</p>
+<p>侧重 Webpack 原理，重点讲解了 JS 模块化历史和 Webpack 的关系，webpack 的打包机制（即源文件是什么，中间经过了什么，打包后输出的静态资源是什么内容，它如何体现源文件的本意又能在old的浏览器中正常运行）。</p>
 </blockquote>
 <blockquote>
 <p>实战内容：.js文件中引入js模块、loader处理css模块并加载到网页显示、loader处理.jsx和ES6语法、plugin处理html</p>
@@ -576,9 +589,16 @@
 <p>视频中用的是webpack4，可能有些命令和配置不一样，导致最后没办法完全按教程复现出来。主要了解基本概念和webpack的动机，webpack核心概念以及配置“在干什么”和“大概是什么流程和逻辑”。这样的话，即使版本改变，也能较快跟进新版本。</p>
 </blockquote>
 </li>
-<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1e7411j7T5?p=2">9h 尚硅谷最新版Webpack5实战教程</a></p>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1iv411N7jg?spm_id_from=333.999.0.0">拉钩教育 2021最新Webpack5——why webpack</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1e7411j7T5?p=2">尚硅谷 最新版Webpack5实战教程——webpack简介</a></p>
 <blockquote>
-<p>提到了 Webpack 的动机，重点讲解 Webpack 的使用</p>
+<p>了解 Webpack 的动机和作用。总结起来：实现各种资源的模块化开发、使用新特性提高效率保证安全性、实时监听开发过程使用热更新、项目结果打包压缩优化</p>
+</blockquote>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1YU4y1g745?p=9">千锋最新前端webpack5全套教程</a></p>
+<blockquote>
+<p>学习webpack核心概念和配置使用，暂时看 1.2.1 - 2.1.4</p>
 </blockquote>
 </li>
 </ul>
@@ -819,7 +839,7 @@
 <img src="https://i.loli.net/2021/09/09/ophWzFOAadf6wEH.jpg" width="70%">
 </div>
 
-<p>Title 为标题，任意填即可，将刚刚复制的 id_rsa.pub 内容粘贴进去，最后点击 Add SSH key。<br>在 Git Bash 中检测 GitHub 公钥设置是否成功，输入 ssh <a href="mailto:&#x67;&#105;&#x74;&#64;&#103;&#105;&#x74;&#104;&#117;&#x62;&#46;&#99;&#x6f;&#109;">&#x67;&#105;&#x74;&#64;&#103;&#105;&#x74;&#104;&#117;&#x62;&#46;&#99;&#x6f;&#109;</a> ：</p>
+<p>Title 为标题，任意填即可，将刚刚复制的 id_rsa.pub 内容粘贴进去，最后点击 Add SSH key。<br>在 Git Bash 中检测 GitHub 公钥设置是否成功，输入 ssh <a href="mailto:&#x67;&#x69;&#x74;&#64;&#103;&#x69;&#x74;&#104;&#x75;&#98;&#x2e;&#99;&#111;&#109;">&#x67;&#x69;&#x74;&#64;&#103;&#x69;&#x74;&#104;&#x75;&#98;&#x2e;&#99;&#111;&#109;</a> ：</p>
 <div align="center">
 <img src="https://i.loli.net/2021/09/09/oQzdB6SUrnuvZ1q.jpg" width="70%">
 </div>
@@ -930,7 +950,7 @@
 <p>踩坑：</p>
 <ul>
 <li>梯子有时候不稳定，导致 git clone，hexo d 等操作因为网络问题而失败。多换换梯子节点，多试试就好。</li>
-<li>hexo d 始终连接不到 github 的话，打开 git bash 输入 ssh -T <a href="mailto:&#103;&#x69;&#116;&#64;&#x67;&#x69;&#x74;&#104;&#x75;&#x62;&#x2e;&#x63;&#x6f;&#x6d;">&#103;&#x69;&#116;&#64;&#x67;&#x69;&#x74;&#104;&#x75;&#x62;&#x2e;&#x63;&#x6f;&#x6d;</a> 看看能不能连上，不能的话参考 <a target="_blank" rel="noopener" href="https://docs.github.com/cn/github/authenticating-to-github/troubleshooting-ssh/error-permission-denied-publickey">错误：权限被拒绝（公钥） - GitHub Docs</a>；能的话说明是 hexo 配置的问题，再谷歌找找原因，<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c60ad2a33a1e">Hexo部署出现错误err: Error: Spawn failed解决方式</a>。</li>
+<li>hexo d 始终连接不到 github 的话，打开 git bash 输入 ssh -T <a href="mailto:&#103;&#105;&#116;&#64;&#103;&#105;&#116;&#104;&#117;&#98;&#x2e;&#99;&#111;&#109;">&#103;&#105;&#116;&#64;&#103;&#105;&#116;&#104;&#117;&#98;&#x2e;&#99;&#111;&#109;</a> 看看能不能连上，不能的话参考 <a target="_blank" rel="noopener" href="https://docs.github.com/cn/github/authenticating-to-github/troubleshooting-ssh/error-permission-denied-publickey">错误：权限被拒绝（公钥） - GitHub Docs</a>；能的话说明是 hexo 配置的问题，再谷歌找找原因，<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c60ad2a33a1e">Hexo部署出现错误err: Error: Spawn failed解决方式</a>。</li>
 <li>hexo s 在本地已显示出了正常的网页，但 hexo d 到 github 后，xxxx.gihub.com 能访问，但是一片空白。确保此前步骤无误的话，多刷新一下 github 就好了……</li>
 <li>本地能正常显示页面，但访问网址不行的时候：检查是否部署成功，检查 github page 设置，检查域名（阿里云）问题</li>
 </ul>
