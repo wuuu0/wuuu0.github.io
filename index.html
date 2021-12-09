@@ -559,7 +559,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-12-09 09:31:37" itemprop="dateModified" datetime="2021-12-09T09:31:37+08:00">2021-12-09</time>
+        <time title="修改时间：2021-12-09 11:07:31" itemprop="dateModified" datetime="2021-12-09T11:07:31+08:00">2021-12-09</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -740,6 +740,17 @@
 <blockquote>
 <p>是什么</p>
 </blockquote>
+  <div align="center">
+  <img src="https://s2.loli.net/2021/12/09/bCuzxPcAGr4Vahl.png" width="50%">
+  </div>
+
+<blockquote>
+<p>为什么</p>
+</blockquote>
+  <div align="center">
+  <img src="https://s2.loli.net/2021/12/09/vWlDiQE7s8VgwjH.png" width="50%">
+  </div>
+
 <p>  PS：此教程涵盖了 React 全家桶 的全部内容（React基础、React-Router、PubSub、Redux、Ant-Design）。出于学习效率方面的考虑，主要内容——React基础 我将主要跟随官方文档学习；后续的内容可以看这个教程并配合官方文档学习；每块内容的实战将跟随官方文档和此教程，最后将全家桶过完一遍后在 Github 上找一个完整的涵盖前后端的 React 项目实战。</p>
 </li>
 </ul>
@@ -776,7 +787,8 @@
 <blockquote>
 <p>元素渲染</p>
 </blockquote>
-<p>  “React 元素是不可变对象，（目前）更新 UI 的唯一方式是创建一个全新的元素，并将其传入。尽管每一秒我们都会新建一个描述整个 UI 树的元素，React DOM 只会更新实际改变了的内容”——React元素（对象）是新的，render 的对象是新的，如何实现局部更新？优化的原理是？可能需要看 render 的实现。</p>
+<p>  “React 元素是不可变对象，（目前）更新 UI 的唯一方式是创建一个全新的元素，并将其传入。尽管每一秒我们都会新建一个描述整个 UI 树的元素，React DOM 只会更新实际改变了的内容”</p>
+<p>  PS：React元素（对象）是新的，render 的对象是新的，如何实现局部更新？优化的原理是？可能需要看 render 的实现。—— 详见 <a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/faq-internals.html#gatsby-focus-wrapper">虚拟DOM</a> 和 <a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/reconciliation.html">Diff算法</a>，<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1wy4y1D7JT?p=48">DOM的diff算法 尚硅谷</a></p>
 <blockquote>
 <p>组件 &amp; Props</p>
 </blockquote>
@@ -790,7 +802,7 @@
 <p>事件处理</p>
 </blockquote>
 <p>  关于回调函数的 this 指针的绑定。根据红宝书中类章节的知识，class 中直接定义的函数是定义在类的原型上的。以下构造函数中的绑定语句应该是初始化一个实例方法，等号前面是自己的实例化方法，后面是访问原型方法（为什么不直接将 <code>this.handleClick</code> 写成 <code>handleClick</code>）。</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Toggle</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="title">constructor</span>(<span class="params">props</span>)</span> &#123;</span><br><span class="line">		<span class="built_in">super</span>(props);</span><br><span class="line">		<span class="built_in">this</span>.state = &#123;<span class="attr">isToggleOn</span>: <span class="literal">true</span>&#125;;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 为了在回调中使用 `this`，这个绑定是必不可少的</span></span><br><span class="line">		<span class="built_in">this</span>.handleClick = <span class="built_in">this</span>.handleClick.bind(<span class="built_in">this</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="title">handleClick</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.setState(<span class="function"><span class="params">prevState</span> =&gt;</span> (&#123;</span><br><span class="line">		<span class="attr">isToggleOn</span>: !prevState.isToggleOn</span><br><span class="line">		&#125;));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="title">render</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> (</span><br><span class="line">		<span class="xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;this.handleClick&#125;</span>&gt;</span></span></span><br><span class="line"><span class="xml">			&#123;this.state.isToggleOn ? &#x27;ON&#x27; : &#x27;OFF&#x27;&#125;</span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line">		);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Toggle</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="title">constructor</span>(<span class="params">props</span>)</span> &#123;</span><br><span class="line">		<span class="built_in">super</span>(props);</span><br><span class="line">		<span class="built_in">this</span>.state = &#123;<span class="attr">isToggleOn</span>: <span class="literal">true</span>&#125;;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 为了在回调中使用 `this`，这个绑定是必不可少的</span></span><br><span class="line">		<span class="built_in">this</span>.handleClick = <span class="built_in">this</span>.handleClick.bind(<span class="built_in">this</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="title">handleClick</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.setState(<span class="function"><span class="params">prevState</span> =&gt;</span> (&#123;</span><br><span class="line">		<span class="attr">isToggleOn</span>: !prevState.isToggleOn</span><br><span class="line">		&#125;));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="title">render</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> (</span><br><span class="line">		<span class="xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;this.handleClick&#125;</span>&gt;</span></span></span><br><span class="line"><span class="xml">			&#123;this.state.isToggleOn ? &#x27;ON&#x27; : &#x27;OFF&#x27;&#125;</span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line">		);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不绑定的写法</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LoggingButton</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 此语法确保 `handleClick` 内的 `this` 已被绑定。</span></span><br><span class="line">	<span class="comment">// 注意: 这是 *实验性* 语法。</span></span><br><span class="line">	handleClick = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">&#x27;this is:&#x27;</span>, <span class="built_in">this</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="title">render</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> (</span><br><span class="line">		  <span class="xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;this.handleClick&#125;</span>&gt;</span></span></span><br><span class="line"><span class="xml">			Click me</span></span><br><span class="line"><span class="xml">		  <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line">		);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LoggingButton</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="title">handleClick</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">&#x27;this is:&#x27;</span>, <span class="built_in">this</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="title">render</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">		<span class="comment">// 此语法确保 `handleClick` 内的 `this` 已被绑定。</span></span><br><span class="line">		<span class="keyword">return</span> (</span><br><span class="line">		  <span class="xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> this.handleClick()&#125;&gt;</span></span><br><span class="line"><span class="xml">		    Click me</span></span><br><span class="line"><span class="xml">		  <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line">		);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>状态提升</p>
 </blockquote>
@@ -826,10 +838,14 @@
 <p>2021.12.08 - 2021.</p>
 <ul>
 <li><p><a target="_blank" rel="noopener" href="https://react.docschina.org/docs/accessibility.html">官方文档——高级指引</a></p>
-<p>选择性看？全部看？做了项目慢慢看？        </p>
+<p>先选择性看一些常见的，后面需要用了再看</p>
+<p><a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/refs-and-the-dom.html">Refs and the DOM</a>，<a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/higher-order-components.html">高阶组件</a>，<a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/faq-internals.html#gatsby-focus-wrapper">虚拟DOM</a> 和 <a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/reconciliation.html">Diff算法</a>，<a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/hooks-intro.html">Hook</a></p>
 </li>
-<li><p>脚手架怎么说？</p>
-<p>  <a target="_blank" rel="noopener" href="https://create-react-app.dev/docs/getting-started">https://create-react-app.dev/docs/getting-started</a></p>
+</ul>
+<h4 id="React-全家桶-关系梳理-实战"><a href="#React-全家桶-关系梳理-实战" class="headerlink" title="React 全家桶 关系梳理+实战"></a>React 全家桶 关系梳理+实战</h4><h4 id="React-脚手架"><a href="#React-脚手架" class="headerlink" title="React 脚手架"></a>React 脚手架</h4><ul>
+<li><p><a target="_blank" rel="noopener" href="https://create-react-app.dev/docs/getting-started">create-react-app 官方文档</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1wy4y1D7JT?p=49">react 脚手架 尚硅谷</a></p>
 </li>
 </ul>
 <h4 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h4><h4 id="React-Router"><a href="#React-Router" class="headerlink" title="React Router"></a>React Router</h4><ul>
@@ -839,7 +855,7 @@
 <ul>
 <li><a target="_blank" rel="noopener" href="https://ant.design/docs/react/introduce-cn">Ant Design 官方文档</a></li>
 </ul>
-<h4 id="React-全家桶-关系梳理-实战"><a href="#React-全家桶-关系梳理-实战" class="headerlink" title="React 全家桶 关系梳理+实战"></a>React 全家桶 关系梳理+实战</h4>
+
       
     </div>
 
@@ -1072,7 +1088,7 @@
 <img src="https://i.loli.net/2021/09/09/ophWzFOAadf6wEH.jpg" width="70%">
 </div>
 
-<p>Title 为标题，任意填即可，将刚刚复制的 id_rsa.pub 内容粘贴进去，最后点击 Add SSH key。<br>在 Git Bash 中检测 GitHub 公钥设置是否成功，输入 ssh <a href="mailto:&#x67;&#105;&#116;&#64;&#103;&#x69;&#x74;&#104;&#117;&#x62;&#x2e;&#x63;&#111;&#x6d;">&#x67;&#105;&#116;&#64;&#103;&#x69;&#x74;&#104;&#117;&#x62;&#x2e;&#x63;&#111;&#x6d;</a> ：</p>
+<p>Title 为标题，任意填即可，将刚刚复制的 id_rsa.pub 内容粘贴进去，最后点击 Add SSH key。<br>在 Git Bash 中检测 GitHub 公钥设置是否成功，输入 ssh <a href="mailto:&#103;&#x69;&#116;&#x40;&#x67;&#x69;&#x74;&#x68;&#x75;&#98;&#x2e;&#99;&#x6f;&#x6d;">&#103;&#x69;&#116;&#x40;&#x67;&#x69;&#x74;&#x68;&#x75;&#98;&#x2e;&#99;&#x6f;&#x6d;</a> ：</p>
 <div align="center">
 <img src="https://i.loli.net/2021/09/09/oQzdB6SUrnuvZ1q.jpg" width="70%">
 </div>
@@ -1183,7 +1199,7 @@
 <p>踩坑：</p>
 <ul>
 <li>梯子有时候不稳定，导致 git clone，hexo d 等操作因为网络问题而失败。多换换梯子节点，多试试就好。</li>
-<li>hexo d 始终连接不到 github 的话，打开 git bash 输入 ssh -T <a href="mailto:&#x67;&#105;&#116;&#64;&#x67;&#x69;&#116;&#x68;&#x75;&#x62;&#x2e;&#x63;&#x6f;&#109;">&#x67;&#105;&#116;&#64;&#x67;&#x69;&#116;&#x68;&#x75;&#x62;&#x2e;&#x63;&#x6f;&#109;</a> 看看能不能连上，不能的话参考 <a target="_blank" rel="noopener" href="https://docs.github.com/cn/github/authenticating-to-github/troubleshooting-ssh/error-permission-denied-publickey">错误：权限被拒绝（公钥） - GitHub Docs</a>；能的话说明是 hexo 配置的问题，再谷歌找找原因，<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c60ad2a33a1e">Hexo部署出现错误err: Error: Spawn failed解决方式</a>。</li>
+<li>hexo d 始终连接不到 github 的话，打开 git bash 输入 ssh -T <a href="mailto:&#103;&#105;&#116;&#x40;&#103;&#x69;&#x74;&#x68;&#x75;&#98;&#46;&#99;&#111;&#109;">&#103;&#105;&#116;&#x40;&#103;&#x69;&#x74;&#x68;&#x75;&#98;&#46;&#99;&#111;&#109;</a> 看看能不能连上，不能的话参考 <a target="_blank" rel="noopener" href="https://docs.github.com/cn/github/authenticating-to-github/troubleshooting-ssh/error-permission-denied-publickey">错误：权限被拒绝（公钥） - GitHub Docs</a>；能的话说明是 hexo 配置的问题，再谷歌找找原因，<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c60ad2a33a1e">Hexo部署出现错误err: Error: Spawn failed解决方式</a>。</li>
 <li>hexo s 在本地已显示出了正常的网页，但 hexo d 到 github 后，xxxx.gihub.com 能访问，但是一片空白。确保此前步骤无误的话，多刷新一下 github 就好了……</li>
 <li>本地能正常显示页面，但访问网址不行的时候：检查是否部署成功，检查 github page 设置，检查域名（阿里云）问题</li>
 </ul>
