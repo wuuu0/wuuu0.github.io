@@ -559,7 +559,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-12-09 11:52:31" itemprop="dateModified" datetime="2021-12-09T11:52:31+08:00">2021-12-09</time>
+        <time title="修改时间：2021-12-13 15:04:06" itemprop="dateModified" datetime="2021-12-13T15:04:06+08:00">2021-12-13</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -711,6 +711,10 @@
 <p>笔记。<a target="_blank" rel="noopener" href="https://wuchaojie.top/2021/11/29/Webpack-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">自己的笔记</a>，详细的笔记由看官方整理的：百度网盘 <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1P6ZNqA_D4SGTip_Oo93lPg">https://pan.baidu.com/s/1P6ZNqA_D4SGTip_Oo93lPg</a> + 提取码 degl</p>
 </blockquote>
 </li>
+<li><p>总之：</p>
+<p>  前端项目工程化形式 —Webpack—&gt; 浏览器能理解的 html+css+js 传统项目组织形式。</p>
+<p>  我们实际工作开发的时候，按需求配置好 Webpack 后，就是在工程化的模式下进行理解和开发的。所以先要熟悉工程化的模式下我们是如何开发的（比如把index.html当作是浏览器默认加载的页面，index.js是js程序的入口文件-即js从它开始执行），然后或出于特别的需求或是考虑到性能优化，再进一步深入了解 Webpack 是如何打包的。</p>
+</li>
 </ul>
 <h3 id="CSS-预处理器"><a href="#CSS-预处理器" class="headerlink" title="CSS 预处理器"></a>CSS 预处理器</h3><p>2021.10 - 2021.11.29</p>
 <ul>
@@ -820,7 +824,7 @@
 <p>  本章讲解了实际开发中，我们如何利用 React 从产品的设计稿（界面和交互效果）和已有的数据（比如一个返回JSON的API）来实现我们的产品应用界面。然后给了我们一个小项目进行实践。</p>
 <ul>
 <li><p>第一步：将设计好的 UI 划分为组件层级</p>
-<p>  之前的教学都是直接告诉我们有哪些组件，每个组件的功能是什么。这一步更加贴近真实开发的情况。</p>
+<p>  之前的教学都是直接告诉我们有哪些组件，每个组件的功能是什么。这一步更加贴近真实开发的情况。<br>  但如何确定应该将哪些部分划分到一个组件中呢？你可以将组件当作一种函数或者是对象来考虑，根据单一功能原则来判定组件的范围。</p>
 </li>
 <li><p>第二步：用 React 创建一个静态版本</p>
 <p>  到这一步，我们清楚了我们要实现什么，且划分好了组件，接下来就是如何实现的问题。我们在上一节中总结的“状态”和“改变状态”大致符合 React 哲学。“状态”即产品的静态版本，“改变状态”即添加反向数据流（设置回调函数处理事件）（即添加动态/交互）。当然 React 哲学更加科学，它将添加 state 单独拎出来讨论并充分考虑其交互性（它的存在基本就是为了交互）；不像我们，想要在实现静态版本的同时也把 state 给拎清楚（可能熟练后能做到吧）。</p>
@@ -851,6 +855,46 @@
 <li><p><a target="_blank" rel="noopener" href="https://create-react-app.dev/docs/getting-started">create-react-app 官方文档</a></p>
 </li>
 <li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1wy4y1D7JT?p=49">react 脚手架 尚硅谷</a></p>
+<blockquote>
+<p>React 脚手架简介</p>
+</blockquote>
+<ol>
+<li><p>React 脚手架 用来帮助程序员快速创建一个基于 React库 的项目模板—即包含了<strong>工程化</strong>开发的必要操作</p>
+<p> 包含了所有需要的配置（语法检查、jsx编译、devServer等）</p>
+<p> 下载好了所有相关的依赖</p>
+<p> 可以直接运行一个简单的效果</p>
+</li>
+<li><p>React 提供了一个用于创建 React项目 的脚手架库：create-react-app</p>
+</li>
+<li><p>项目的整体技术框架为：React + Webpack + ES6 +EsLint</p>
+</li>
+<li><p>使用脚手架开发的项目特点：模块化、组件化、工程化</p>
+</li>
+</ol>
+<blockquote>
+<p>public 文件夹</p>
+</blockquote>
+<p>  存放一些和页面本身相关的配置和静态资源（页面的图标，在浏览器中的地址栏颜色等），以及入口html文件 index.html（浏览器初始加载的页面）。其中 index.html 内的 head 中的配置项意义如下图所示。</p>
+  <div align="center">
+  <img src="https://s2.loli.net/2021/12/12/EYpAIg93nm6uQbc.png" width="60%">
+  </div>
+
+<blockquote>
+<p>src 文件夹</p>
+</blockquote>
+<p>  index.html 加载后执行的入口js文件 index.js 及其对应的样式文件 index.css，负责执行一些初始化的代码，并将组件添加到 index.html 的根节点上并渲染（实际上负责了 DOM 内容 也即页面内容的创建）。</p>
+<p>  App.js 及其对应的样式文件 App.css，即我们主要编写的整个应用（组件的合集）。被 index.js 引用且被添加到 index.html 根节点并渲染。</p>
+<p>  在实际开发中，通常会将自定义的一些子组件放在 src/components 中，且每个组件单独拥有一个文件夹。并且为了区分普通 js文件 和 组件js文件，可以将组件js文件的后缀改为 .jsx。为了方便模块引用，可以将组件文件命名改为index，这样引用组件的文件夹即可自动引用到index文件（如 ‘./components/Hello/Hello’ —&gt; ‘./components/Hello’）。</p>
+  <div align="center" >
+  <div align="center" style="display:inline-block">
+  <img src="https://s2.loli.net/2021/12/12/fyQXt68sERKSgDO.png" width="50%">
+  </div>
+  <div align="center" style="display:inline-block">
+  <img src="https://s2.loli.net/2021/12/12/9IEF7xgVrUXeWT6.png" width="50%">
+  </div>
+  </div>
+
+<p>  注意，写纯 css 的话要注意 css 的模块化，但如果写 Sass 之类则会基于其语法自然进行模块化。</p>
 </li>
 </ul>
 <h4 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h4><h4 id="React-Router"><a href="#React-Router" class="headerlink" title="React Router"></a>React Router</h4><ul>
@@ -1093,7 +1137,7 @@
 <img src="https://i.loli.net/2021/09/09/ophWzFOAadf6wEH.jpg" width="70%">
 </div>
 
-<p>Title 为标题，任意填即可，将刚刚复制的 id_rsa.pub 内容粘贴进去，最后点击 Add SSH key。<br>在 Git Bash 中检测 GitHub 公钥设置是否成功，输入 ssh <a href="mailto:&#103;&#105;&#116;&#64;&#103;&#x69;&#x74;&#x68;&#x75;&#98;&#x2e;&#x63;&#111;&#109;">&#103;&#105;&#116;&#64;&#103;&#x69;&#x74;&#x68;&#x75;&#98;&#x2e;&#x63;&#111;&#109;</a> ：</p>
+<p>Title 为标题，任意填即可，将刚刚复制的 id_rsa.pub 内容粘贴进去，最后点击 Add SSH key。<br>在 Git Bash 中检测 GitHub 公钥设置是否成功，输入 ssh <a href="mailto:&#103;&#105;&#x74;&#x40;&#103;&#105;&#116;&#104;&#117;&#98;&#x2e;&#x63;&#111;&#109;">&#103;&#105;&#x74;&#x40;&#103;&#105;&#116;&#104;&#117;&#98;&#x2e;&#x63;&#111;&#109;</a> ：</p>
 <div align="center">
 <img src="https://i.loli.net/2021/09/09/oQzdB6SUrnuvZ1q.jpg" width="70%">
 </div>
@@ -1204,7 +1248,7 @@
 <p>踩坑：</p>
 <ul>
 <li>梯子有时候不稳定，导致 git clone，hexo d 等操作因为网络问题而失败。多换换梯子节点，多试试就好。</li>
-<li>hexo d 始终连接不到 github 的话，打开 git bash 输入 ssh -T <a href="mailto:&#x67;&#105;&#116;&#64;&#x67;&#x69;&#x74;&#x68;&#117;&#x62;&#x2e;&#99;&#111;&#109;">&#x67;&#105;&#116;&#64;&#x67;&#x69;&#x74;&#x68;&#117;&#x62;&#x2e;&#99;&#111;&#109;</a> 看看能不能连上，不能的话参考 <a target="_blank" rel="noopener" href="https://docs.github.com/cn/github/authenticating-to-github/troubleshooting-ssh/error-permission-denied-publickey">错误：权限被拒绝（公钥） - GitHub Docs</a>；能的话说明是 hexo 配置的问题，再谷歌找找原因，<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c60ad2a33a1e">Hexo部署出现错误err: Error: Spawn failed解决方式</a>。</li>
+<li>hexo d 始终连接不到 github 的话，打开 git bash 输入 ssh -T <a href="mailto:&#103;&#105;&#116;&#64;&#x67;&#x69;&#116;&#104;&#117;&#98;&#46;&#x63;&#111;&#109;">&#103;&#105;&#116;&#64;&#x67;&#x69;&#116;&#104;&#117;&#98;&#46;&#x63;&#111;&#109;</a> 看看能不能连上，不能的话参考 <a target="_blank" rel="noopener" href="https://docs.github.com/cn/github/authenticating-to-github/troubleshooting-ssh/error-permission-denied-publickey">错误：权限被拒绝（公钥） - GitHub Docs</a>；能的话说明是 hexo 配置的问题，再谷歌找找原因，<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c60ad2a33a1e">Hexo部署出现错误err: Error: Spawn failed解决方式</a>。</li>
 <li>hexo s 在本地已显示出了正常的网页，但 hexo d 到 github 后，xxxx.gihub.com 能访问，但是一片空白。确保此前步骤无误的话，多刷新一下 github 就好了……</li>
 <li>本地能正常显示页面，但访问网址不行的时候：检查是否部署成功，检查 github page 设置，检查域名（阿里云）问题</li>
 </ul>
