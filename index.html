@@ -559,7 +559,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-12-15 16:25:23" itemprop="dateModified" datetime="2021-12-15T16:25:23+08:00">2021-12-15</time>
+        <time title="修改时间：2021-12-15 16:30:06" itemprop="dateModified" datetime="2021-12-15T16:30:06+08:00">2021-12-15</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -944,61 +944,51 @@
 </li>
 </ul>
 <h4 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h4><ul>
-<li><a target="_blank" rel="noopener" href="http://cn.redux.js.org/tutorials/essentials/part-1-overview-concepts">Redux 官方文档</a></li>
-</ul>
-<pre><code> &gt;Redux 是什么？
-
-它有助于首先理解这个“Redux”的东西是什么。它有什么作用？它帮助我解决什么问题？我为什么要使用它？
-
-**Redux 是一个使用叫做“action”的事件来管理和更新应用状态的模式和工具库** 它以集中式Store（centralized store）的方式对整个应用中使用的状态进行集中管理，其规则确保状态只能以可预测的方式更新。
-
-&gt;为什么要用 Redux？
-
-Redux 帮你管理“全局”状态 - 哪些应用程序的许多部分都需要的状态。
-
-**Redux 提供的模式和工具使您更容易理解应用程序中的状态何时、何地、为什么以及如何更新，以及当这些更改发生时您的应用程序逻辑将如何表现.** Redux 指导您编写可预测和可测试的代码，这有助于让您确信您的应用程序将按预期工作。
-
-&gt;我什么时候应该使用 Redux？
-
-Redux 可帮助您处理共享状态的管理，但与任何工具一样，它也有权衡。有更多的概念需要学习，还有更多的代码需要编写。它还为您的代码添加了一些额外代码，并要求您遵循某些限制。这是短期和长期生产力之间的权衡。
-
-Redux 在以下情况下更有用：
-
-1. 在应用的大量地方，都存在大量的状态
-
-2. 应用状态会随着时间的推移而频繁更新
-
-3. 更新该状态的逻辑可能很复杂
-
-4. 中型和大型代码量的应用，很多人协同开发
-
-**并非所有应用程序都需要 Redux。 花一些时间思考您正在构建的应用程序类型，并决定哪些工具最能帮助解决您正在处理的问题。**
-
-&gt;大概了解了 Redux 的核心概念，需要深入时再按着官方文档的教程一路撸下来
-
-   **State 管理**
-
-首先回顾一下 React 中没有 Redux 的，状态更新的情况。
-
-&lt;div align=&quot;center&quot;&gt;
-&lt;img src=&quot;https://s2.loli.net/2021/12/15/uAqgHUCOdkI7imn.png&quot; width=&quot;45%&quot;&gt;
-&lt;/div&gt;
-
-然而，当我们有**多个组件需要共享和使用相同state**时，可能会变得很复杂，尤其是当这些组件位于应用程序的不同部分时。有时这可以通过 &quot;提升 state&quot; 到父组件来解决，但这并不总是有效。（React 中的 Context 也是为了解决类似的问题，Context 和 Redux 的对比？）
-
-解决这个问题的一种方法是从组件中提取共享 state，并将其放入组件树之外的一个集中位置。这样，我们的组件树就变成了一个大“view”（即共享状态改变，共享之的组件的UI表现都会改变），任何组件都可以访问 state 或触发 action，无论它们在树中的哪个位置！
-
-通过定义和分离 state 管理中涉及的概念并强制执行维护 view 和 state 之间独立性的规则，代码变得更结构化和易于维护。
-
-**这就是 Redux 背后的基本思想**：应用中使用集中式的全局状态来管理，并明确更新状态的模式，以便让代码具有可预测性。
-
-**Redux 数据流**
-
-&lt;div align=&quot;center&quot;&gt;
-&lt;img src=&quot;https://s2.loli.net/2021/12/15/I7lrOfyVb32W4UB.gif&quot; width=&quot;60%&quot;&gt;
-&lt;/div&gt;
+<li><p><a target="_blank" rel="noopener" href="http://cn.redux.js.org/tutorials/essentials/part-1-overview-concepts">Redux 官方文档</a></p>
+<blockquote>
+<p>Redux 是什么？</p>
+</blockquote>
+<p>  它有助于首先理解这个“Redux”的东西是什么。它有什么作用？它帮助我解决什么问题？我为什么要使用它？</p>
+<p>  <strong>Redux 是一个使用叫做“action”的事件来管理和更新应用状态的模式和工具库</strong> 它以集中式Store（centralized store）的方式对整个应用中使用的状态进行集中管理，其规则确保状态只能以可预测的方式更新。</p>
+<blockquote>
+<p>为什么要用 Redux？</p>
+</blockquote>
+<p>  Redux 帮你管理“全局”状态 - 哪些应用程序的许多部分都需要的状态。</p>
+<p>  <strong>Redux 提供的模式和工具使您更容易理解应用程序中的状态何时、何地、为什么以及如何更新，以及当这些更改发生时您的应用程序逻辑将如何表现.</strong> Redux 指导您编写可预测和可测试的代码，这有助于让您确信您的应用程序将按预期工作。</p>
+<blockquote>
+<p>我什么时候应该使用 Redux？</p>
+</blockquote>
+<p>  Redux 可帮助您处理共享状态的管理，但与任何工具一样，它也有权衡。有更多的概念需要学习，还有更多的代码需要编写。它还为您的代码添加了一些额外代码，并要求您遵循某些限制。这是短期和长期生产力之间的权衡。</p>
+<p>  Redux 在以下情况下更有用：</p>
+<ol>
+<li><p>在应用的大量地方，都存在大量的状态</p>
+</li>
+<li><p>应用状态会随着时间的推移而频繁更新</p>
+</li>
+<li><p>更新该状态的逻辑可能很复杂</p>
+</li>
+<li><p>中型和大型代码量的应用，很多人协同开发</p>
+</li>
+</ol>
+<p>  <strong>并非所有应用程序都需要 Redux。 花一些时间思考您正在构建的应用程序类型，并决定哪些工具最能帮助解决您正在处理的问题。</strong></p>
+<blockquote>
+<p>大概了解了 Redux 的核心概念，需要深入时再按着官方文档的教程一路撸下来</p>
+</blockquote>
+<pre><code> **State 管理**
 </code></pre>
-<ul>
+<p>  首先回顾一下 React 中没有 Redux 的，状态更新的情况。</p>
+  <div align="center">
+  <img src="https://s2.loli.net/2021/12/15/uAqgHUCOdkI7imn.png" width="45%">
+  </div>
+
+<p>  然而，当我们有<strong>多个组件需要共享和使用相同state</strong>时，可能会变得很复杂，尤其是当这些组件位于应用程序的不同部分时。有时这可以通过 “提升 state” 到父组件来解决，但这并不总是有效。（React 中的 Context 也是为了解决类似的问题，Context 和 Redux 的对比？）</p>
+<p>  解决这个问题的一种方法是从组件中提取共享 state，并将其放入组件树之外的一个集中位置。这样，我们的组件树就变成了一个大“view”（即共享状态改变，共享之的组件的UI表现都会改变），任何组件都可以访问 state 或触发 action，无论它们在树中的哪个位置！</p>
+<p>  通过定义和分离 state 管理中涉及的概念并强制执行维护 view 和 state 之间独立性的规则，代码变得更结构化和易于维护。</p>
+<p>  <strong>这就是 Redux 背后的基本思想</strong>：应用中使用集中式的全局状态来管理，并明确更新状态的模式，以便让代码具有可预测性。</p>
+<p>  <strong>Redux 数据流</strong></p>
+  <div align="center">
+  <img src="https://s2.loli.net/2021/12/15/I7lrOfyVb32W4UB.gif" width="60%">
+  </div></li>
 <li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1wy4y1D7JT?p=103">React-Redux 尚硅谷</a>、<a target="_blank" rel="noopener" href="https://react-redux.js.org/introduction/getting-started">React-Redux 官方文档</a></p>
 <p>  <strong>React Redux</strong> is the official <strong>React</strong> UI bindings layer for <strong>Redux</strong>. It lets your React components read data from a Redux store, and dispatch actions to the store to update state.</p>
 <p>  React 官方实现的 react-redux 配合 React 使用时，比 redux 更便于使用。它保留了 React 组件的原样，让它仅通过“加壳”就能使用 redux 的功能。</p>
@@ -1239,7 +1229,7 @@ Redux 在以下情况下更有用：
 <img src="https://i.loli.net/2021/09/09/ophWzFOAadf6wEH.jpg" width="70%">
 </div>
 
-<p>Title 为标题，任意填即可，将刚刚复制的 id_rsa.pub 内容粘贴进去，最后点击 Add SSH key。<br>在 Git Bash 中检测 GitHub 公钥设置是否成功，输入 ssh <a href="mailto:&#x67;&#105;&#x74;&#x40;&#x67;&#x69;&#x74;&#104;&#117;&#98;&#46;&#x63;&#111;&#x6d;">&#x67;&#105;&#x74;&#x40;&#x67;&#x69;&#x74;&#104;&#117;&#98;&#46;&#x63;&#111;&#x6d;</a> ：</p>
+<p>Title 为标题，任意填即可，将刚刚复制的 id_rsa.pub 内容粘贴进去，最后点击 Add SSH key。<br>在 Git Bash 中检测 GitHub 公钥设置是否成功，输入 ssh <a href="mailto:&#x67;&#x69;&#116;&#64;&#x67;&#x69;&#x74;&#104;&#x75;&#98;&#x2e;&#x63;&#x6f;&#109;">&#x67;&#x69;&#116;&#64;&#x67;&#x69;&#x74;&#104;&#x75;&#98;&#x2e;&#x63;&#x6f;&#109;</a> ：</p>
 <div align="center">
 <img src="https://i.loli.net/2021/09/09/oQzdB6SUrnuvZ1q.jpg" width="70%">
 </div>
@@ -1350,7 +1340,7 @@ Redux 在以下情况下更有用：
 <p>踩坑：</p>
 <ul>
 <li>梯子有时候不稳定，导致 git clone，hexo d 等操作因为网络问题而失败。多换换梯子节点，多试试就好。</li>
-<li>hexo d 始终连接不到 github 的话，打开 git bash 输入 ssh -T <a href="mailto:&#103;&#x69;&#x74;&#x40;&#103;&#105;&#116;&#104;&#x75;&#x62;&#46;&#x63;&#x6f;&#109;">&#103;&#x69;&#x74;&#x40;&#103;&#105;&#116;&#104;&#x75;&#x62;&#46;&#x63;&#x6f;&#109;</a> 看看能不能连上，不能的话参考 <a target="_blank" rel="noopener" href="https://docs.github.com/cn/github/authenticating-to-github/troubleshooting-ssh/error-permission-denied-publickey">错误：权限被拒绝（公钥） - GitHub Docs</a>；能的话说明是 hexo 配置的问题，再谷歌找找原因，<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c60ad2a33a1e">Hexo部署出现错误err: Error: Spawn failed解决方式</a>。</li>
+<li>hexo d 始终连接不到 github 的话，打开 git bash 输入 ssh -T <a href="mailto:&#x67;&#x69;&#x74;&#x40;&#103;&#105;&#116;&#x68;&#x75;&#98;&#x2e;&#99;&#x6f;&#109;">&#x67;&#x69;&#x74;&#x40;&#103;&#105;&#116;&#x68;&#x75;&#98;&#x2e;&#99;&#x6f;&#109;</a> 看看能不能连上，不能的话参考 <a target="_blank" rel="noopener" href="https://docs.github.com/cn/github/authenticating-to-github/troubleshooting-ssh/error-permission-denied-publickey">错误：权限被拒绝（公钥） - GitHub Docs</a>；能的话说明是 hexo 配置的问题，再谷歌找找原因，<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c60ad2a33a1e">Hexo部署出现错误err: Error: Spawn failed解决方式</a>。</li>
 <li>hexo s 在本地已显示出了正常的网页，但 hexo d 到 github 后，xxxx.gihub.com 能访问，但是一片空白。确保此前步骤无误的话，多刷新一下 github 就好了……</li>
 <li>本地能正常显示页面，但访问网址不行的时候：检查是否部署成功，检查 github page 设置，检查域名（阿里云）问题</li>
 </ul>
