@@ -559,7 +559,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-12-15 18:08:58" itemprop="dateModified" datetime="2021-12-15T18:08:58+08:00">2021-12-15</time>
+        <time title="修改时间：2021-12-17 11:25:29" itemprop="dateModified" datetime="2021-12-17T11:25:29+08:00">2021-12-17</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -607,7 +607,7 @@
 <h1 id="学习日志"><a href="#学习日志" class="headerlink" title="学习日志"></a>学习日志</h1><h2 id="阶段一"><a href="#阶段一" class="headerlink" title="阶段一"></a>阶段一</h2><h3 id="浏览器原理"><a href="#浏览器原理" class="headerlink" title="浏览器原理"></a>浏览器原理</h3><ul>
 <li><p>Luke的视频：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1x54y1B7RE">浏览器是如何运作的？</a></p>
 <p>  详细讲解了 从打开窗口输入 url 地址，到呈现出页面这个过程中，浏览器内部发生了什么事情。将浏览器的各个程序模块和初次加载流程讲的很清楚。<br>  不足之处在于，没有讲清楚 JS 在初次加载后的执行情景，没有讲到屏幕每帧刷新时浏览器会做什么。</p>
-<p>  初次解析渲染完 html 后，JS 修改页面（代码修改dom和cssom），和重绘重排是怎么个对应关系？JS 每改变一处地方，就重新渲染一次？还是取决于屏幕刷新率？</p>
+<p>  初次解析渲染完 html 后，JS 修改页面（代码修改dom和cssom），和重绘重排是怎么个对应关系？JS 每改变一处地方，就重新渲染一次？还是会累计一定修改再重新渲染？还是取决于屏幕刷新率？每次渲染都要拿完整的 DOM 结构从头开始？</p>
 </li>
 <li><p>红宝书第二章，介绍script标签</p>
 <p>  defer和async script标签，到底何时执行（书里面说，defer的话，在html解析完成后执行，又说在DomContentLoad事件前执行，这不是矛盾吗）</p>
@@ -816,22 +816,61 @@
 <p>2021.12.08 </p>
 <ul>
 <li><p><a target="_blank" rel="noopener" href="https://react.docschina.org/docs/accessibility.html">官方文档——高阶指引</a></p>
+<p>  在通常情况下，我们就是在抽象的、逻辑的层面，从流程上，来理解和使用 React 的各种特性。比如 ReactDom.render 就是将组件对应的 DOM 挂载到 html 根节点上、组件就是一个返回一定UI元素的封装-它先初步挂载渲染+更新后渲染，组件 render 就是它所对应显示的内容等，可以先不管它们具体底层是怎么实现的。</p>
+<p>  但要知道，最终 React 项目也都是要归为 html、css、js，在浏览器上运行。所以，适当从浏览器的运行原理的层次、从 React 的底层设计和实现 来思考 React 运作也是必要的。但也要注意下潜到什么层次。至于后者，React 概念、特性、使用、效果（命令式编程） —&gt; React 底层的逻辑、工作流程/数据流、其设计的类和函数的作用概括、和浏览器的配合等 —&gt; React JS 源码、最细节的代码实现。目前来说，看到第二层就好。</p>
 <p>先选择性看一些常见的，后面需要用了再看</p>
-<p><a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/refs-and-the-dom.html">Refs and the DOM</a>，<a target="_blank" rel="noopener" href="https://react.docschina.org/docs/code-splitting.html">代码分割</a>，<a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/faq-internals.html#gatsby-focus-wrapper">虚拟DOM</a> 和 <a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/reconciliation.html">Diff算法</a></p>
+<p><a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/refs-and-the-dom.html">Refs and the DOM</a>，<a target="_blank" rel="noopener" href="https://react.docschina.org/docs/code-splitting.html">代码分割</a></p>
 </li>
 <li><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/514fe21b9914">React 组件的生命周期</a></p>
-<p>  在通常情况下，我们就是在抽象的、逻辑的层面，从流程上，来理解和使用 React 的各种特性。比如 ReactDom.render 就是将组件对应的 DOM 挂载到 html 根节点上、组件就是一个返回一定UI元素的封装-它先初步挂载渲染+更新后渲染，组件 render 就是它所对应显示的内容等，可以先不管它们具体底层是怎么实现的。</p>
-<p>  但要知道，最终 React 项目也都是要归为 html、css、js，在浏览器上运行。所以，适当从浏览器的运行原理的层次、从 React 的底层设计和实现 来思考 React 运作也是必要的。但也要注意下潜到什么层次，虽说最终 React 肯定是 原生JS 写的，但对于初学的我，初探其原理即可（像此小结的两篇博客的层级一样）（就算看React-JS源码，也需要更高一层的抽象才能理清源码的逻辑）（React 源码 暂时看不了。。。进一步学习 React 原理再说）</p>
 <p>  深入了解组件的生命周期，能让我们初探 React 的底层原理。</p>
   <div align="center">
   <img src="https://s2.loli.net/2021/12/15/iAR38QusWFhLeqm.png" width="60%">
   </div>
   
-<p>  补充：<code>render()</code>  方法的原理。<a target="_blank" rel="noopener" href="https://www.w3cschool.cn/article/59664974.html">react渲染原理是什么？渲染原理分析！</a>。好奇的一点是，render 构建出最终的 DOM 后，（在浏览器运行视角）渲染进程的主进程的控制权是否需要从 运行js 交由 渲染DOM（估计是的），具体的流程是怎样的（类似的问题 在浏览器原理部分提到过 <a href="###%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8E%9F%E7%90%86">原生 JS 写DOM</a>）。</p>
+<p>  补充：<code>ReactDOM.render()</code>  方法的原理。<a target="_blank" rel="noopener" href="https://react.docschina.org/docs/react-dom.html#render">ReactDOM API 官方文档</a>、<a target="_blank" rel="noopener" href="https://www.w3cschool.cn/article/59664974.html">react渲染原理是什么？渲染原理分析！</a>。</p>
+<p>  好奇的一点是，render 构建出最终的 DOM 后，（在浏览器运行视角）渲染进程的主进程的控制权是否需要从 运行js 交由 渲染DOM（估计是的），具体的流程是怎样的（类似的问题 在浏览器原理部分提到过 <a href="###%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8E%9F%E7%90%86">原生 JS 写DOM</a>）。图中的 <code>React 更新 DOM 和 refs</code> 以及 后续的浏览器渲染，得结合下一小结服用。</p>
+<p>  <code>Component</code> 中定义的 <code>render()</code>，也即生命周期中的 <code>render()</code>，仅返回 React 元素对象（实质上 Virtual DOM 的一部分）。<br>  ① 和 <code>ReactDOM.render()</code> 是什么关系？生命周期图中的各组件的挂载时，应该是在 <code>ReactDOM.render()</code> 中被一一调用进行的；那更新时，是否也意味着再次调用 <code>ReactDOM.render()</code> ——就算是，行为也不一样，详见补充的两个链接——“当首次调用时，容器节点里的所有 DOM 元素都会被替换，后续的调用则会使用 React 的 DOM 差分算法（DOM diffing algorithm）进行高效的更新。”<br>  ② 部分组件更新时（以变动 State 的组件为节点，向下传播得到一个更新的子树），它如何整合到完整的 Virtual DOM 结构中——应该不是整个应用所有组件都重新 <code>render()</code>，而仅是生命周期图中的三个条件的组件才会调用 <code>render()</code>？ </p>
 </li>
-<li><p><a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/hooks-intro.html">Hook</a></p>
-<p>Hook 使你在非 class 的情况下可以使用更多的 React 特性。 从概念上讲，React 组件一直更像是函数。而 Hook 则拥抱了函数，同时也没有牺牲 React 的精神原则。</p>
+<li><p><a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/faq-internals.html#gatsby-focus-wrapper">虚拟DOM</a> 和 <a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/reconciliation.html">Diff算法</a></p>
+<p>  <strong>虚拟 DOM (VDOM) 的动机</strong></p>
+<p>  首先我们要知道，为什么我们没办法直接知道增量的 DOM操作 呢？直接知道的话，就按增量去操作 真实DOM 不就好了？——问题就在于现实应用情况中我们无法直接获知，或者这种直接增量 操作DOM 不便于我们编程思考。比如 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1wy4y1D7JT?p=1">虚拟DOM 尚硅谷</a> 中展示的，我们经常获取的是全新的 json 数据；比如，我们组件更新时，是 <code>render()</code> 返回一整块的可能仅局部更新了的 React 元素。在下图的情况中，若没有 虚拟 DOM，我们就得重新再对新的列表中的三个表项各进行一次 DOM操作 即 3次 JS操作真实DOM；而有 虚拟 DOM 的话，我们就只需要有 1次 JS操作真实DOM。</p>
+  <div align="center">
+  <img src="https://s2.loli.net/2021/12/17/nMtNYKIyBv7HbO2.png" width="60%">
+  </div>
+
+<p>  <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/9f16b96a2dec">深入理解react中的虚拟DOM、diff算法</a> 这篇博客认为，使用 VDOM 减少了 <strong>js操作真实DOM</strong> 的次数（在只有局部 UI 需要发生改变时），而 <strong>js操作DOM</strong> 本身（暂时不考虑渲染）就是代价非常大的操作，因此 VDOM 起到了优化效果。</p>
+<blockquote>
+<p>这个元素会挂载默认的styles、得到这个元素的computed属性、注册相应的Event Listener、DOM Breakpoints以及大量的properties，这些属性、方法的注册肯定是需要h耗费大量时间的。<br>尤其是在 <strong>js操作DOM</strong> 的过程中，不仅有dom本身的繁重，js的操作也需要浪费时间，我们认为js和DOM之间有一座桥，如果你频繁的在桥两边走动，显然效率是很低的，如果你的JavaScript操作DOM的方式还非常不合理，那么显然就会更糟糕了。<br>而 React 的虚拟DOM就是解决这个问题的！ 虽然它解决不了DOM自身的繁重，但是虚拟DOM可以对JavaScript操作DOM这一部分内容进行优化。</p>
+</blockquote>
+<p>  <a target="_blank" rel="noopener" href="https://juejin.cn/post/6994959998283907102">15张图，20分钟吃透Diff算法核心原理</a> 除了更少地 <strong>js操作DOM</strong>，在浏览器渲染的角度是否也有优化？该博客下面的评论中讨论了这个问题。有人认为一次 真实DOM操作 就会导致一次浏览器回流（即重新渲染一次DOM，是对全部DOM还是局部DOM重新渲染，得看具体浏览器的实现，暂时不确定），那么减少了 <strong>js操作真实DOM</strong> 的次数，也减少了渲染的成本；但也有人说浏览器会“攒”一定数量的 真实DOM操作 再进行渲染。<mark>这一块不是很清楚。</mark></p>
 </li>
+</ul>
+<pre><code>**React 的 更新、渲染 流程和原理**
+
+&lt;mark&gt;可以确定的是：&lt;/mark&gt; 
+VDOM 的本质就是一个数据结构与 DOM 一一对应的 JS 对象。如果是首次渲染，我们先得到 VDOM，然后 基于 VDOM 将内容转化成 真实DOM，然后渲染；当我们的 UI-View 需要发生改变（更新）时，我们先对 VDOM 这个“简单”易操作的 JS 对象 进行操作——这一步代价比较小，然后将新的到的 VDOM 与 之前的 VDOM 进行比较，得出差异，然后对 真实DOM 进行增量操作。
+
+总结：
+
+    构建 VDOM：上小结 render() 方法相关，更新时如何得到 VDOM 还不是很清楚
+    ⬇
+    比较 VDOM：Diffing 算法
+    ⬇
+    操作 真DOM：patch
+    ⬇
+    渲染：浏览器 非 JS 的工作
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;img src=&quot;https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1c57a7b4e91a4a359474fb4c281f6d8e~tplv-k3u1fbpfcp-watermark.awebp&quot; width=&quot;80%&quot;&gt;
+&lt;/div&gt;
+
+&lt;mark&gt;不确定的是:&lt;/mark&gt;
+至于从 VDOM 到 DOM，以及 DOM 的渲染 这一整个过程中具体发生了什么，说 React 完整细节的 更新、渲染流程 为何，需要进一步学习 [React Fiber](http://www.ayqy.net/blog/dive-into-react-fiber/)
+
+**我们平常使用 React 可以这样偷懒地想**，部分的组件更新，React 只会局部更新 DOM 并重新渲染。
+</code></pre>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/hooks-intro.html">Hook</a>Hook 使你在非 class 的情况下可以使用更多的 React 特性。 从概念上讲，React 组件一直更像是函数。而 Hook 则拥抱了函数，同时也没有牺牲 React 的精神原则。</li>
 </ul>
 <hr>
 <p>2021.12.08 - 2021.12.15</p>
@@ -981,7 +1020,7 @@
   </div>
 
 <p>  然而，当我们有<strong>多个组件需要共享和使用相同state</strong>时，可能会变得很复杂，尤其是当这些组件位于应用程序的不同部分时。有时这可以通过 “提升 state” 到父组件来解决，但这并不总是有效。（React 中的 Context 也是为了解决类似的问题，Context 和 Redux 的对比？）</p>
-<p>  解决这个问题的一种方法是从组件中提取共享 state，并将其放入组件树之外的一个集中位置。这样，我们的组件树就变成了一个大“view”（即共享状态改变，共享之的组件的UI表现都会改变），任何组件都可以访问 state 或触发 action，无论它们在树中的哪个位置！</p>
+<p>  解决这个问题的一种方法是从组件中提取共享 state，并将其放入组件树之外的一个集中位置。这样，我们的组件树就变成了一个大“view”（即共享状态改变，共享之的组件的UI表现都会改变），任何组件都可以访问 state 或触发 action，无论它们在树中的哪个位置！（即，此前 View 和 State 都在某一个（父子）组件上，现在将 State 分离出来到另一个地方去了）</p>
 <p>  通过定义和分离 state 管理中涉及的概念并强制执行维护 view 和 state 之间独立性的规则，代码变得更结构化和易于维护。</p>
 <p>  <strong>这就是 Redux 背后的基本思想</strong>：应用中使用集中式的全局状态来管理，并明确更新状态的模式，以便让代码具有可预测性。</p>
 <p>  <strong>Redux 数据流</strong></p>
@@ -996,6 +1035,8 @@
   </div></li>
 </ul>
 <h4 id="React-项目实战"><a href="#React-项目实战" class="headerlink" title="React 项目实战"></a>React 项目实战</h4><p>2021.12.15 - 2021</p>
+<p>局部的特性的实战：找官方文档和尚硅谷的案例 即可（目前只撸了 React 基础 的官方文档）</p>
+<p>此处稍稍急功近利一下，直接找个完整的 React 全家桶项目来练手。</p>
 
       
     </div>
@@ -1229,7 +1270,7 @@
 <img src="https://i.loli.net/2021/09/09/ophWzFOAadf6wEH.jpg" width="70%">
 </div>
 
-<p>Title 为标题，任意填即可，将刚刚复制的 id_rsa.pub 内容粘贴进去，最后点击 Add SSH key。<br>在 Git Bash 中检测 GitHub 公钥设置是否成功，输入 ssh <a href="mailto:&#103;&#x69;&#116;&#x40;&#103;&#x69;&#x74;&#x68;&#117;&#x62;&#x2e;&#99;&#x6f;&#109;">&#103;&#x69;&#116;&#x40;&#103;&#x69;&#x74;&#x68;&#117;&#x62;&#x2e;&#99;&#x6f;&#109;</a> ：</p>
+<p>Title 为标题，任意填即可，将刚刚复制的 id_rsa.pub 内容粘贴进去，最后点击 Add SSH key。<br>在 Git Bash 中检测 GitHub 公钥设置是否成功，输入 ssh <a href="mailto:&#103;&#105;&#x74;&#x40;&#103;&#105;&#x74;&#104;&#117;&#x62;&#x2e;&#x63;&#x6f;&#x6d;">&#103;&#105;&#x74;&#x40;&#103;&#105;&#x74;&#104;&#117;&#x62;&#x2e;&#x63;&#x6f;&#x6d;</a> ：</p>
 <div align="center">
 <img src="https://i.loli.net/2021/09/09/oQzdB6SUrnuvZ1q.jpg" width="70%">
 </div>
@@ -1340,7 +1381,7 @@
 <p>踩坑：</p>
 <ul>
 <li>梯子有时候不稳定，导致 git clone，hexo d 等操作因为网络问题而失败。多换换梯子节点，多试试就好。</li>
-<li>hexo d 始终连接不到 github 的话，打开 git bash 输入 ssh -T <a href="mailto:&#103;&#105;&#116;&#x40;&#x67;&#x69;&#x74;&#104;&#x75;&#x62;&#46;&#x63;&#x6f;&#109;">&#103;&#105;&#116;&#x40;&#x67;&#x69;&#x74;&#104;&#x75;&#x62;&#46;&#x63;&#x6f;&#109;</a> 看看能不能连上，不能的话参考 <a target="_blank" rel="noopener" href="https://docs.github.com/cn/github/authenticating-to-github/troubleshooting-ssh/error-permission-denied-publickey">错误：权限被拒绝（公钥） - GitHub Docs</a>；能的话说明是 hexo 配置的问题，再谷歌找找原因，<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c60ad2a33a1e">Hexo部署出现错误err: Error: Spawn failed解决方式</a>。</li>
+<li>hexo d 始终连接不到 github 的话，打开 git bash 输入 ssh -T <a href="mailto:&#103;&#105;&#x74;&#64;&#x67;&#105;&#116;&#x68;&#117;&#x62;&#46;&#x63;&#111;&#109;">&#103;&#105;&#x74;&#64;&#x67;&#105;&#116;&#x68;&#117;&#x62;&#46;&#x63;&#111;&#109;</a> 看看能不能连上，不能的话参考 <a target="_blank" rel="noopener" href="https://docs.github.com/cn/github/authenticating-to-github/troubleshooting-ssh/error-permission-denied-publickey">错误：权限被拒绝（公钥） - GitHub Docs</a>；能的话说明是 hexo 配置的问题，再谷歌找找原因，<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c60ad2a33a1e">Hexo部署出现错误err: Error: Spawn failed解决方式</a>。</li>
 <li>hexo s 在本地已显示出了正常的网页，但 hexo d 到 github 后，xxxx.gihub.com 能访问，但是一片空白。确保此前步骤无误的话，多刷新一下 github 就好了……</li>
 <li>本地能正常显示页面，但访问网址不行的时候：检查是否部署成功，检查 github page 设置，检查域名（阿里云）问题</li>
 </ul>
