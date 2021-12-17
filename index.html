@@ -559,7 +559,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-12-17 11:29:16" itemprop="dateModified" datetime="2021-12-17T11:29:16+08:00">2021-12-17</time>
+        <time title="修改时间：2021-12-17 15:46:41" itemprop="dateModified" datetime="2021-12-17T15:46:41+08:00">2021-12-17</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -828,10 +828,11 @@
   </div>
   
 <p>  补充：<code>ReactDOM.render()</code>  方法的原理。<a target="_blank" rel="noopener" href="https://react.docschina.org/docs/react-dom.html#render">ReactDOM API 官方文档</a>、<a target="_blank" rel="noopener" href="https://www.w3cschool.cn/article/59664974.html">react渲染原理是什么？渲染原理分析！</a>。</p>
-<p>  好奇的一点是，render 构建出最终的 DOM 后，（在浏览器运行视角）渲染进程的主进程的控制权是否需要从 运行js 交由 渲染DOM（估计是的），具体的流程是怎样的（类似的问题 在浏览器原理部分提到过 <a href="###%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8E%9F%E7%90%86">原生 JS 写DOM</a>）。图中的 <code>React 更新 DOM 和 refs</code> 以及 后续的浏览器渲染，得结合下一小结服用。</p>
-<p>  <code>Component</code> 中定义的 <code>render()</code>，也即生命周期中的 <code>render()</code>，仅返回 React 元素对象（实质上 Virtual DOM 的一部分）。<br>  ① 和 <code>ReactDOM.render()</code> 是什么关系？生命周期图中的各组件的挂载时，应该是在 <code>ReactDOM.render()</code> 中被一一调用进行的；那更新时，是否也意味着再次调用 <code>ReactDOM.render()</code> ——就算是，行为也不一样，详见补充的两个链接——“当首次调用时，容器节点里的所有 DOM 元素都会被替换，后续的调用则会使用 React 的 DOM 差分算法（DOM diffing algorithm）进行高效的更新。”<br>  ② 部分组件更新时（以变动 State 的组件为节点，向下传播得到一个更新的子树），它如何整合到完整的 Virtual DOM 结构中——应该不是整个应用所有组件都重新 <code>render()</code>，而仅是生命周期图中的三个条件的组件才会调用 <code>render()</code>？ </p>
+<p>  好奇的一点是，render 构建出最终的 DOM 后，（在浏览器运行视角）渲染进程的主进程的控制权是否需要从 运行js 交由 渲染DOM（估计是的），具体的流程是怎样的（类似的问题 在浏览器原理部分提到过 <a href="###%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8E%9F%E7%90%86">原生 JS 写DOM</a>）。</p>
+<p>  <code>Component</code> 中定义的 <code>render()</code>，也即生命周期中的 <code>render()</code>，仅返回 React 元素对象（实质上是调用了内置方法，构建了 Virtual DOM 的一部分）。<br>  ① 和 <code>ReactDOM.render()</code> 是什么关系？生命周期图中的各组件的挂载时，各组件的 <code>render()</code> 应该是在 <code>ReactDOM.render()</code> 中被一一调用；那更新时，是否也意味着再次调用 <code>ReactDOM.render()</code> ——就算是，行为也不一样，详见补充的两个链接——“当首次调用时，容器节点里的所有 DOM 元素都会被替换，后续的调用则会使用 React 的 DOM 差分算法（DOM diffing algorithm）进行高效的更新。来自 <code>ReactDOM.render()</code> 官方文档”<br>  ② 部分组件更新时（以变动 State 的组件为节点，向下传播得到一个更新的子树），它如何得到新的完整的 Virtual DOM ？（毕竟diff比较的是完整的 VDOM 树）——应该不是整个应用所有组件都重新 <code>render()</code>，而是仅满足生命周期图中的三个条件的组件才会调用 <code>render()</code>？ </p>
 </li>
 <li><p><a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/faq-internals.html#gatsby-focus-wrapper">虚拟DOM</a> 和 <a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/reconciliation.html">Diff算法</a></p>
+<p>  这一小节相当于是对 组件生命周期 的 <code>render 阶段</code> - 构建虚拟DOM + diffing 比较、<code>commit 阶段</code> - diffing patch 以及 后续的浏览器渲染 的细节补充。</p>
 <p>  <strong>虚拟 DOM (VDOM) 的动机</strong></p>
 <p>  首先我们要知道，为什么我们没办法直接知道增量的 DOM操作 呢？直接知道的话，就按增量去操作 真实DOM 不就好了？——问题就在于现实应用情况中我们无法直接获知，或者这种直接增量 操作DOM 不便于我们编程思考。比如 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1wy4y1D7JT?p=1">虚拟DOM 尚硅谷</a> 中展示的，我们经常获取的是全新的 json 数据；比如，我们组件更新时，是 <code>render()</code> 返回一整块的可能仅局部更新了的 React 元素。在下图的情况中，若没有 虚拟 DOM，我们就得重新再对新的列表中的三个表项各进行一次 DOM操作 即 3次 JS操作真实DOM；而有 虚拟 DOM 的话，我们就只需要有 1次 JS操作真实DOM。</p>
   <div align="center">
@@ -845,12 +846,14 @@
 <p>  <a target="_blank" rel="noopener" href="https://juejin.cn/post/6994959998283907102">15张图，20分钟吃透Diff算法核心原理</a> 除了更少地 <strong>js操作DOM</strong>，在浏览器渲染的角度是否也有优化？该博客下面的评论中讨论了这个问题。有人认为一次 真实DOM操作 就会导致一次浏览器回流（即重新渲染一次DOM，是对全部DOM还是局部DOM重新渲染，得看具体浏览器的实现，暂时不确定），那么减少了 <strong>js操作真实DOM</strong> 的次数，也减少了渲染的成本；但也有人说浏览器会“攒”一定数量的 真实DOM操作 再进行渲染。<mark>这一块不是很清楚。</mark></p>
 <p>  <strong>React 的 更新、渲染 流程和原理</strong></p>
 <p>  <mark>可以确定的是：</mark><br>  VDOM 的本质就是一个数据结构与 DOM 一一对应的 JS 对象。如果是首次渲染，我们先得到 VDOM，然后 基于 VDOM 将内容转化成 真实DOM，然后渲染；当我们的 UI-View 需要发生改变（更新）时，我们先对 VDOM 这个“简单”易操作的 JS 对象 进行操作——这一步代价比较小，然后将新的到的 VDOM 与 之前的 VDOM 进行比较，得出差异，然后对 真实DOM 进行增量操作。</p>
-<p>  总结：</p>
-<pre><code>  构建 VDOM：上小结 render() 方法相关，更新时如何得到 VDOM 还不是很清楚
+<p>  结合上上一小节的生命周期，总结：</p>
+<pre><code>  需要渲染：ReactDOM.render() or setState()
   ⬇
-  比较 VDOM：Diffing 算法
+  构建 VDOM：上小节 render() 方法相关，但更新时如何得到完整的 VDOM 还不是很清楚
   ⬇
-  操作 真DOM：patch
+  比较 VDOM：Diffing 算法 - 比较
+  ⬇
+  操作 真DOM：Diffing 算法 - patch
   ⬇
   渲染：浏览器 非 JS 的工作
 </code></pre>
@@ -858,7 +861,7 @@
   <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1c57a7b4e91a4a359474fb4c281f6d8e~tplv-k3u1fbpfcp-watermark.awebp" width="80%">
   </div>
 
-<p>  <mark>不确定的是:</mark><br>  至于从 VDOM 到 DOM，以及 DOM 的渲染 这一整个过程中具体发生了什么，说 React 完整细节的 更新、渲染流程 为何，需要进一步学习 <a target="_blank" rel="noopener" href="http://www.ayqy.net/blog/dive-into-react-fiber/">React Fiber</a></p>
+<p>  <mark>不确定的是:</mark><br>  DOM 的渲染 具体发生了什么，React 完整细节的 更新、渲染流程 为何，需要进一步学习 <a target="_blank" rel="noopener" href="http://www.ayqy.net/blog/dive-into-react-fiber/">React Fiber</a>；组件状态更新时，是重新构造一棵完整的（整个应用的） VDOM 树吗？diffing 算法 比较的是两颗完整的 VDOM 树吗？</p>
 <p>  <strong>我们平常使用 React 可以这样偷懒地想</strong>，部分的组件更新，React 只会局部更新 DOM 并重新渲染。</p>
 </li>
 </ul>
@@ -1263,7 +1266,7 @@
 <img src="https://i.loli.net/2021/09/09/ophWzFOAadf6wEH.jpg" width="70%">
 </div>
 
-<p>Title 为标题，任意填即可，将刚刚复制的 id_rsa.pub 内容粘贴进去，最后点击 Add SSH key。<br>在 Git Bash 中检测 GitHub 公钥设置是否成功，输入 ssh <a href="mailto:&#103;&#x69;&#x74;&#64;&#103;&#x69;&#x74;&#x68;&#x75;&#x62;&#x2e;&#99;&#111;&#109;">&#103;&#x69;&#x74;&#64;&#103;&#x69;&#x74;&#x68;&#x75;&#x62;&#x2e;&#99;&#111;&#109;</a> ：</p>
+<p>Title 为标题，任意填即可，将刚刚复制的 id_rsa.pub 内容粘贴进去，最后点击 Add SSH key。<br>在 Git Bash 中检测 GitHub 公钥设置是否成功，输入 ssh <a href="mailto:&#x67;&#x69;&#116;&#64;&#x67;&#105;&#x74;&#x68;&#117;&#x62;&#x2e;&#x63;&#x6f;&#109;">&#x67;&#x69;&#116;&#64;&#x67;&#105;&#x74;&#x68;&#117;&#x62;&#x2e;&#x63;&#x6f;&#109;</a> ：</p>
 <div align="center">
 <img src="https://i.loli.net/2021/09/09/oQzdB6SUrnuvZ1q.jpg" width="70%">
 </div>
@@ -1374,7 +1377,7 @@
 <p>踩坑：</p>
 <ul>
 <li>梯子有时候不稳定，导致 git clone，hexo d 等操作因为网络问题而失败。多换换梯子节点，多试试就好。</li>
-<li>hexo d 始终连接不到 github 的话，打开 git bash 输入 ssh -T <a href="mailto:&#103;&#105;&#116;&#x40;&#x67;&#105;&#x74;&#x68;&#x75;&#98;&#46;&#x63;&#x6f;&#109;">&#103;&#105;&#116;&#x40;&#x67;&#105;&#x74;&#x68;&#x75;&#98;&#46;&#x63;&#x6f;&#109;</a> 看看能不能连上，不能的话参考 <a target="_blank" rel="noopener" href="https://docs.github.com/cn/github/authenticating-to-github/troubleshooting-ssh/error-permission-denied-publickey">错误：权限被拒绝（公钥） - GitHub Docs</a>；能的话说明是 hexo 配置的问题，再谷歌找找原因，<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c60ad2a33a1e">Hexo部署出现错误err: Error: Spawn failed解决方式</a>。</li>
+<li>hexo d 始终连接不到 github 的话，打开 git bash 输入 ssh -T <a href="mailto:&#103;&#105;&#116;&#64;&#x67;&#105;&#x74;&#104;&#117;&#x62;&#x2e;&#x63;&#111;&#109;">&#103;&#105;&#116;&#64;&#x67;&#105;&#x74;&#104;&#117;&#x62;&#x2e;&#x63;&#111;&#109;</a> 看看能不能连上，不能的话参考 <a target="_blank" rel="noopener" href="https://docs.github.com/cn/github/authenticating-to-github/troubleshooting-ssh/error-permission-denied-publickey">错误：权限被拒绝（公钥） - GitHub Docs</a>；能的话说明是 hexo 配置的问题，再谷歌找找原因，<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c60ad2a33a1e">Hexo部署出现错误err: Error: Spawn failed解决方式</a>。</li>
 <li>hexo s 在本地已显示出了正常的网页，但 hexo d 到 github 后，xxxx.gihub.com 能访问，但是一片空白。确保此前步骤无误的话，多刷新一下 github 就好了……</li>
 <li>本地能正常显示页面，但访问网址不行的时候：检查是否部署成功，检查 github page 设置，检查域名（阿里云）问题</li>
 </ul>
