@@ -20,33 +20,27 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="学习资料：千锋最新前端webpack5全套教程官方笔记：百度网盘 https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1P6ZNqA_D4SGTip_Oo93lPg + 提取码 degl  浅学学习webpack核心概念和配置使用，暂时看 1.2.1 - 2.1.4。 主要内容：基本配置、自动引入资源、搭建开发环境、资源模块&#x2F;管理（图片&#x2F;字体、CSS&#x2F;SASS、数据、JS）、代码分离（打包后分离 多">
+<meta name="description" content="JavaScript 数据结构与算法 刷题计划 （理论&#x2F;实践）数据结构和算法（C++描述） + 学习JavaScript数据结构与算法 （实践 - 后台&#x2F;C++实现）带你快速刷完67道剑指offer、CodeTop 企业题库、LeetCode Animation、LeetCode 刷题攻略 （实践 - 前端&#x2F;JS实现）前端该如何准备数据结构和算法？ + awesome-coding-js 2.5k">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Webpack 学习&amp;实战笔记">
-<meta property="og:url" content="http://example.com/2021/11/29/Webpack-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:title" content="前端-数据结构与算法刷题">
+<meta property="og:url" content="http://example.com/2021/12/20/%E5%89%8D%E7%AB%AF-%E7%9F%A5%E8%AF%86%E7%82%B9%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Wu&#39;s Blog">
-<meta property="og:description" content="学习资料：千锋最新前端webpack5全套教程官方笔记：百度网盘 https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1P6ZNqA_D4SGTip_Oo93lPg + 提取码 degl  浅学学习webpack核心概念和配置使用，暂时看 1.2.1 - 2.1.4。 主要内容：基本配置、自动引入资源、搭建开发环境、资源模块&#x2F;管理（图片&#x2F;字体、CSS&#x2F;SASS、数据、JS）、代码分离（打包后分离 多">
+<meta property="og:description" content="JavaScript 数据结构与算法 刷题计划 （理论&#x2F;实践）数据结构和算法（C++描述） + 学习JavaScript数据结构与算法 （实践 - 后台&#x2F;C++实现）带你快速刷完67道剑指offer、CodeTop 企业题库、LeetCode Animation、LeetCode 刷题攻略 （实践 - 前端&#x2F;JS实现）前端该如何准备数据结构和算法？ + awesome-coding-js 2.5k">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.loli.net/2021/11/28/QGsWxVMDZwhaXYc.png">
-<meta property="og:image" content="https://i.loli.net/2021/11/28/VXnoA5eWLyJl3fr.png">
-<meta property="og:image" content="https://i.loli.net/2021/11/28/7BMxebfHPSg93Ek.jpg">
-<meta property="og:image" content="https://i.loli.net/2021/11/28/pv6UjuoV9S7yYTC.png">
-<meta property="og:image" content="https://i.loli.net/2021/11/28/a45HYKbWyRel2Du.png">
-<meta property="article:published_time" content="2021-11-29T08:06:45.000Z">
-<meta property="article:modified_time" content="2021-11-29T08:16:23.160Z">
+<meta property="article:published_time" content="2021-12-20T07:44:34.000Z">
+<meta property="article:modified_time" content="2021-12-21T07:02:44.000Z">
 <meta property="article:author" content="Wu Chaojie">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.loli.net/2021/11/28/QGsWxVMDZwhaXYc.png">
 
 
-<link rel="canonical" href="http://example.com/2021/11/29/Webpack-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+<link rel="canonical" href="http://example.com/2021/12/20/%E5%89%8D%E7%AB%AF-%E7%9F%A5%E8%AF%86%E7%82%B9%E7%AC%94%E8%AE%B0/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2021/11/29/Webpack-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/","path":"2021/11/29/Webpack-学习笔记/","title":"Webpack 学习&实战笔记"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2021/12/20/%E5%89%8D%E7%AB%AF-%E7%9F%A5%E8%AF%86%E7%82%B9%E7%AC%94%E8%AE%B0/","path":"2021/12/20/前端-知识点笔记/","title":"前端-数据结构与算法刷题"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Webpack 学习&实战笔记 | Wu's Blog</title>
+<title>前端-数据结构与算法刷题 | Wu's Blog</title>
   
 
 
@@ -125,7 +119,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%85%E5%AD%A6"><span class="nav-number">1.</span> <span class="nav-text">浅学</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0"><span class="nav-number">2.</span> <span class="nav-text">深入学习</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95-%E5%88%B7%E9%A2%98%E8%AE%A1%E5%88%92"><span class="nav-number">1.</span> <span class="nav-text">JavaScript 数据结构与算法 刷题计划</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B2%90%E7%A5%9E%E7%9A%84%E5%88%B7%E9%A2%98%E6%95%99%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">沐神的刷题教程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%91%E6%8C%87-Offer-70-%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">剑指 Offer 70+题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%82%E7%94%A8%E4%BA%8E%E5%89%8D%E7%AB%AF%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97-80-%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">适用于前端的数据结构与算法系列 80+题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CodeTop-%E4%BC%81%E4%B8%9A%E9%A2%98%E5%BA%93-%E5%89%8D%E7%AB%AF100%E9%A2%98"><span class="nav-number">5.</span> <span class="nav-text">CodeTop 企业题库 前端100题</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -190,7 +184,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/29/Webpack-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/20/%E5%89%8D%E7%AB%AF-%E7%9F%A5%E8%AF%86%E7%82%B9%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/miao.gif">
@@ -203,7 +197,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Webpack 学习&实战笔记
+          前端-数据结构与算法刷题
         </h1>
 
         <div class="post-meta-container">
@@ -213,10 +207,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2021-11-29 16:06:45 / 修改时间：16:16:23" itemprop="dateCreated datePublished" datetime="2021-11-29T16:06:45+08:00">2021-11-29</time>
+      <time title="创建时间：2021-12-20 15:44:34" itemprop="dateCreated datePublished" datetime="2021-12-20T15:44:34+08:00">2021-12-20</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-12-21 15:02:44" itemprop="dateModified" datetime="2021-12-21T15:02:44+08:00">2021-12-21</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -237,49 +237,18 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <blockquote>
-<p>学习资料：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1YU4y1g745?p=9" title="https://www.bilibili.com/video/BV1YU4y1g745?p=9">千锋最新前端webpack5全套教程</a><br>官方笔记：百度网盘 <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1P6ZNqA_D4SGTip_Oo93lPg" title="https://pan.baidu.com/s/1P6ZNqA_D4SGTip_Oo93lPg">https://pan.baidu.com/s/1P6ZNqA_D4SGTip_Oo93lPg</a> + 提取码 degl</p>
-</blockquote>
-<h2 id="浅学"><a href="#浅学" class="headerlink" title="浅学"></a>浅学</h2><p>学习webpack核心概念和配置使用，暂时看 1.2.1 - 2.1.4。</p>
-<p><strong>主要内容</strong>：<br>基本配置、自动引入资源、搭建开发环境、资源模块/管理（图片/字体、CSS/SASS、数据、JS）、代码分离（打包后分离 多入口/多个不存在引入关系的JS模块、原模块和引用的模块、公共代码的抽离；动态导入及其应用）、缓存、拆分开发/生产环境配置、source-map（打包文件和源文件的映射，用于调试）、devserver（模拟从服务器加载页面到本地浏览器运行）、模块热替换与热加载（模块 增换删和修改时，不必手动刷新重新加载整个页面，即自动和页面部分刷新，方便调试）</p>
-<p><strong>笔记</strong>：</p>
-<p>思考 Node、Webpack、浏览器、JS的关系。特别是在引入模块的时候，webpack.config.js中用的是Node-CommonJS而Web页面的.js文件中用的是ES6-import，由此思考了webpack和Web页面的各自的运行时及其关系。</p>
-<div  align="center">
+        <h2 id="JavaScript-数据结构与算法-刷题计划"><a href="#JavaScript-数据结构与算法-刷题计划" class="headerlink" title="JavaScript 数据结构与算法 刷题计划"></a>JavaScript 数据结构与算法 刷题计划</h2><ul>
+<li>（理论/实践）数据结构和算法（C++描述） + 学习JavaScript数据结构与算法</li>
+<li>（实践 - 后台/C++实现）<a target="_blank" rel="noopener" href="https://interviewguide.cn/#/Doc/Knowledge/%E7%AE%97%E6%B3%95/%E5%B8%A6%E4%BD%A0%E5%BF%AB%E9%80%9F%E5%88%B7%E5%AE%8C67%E9%81%93%E5%89%91%E6%8C%87offer/README?id=%e5%b8%a6%e4%bd%a0%e5%bf%ab%e9%80%9f%e5%88%b7%e5%ae%8c67%e9%81%93%e5%89%91%e6%8c%87offer">带你快速刷完67道剑指offer</a>、<a target="_blank" rel="noopener" href="https://codetop.cc/home">CodeTop 企业题库</a>、<a target="_blank" rel="noopener" href="https://github.com/MisterBooo/LeetCodeAnimation">LeetCode Animation</a>、<a target="_blank" rel="noopener" href="https://github.com/youngyangyang04/leetcode-master">LeetCode 刷题攻略</a></li>
+<li>（实践 - 前端/JS实现）<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903919722692621">前端该如何准备数据结构和算法？</a> + <a target="_blank" rel="noopener" href="https://github.com/ConardLi/awesome-coding-js">awesome-coding-js 2.5k 🌟</a>、<a target="_blank" rel="noopener" href="https://juejin.cn/post/6847009772500156429#heading-15">写给前端的算法进阶指南</a>+<a target="_blank" rel="noopener" href="https://github.com/sl1673495/leetcode-javascript/issues?page=1&q=is:issue+is:open">对应100道前端精选算法题 1.2k 🌟</a>、<a target="_blank" rel="noopener" href="https://www.nowcoder.com/discuss/101711?type=5">JS版剑指offer</a>、<a target="_blank" rel="noopener" href="https://www.cnblogs.com/lilicat/p/15491755.html">【75题】剑指 Offer 题解 （JavaScript版本）</a>、<a target="_blank" rel="noopener" href="https://github.com/sisterAn/JavaScript-Algorithms">适用于前端的数据结构与算法系列 3.3k 🌟</a>、<a target="_blank" rel="noopener" href="https://github.com/trekhleb/javascript-algorithms">JavaScript Algorithms and Data Structures</a>;</li>
+</ul>
+<p>刷题策略：分门别类、快速多遍、总结回顾</p>
+<p>刷题顺序：剑指经典、针对前端、前端企业题库</p>
+<h2 id="沐神的刷题教程"><a href="#沐神的刷题教程" class="headerlink" title="沐神的刷题教程"></a>沐神的刷题教程</h2><h2 id="剑指-Offer-70-题"><a href="#剑指-Offer-70-题" class="headerlink" title="剑指 Offer 70+题"></a>剑指 Offer 70+题</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/nxf-rabbit75/p/11397507.html">剑指 Offer 题目分类</a></p>
+<p>配合之前的 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1GZ4y1A7Lv">LeetCode入门教学视频</a> 食用</p>
+<h2 id="适用于前端的数据结构与算法系列-80-题"><a href="#适用于前端的数据结构与算法系列-80-题" class="headerlink" title="适用于前端的数据结构与算法系列 80+题"></a>适用于前端的数据结构与算法系列 80+题</h2><p><a target="_blank" rel="noopener" href="https://github.com/sisterAn/JavaScript-Algorithms">适用于前端的数据结构与算法系列 3.3k 🌟</a></p>
+<h2 id="CodeTop-企业题库-前端100题"><a href="#CodeTop-企业题库-前端100题" class="headerlink" title="CodeTop 企业题库 前端100题"></a>CodeTop 企业题库 前端100题</h2><p><a target="_blank" rel="noopener" href="https://codetop.cc/home">CodeTop 企业题库</a></p>
 
-<img  src="https://i.loli.net/2021/11/28/QGsWxVMDZwhaXYc.png"  width="60%">
-
-</div>
-
-<p>Webpack核心概念和简易打包流程。<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1YU4y1g745?p=13">相关介绍见课程</a>。</p>
-<div  align="center">
-
-<img  src="https://i.loli.net/2021/11/28/VXnoA5eWLyJl3fr.png"  width="60%">
-
-</div>
-
-  
-<p>关于 Web .js 文件中引入 CSS 模块的思考。</p>
-<div  align="center">
-
-<img  src="https://i.loli.net/2021/11/28/7BMxebfHPSg93Ek.jpg"  width="60%">
-
-</div>
-
-  
-<p>代码分离中，index.js中导入第三方模块会分离，导入自身项目中的模块则不一定分离，为什么？（下图中 hello-world async-module未分离，math分离）</p>
-<div  align="center">
-
-<img  src="https://i.loli.net/2021/11/28/pv6UjuoV9S7yYTC.png"  width="60%">
-
-</div>
-
-<div  align="center">
-
-<img  src="https://i.loli.net/2021/11/28/a45HYKbWyRel2Du.png"  width="60%">
-
-</div>
-
-<h2 id="深入学习"><a href="#深入学习" class="headerlink" title="深入学习"></a>深入学习</h2>
     </div>
 
     
@@ -292,12 +261,12 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/09/13/HTML-CSS-%E5%AE%9E%E6%88%98-%E6%B7%98%E5%AE%9D%E9%A6%96%E9%A1%B5/" rel="prev" title="HTML CSS 实战 - 淘宝首页">
-                  <i class="fa fa-chevron-left"></i> HTML CSS 实战 - 淘宝首页
+                <a href="/2021/11/29/Webpack-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="prev" title="Webpack 学习&实战笔记">
+                  <i class="fa fa-chevron-left"></i> Webpack 学习&实战笔记
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/12/20/%E5%89%8D%E7%AB%AF-%E7%9F%A5%E8%AF%86%E7%82%B9%E7%AC%94%E8%AE%B0/" rel="next" title="前端-数据结构与算法刷题">
+                <a href="/2021/12/20/%E5%89%8D%E7%AB%AF-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98/" rel="next" title="前端-数据结构与算法刷题">
                   前端-数据结构与算法刷题 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
