@@ -20,17 +20,19 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="JavaScript 数据结构与算法 刷题计划前端知识之CSS篇一、18 补充 重新認識 Pixel、DPI &#x2F; PPI 以及像素密度">
+<meta name="description" content="前端知识之HTML篇2021.12.15 - 2021 前端知识之CSS篇2021.12.15 - 2021    题号 补充内容    一.18 重新認識 Pixel、DPI &#x2F; PPI 以及像素密度   一.20 css基线与行高   二.2 前端响应式布局基础——rem   二.3 MDN-BFC10 分钟理解BFC 原理   二.7 B站 CSS3-flex布局30分钟学会 flex 布局">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端-知识点笔记">
 <meta property="og:url" content="http://example.com/2021/12/21/%E5%89%8D%E7%AB%AF-%E7%9F%A5%E8%AF%86%E7%82%B9%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Wu&#39;s Blog">
-<meta property="og:description" content="JavaScript 数据结构与算法 刷题计划前端知识之CSS篇一、18 补充 重新認識 Pixel、DPI &#x2F; PPI 以及像素密度">
+<meta property="og:description" content="前端知识之HTML篇2021.12.15 - 2021 前端知识之CSS篇2021.12.15 - 2021    题号 补充内容    一.18 重新認識 Pixel、DPI &#x2F; PPI 以及像素密度   一.20 css基线与行高   二.2 前端响应式布局基础——rem   二.3 MDN-BFC10 分钟理解BFC 原理   二.7 B站 CSS3-flex布局30分钟学会 flex 布局">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2021/12/24/pcXYlwEPzJVGtoa.png">
 <meta property="article:published_time" content="2021-12-21T07:03:34.000Z">
-<meta property="article:modified_time" content="2021-12-22T01:56:18.000Z">
+<meta property="article:modified_time" content="2021-12-24T06:44:56.000Z">
 <meta property="article:author" content="Wu Chaojie">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2021/12/24/pcXYlwEPzJVGtoa.png">
 
 
 <link rel="canonical" href="http://example.com/2021/12/21/%E5%89%8D%E7%AB%AF-%E7%9F%A5%E8%AF%86%E7%82%B9%E7%AC%94%E8%AE%B0/">
@@ -119,7 +121,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95-%E5%88%B7%E9%A2%98%E8%AE%A1%E5%88%92"><span class="nav-number">1.</span> <span class="nav-text">JavaScript 数据结构与算法 刷题计划</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%B9%8BCSS%E7%AF%87"><span class="nav-number">2.</span> <span class="nav-text">前端知识之CSS篇</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%B9%8BHTML%E7%AF%87"><span class="nav-number">1.</span> <span class="nav-text">前端知识之HTML篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%B9%8BCSS%E7%AF%87"><span class="nav-number">2.</span> <span class="nav-text">前端知识之CSS篇</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -215,7 +217,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-12-22 09:56:18" itemprop="dateModified" datetime="2021-12-22T09:56:18+08:00">2021-12-22</time>
+        <time title="修改时间：2021-12-24 14:44:56" itemprop="dateModified" datetime="2021-12-24T14:44:56+08:00">2021-12-24</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -237,9 +239,48 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="JavaScript-数据结构与算法-刷题计划"><a href="#JavaScript-数据结构与算法-刷题计划" class="headerlink" title="JavaScript 数据结构与算法 刷题计划"></a>JavaScript 数据结构与算法 刷题计划</h2><h2 id="前端知识之CSS篇"><a href="#前端知识之CSS篇" class="headerlink" title="前端知识之CSS篇"></a>前端知识之CSS篇</h2><p>一、18 补充</p>
-<p><a target="_blank" rel="noopener" href="https://editor.leonh.space/2021/rediscover-pixel-dpi-ppi-and-pixel-density/#css-pixel">重新認識 Pixel、DPI / PPI 以及像素密度</a></p>
-
+        <h2 id="前端知识之HTML篇"><a href="#前端知识之HTML篇" class="headerlink" title="前端知识之HTML篇"></a>前端知识之HTML篇</h2><p>2021.12.15 - 2021</p>
+<h2 id="前端知识之CSS篇"><a href="#前端知识之CSS篇" class="headerlink" title="前端知识之CSS篇"></a>前端知识之CSS篇</h2><p>2021.12.15 - 2021</p>
+<table>
+<thead>
+<tr>
+<th>题号</th>
+<th>补充内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>一.18</td>
+<td><a target="_blank" rel="noopener" href="https://editor.leonh.space/2021/rediscover-pixel-dpi-ppi-and-pixel-density/#css-pixel">重新認識 Pixel、DPI / PPI 以及像素密度</a></td>
+</tr>
+<tr>
+<td>一.20</td>
+<td><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/59f31a1704de">css基线与行高</a></td>
+</tr>
+<tr>
+<td>二.2</td>
+<td><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903607347707918">前端响应式布局基础——rem</a></td>
+</tr>
+<tr>
+<td>二.3</td>
+<td><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context">MDN-BFC</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/25321647">10 分钟理解BFC 原理</a></td>
+</tr>
+<tr>
+<td>二.7</td>
+<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1N54y1i7dG?p=4">B站 CSS3-flex布局</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/25303493">30分钟学会 flex 布局</a></td>
+</tr>
+<tr>
+<td>二.11</td>
+<td><a target="_blank" rel="noopener" href="https://www.cnblogs.com/yugege/p/9264319.html">为什么height:100%不生效？</a><br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/1575141/how-to-make-a-div-100-height-of-the-browser-window">How to make a div 100% height of the browser window</a><br>结论就是，使用百分比作为单位时，父级元素的 width 和 height 大小最好为确定值。在此题案例中，也就是最好给ul的容器div设置好宽高（比如 400x400）</td>
+</tr>
+</tbody></table>
+<p>三.1</p>
+<p>从两个方面理解浮动：浮动元素对同级元素的影响 + 浮动元素对父级（以及父级同级元素）的影响</p>
+<p>父级块元素，就当浮动元素不存在，无视浮动元素进行布局。</p>
+<p>父级内联元素，以及父级块元素中的内联元素，则会被浮动元素“排挤”。</p>
+<p>对于同级</p>
+<div align="center">
+<img src="https://s2.loli.net/2021/12/24/pcXYlwEPzJVGtoa.png" width="60%">
+</div>
     </div>
 
     
