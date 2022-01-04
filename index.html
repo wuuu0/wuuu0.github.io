@@ -209,7 +209,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-12-24 14:44:56" itemprop="dateModified" datetime="2021-12-24T14:44:56+08:00">2021-12-24</time>
+        <time title="修改时间：2022-01-04 15:51:27" itemprop="dateModified" datetime="2022-01-04T15:51:27+08:00">2022-01-04</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -231,8 +231,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="前端知识之HTML篇"><a href="#前端知识之HTML篇" class="headerlink" title="前端知识之HTML篇"></a>前端知识之HTML篇</h2><p>2021.12.15 - 2021</p>
-<h2 id="前端知识之CSS篇"><a href="#前端知识之CSS篇" class="headerlink" title="前端知识之CSS篇"></a>前端知识之CSS篇</h2><p>2021.12.15 - 2021</p>
+          <h2 id="前端知识之HTML篇"><a href="#前端知识之HTML篇" class="headerlink" title="前端知识之HTML篇"></a>前端知识之HTML篇</h2><p>2021.12.15 - 2021.27</p>
+<h2 id="前端知识之CSS篇"><a href="#前端知识之CSS篇" class="headerlink" title="前端知识之CSS篇"></a>前端知识之CSS篇</h2><p>2021.12.15 - 2021.27</p>
 <table>
 <thead>
 <tr>
@@ -249,30 +249,162 @@
 <td><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/59f31a1704de">css基线与行高</a></td>
 </tr>
 <tr>
-<td>二.2</td>
+<td>二.02</td>
 <td><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903607347707918">前端响应式布局基础——rem</a></td>
 </tr>
 <tr>
-<td>二.3</td>
+<td>二.03</td>
 <td><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context">MDN-BFC</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/25321647">10 分钟理解BFC 原理</a></td>
 </tr>
 <tr>
-<td>二.7</td>
+<td>二.07</td>
 <td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1N54y1i7dG?p=4">B站 CSS3-flex布局</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/25303493">30分钟学会 flex 布局</a></td>
 </tr>
 <tr>
 <td>二.11</td>
 <td><a target="_blank" rel="noopener" href="https://www.cnblogs.com/yugege/p/9264319.html">为什么height:100%不生效？</a><br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/1575141/how-to-make-a-div-100-height-of-the-browser-window">How to make a div 100% height of the browser window</a><br>结论就是，使用百分比作为单位时，父级元素的 width 和 height 大小最好为确定值。在此题案例中，也就是最好给ul的容器div设置好宽高（比如 400x400）</td>
 </tr>
+<tr>
+<td>三.2</td>
+<td>关于css-clear属性的解释，看 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/clear">MDN clear</a></td>
+</tr>
+<tr>
+<td>三.3</td>
+<td>依旧可以从两个方面来理解BFC的作用：触发BFC后对同级元素的影响（比如，两栏布局）；触发BFC后对BFC内部的元素的适应（比如撑开坍塌的高度）</td>
+</tr>
+<tr>
+<td>四.1</td>
+<td>设置一个像素为零的div块，可以想象以一个点划两条垂直和水平的线，border-top right bottom left 就是以这两条线为边界，border 的大小指定的是 border 的厚度</td>
+</tr>
 </tbody></table>
 <p>三.1</p>
 <p>从两个方面理解浮动：浮动元素对同级元素的影响 + 浮动元素对父级（以及父级同级元素）的影响</p>
-<p>父级块元素，就当浮动元素不存在，无视浮动元素进行布局。</p>
-<p>父级内联元素，以及父级块元素中的内联元素，则会被浮动元素“排挤”。</p>
-<p>对于同级</p>
+<ul>
+<li>父级块元素，就当浮动元素不存在，无视浮动元素进行布局；但内容受影响。</li>
+<li>父级行内元素，以及父级块元素中的行内元素，则会被浮动元素“排挤”。</li>
+<li>同级块级元素，布局不受影响。但内容受影响</li>
+<li>同级行内元素，会被浮动元素“排挤”。</li>
+</ul>
+<p>以下是浮动元素对其他元素的影响示例。创建了两个 div 块（为了看得更明显，规定这两个 div 的 height 为 150px，这也是后面测试 clearfix 失效的原因……），在第一个块中放入一些向左浮动的图片。</p>
 <div align="center">
-<img src="https://s2.loli.net/2021/12/24/pcXYlwEPzJVGtoa.png" width="60%">
+    <img src="https://s2.loli.net/2021/12/24/zVO4t9HI1RNQLDE.png" width="70%">
 </div>
+
+<blockquote>
+<p>通过BFC、clearfix等方法撑起自适应的高度，事先不能设置好高度（当然，高度坍塌就是经常在没有设置高度的情况下发生的）。</p>
+</blockquote>
+<blockquote>
+<p>补充一些好看的 CSS颜色（随手可用）：<a target="_blank" rel="noopener" href="https://www.wfublog.com/2015/08/css-color-code-table.html">CSS 色碼英文名稱對照表一覽</a>；salom, sandybrown, gold, lightgreen, skyblue, orchid</p>
+</blockquote>
+<p>三.2</p>
+<p>清除浮动用 after，即便最后的元素没有浮动，但只要同级元素中有浮动，它都能清除浮动。</p>
+<p>清除浮动前</p>
+<div align="center">
+    <img src="https://s2.loli.net/2021/12/24/1Oy6bnwHjNg5Pfs.png" width="70%">
+</div>
+
+<p>清除浮动后。注意：最后的 div 和 span 都没有设置浮动属性。而且块元素中的内容溢出来的部分（绿色字，父级打错了，应该是同级），不会撑起来。——简单来说，就是布局时只考虑 元素-盒子模型 的大小，块元素的大小经过设置后与内容无关（布局不用管块的内容），而行内元素的大小与内容有关。</p>
+<div align="center">
+    <img src="https://s2.loli.net/2021/12/24/a8sZE3FdIitYU2o.png" width="70%">
+</div>
+
+<div align="center">
+    <img src="https://s2.loli.net/2021/12/24/tmIGKykpaBgEn2q.png" width="70%">
+</div>
+
+<p>关于css-clear属性的解释，看 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/clear">MDN clear</a>：<br>“clear CSS 属性指定一个元素是否必须移动(清除浮动后)到在它之前的浮动元素下面。”。重点在于“之前”，且应该指的是“所有的”浮动元素。</p>
+<p>三.4</p>
+<p>对于同级元素，通过 hidden 触发 BFC 能够撑起高度，但是不能解决 margin 重叠问题。(将 outer1 和 outer2 调换顺序，即让底部块 hidden 触发 BFC 也不行)</p>
+<div align="center">
+    <img src="https://s2.loli.net/2021/12/26/9ZCRy3UkN2x8hnA.png" width="70%">
+</div>
+
+<p>关于父子元素的 margin 重叠问题 &amp; 子元素 margin 溢出父元素问题，参考 <a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000039093635">子元素margin-top导致父元素移动的问题</a>。</p>
+<p>四.1</p>
+<p>利用 border 来绘制各种图形——border的绘制规则</p>
+<p>设置一个像素为零的div块，可以想象以一个点划两条垂直和水平的线，border-top right bottom left 就是以这两条线为边界，border 的大小指定的是 border 的厚度</p>
+<div align="center">
+    <img src="https://s2.loli.net/2021/12/27/2JQNZrinCwphuTf.png" width="30%">
+</div>
+
+<h2 id="前端知识之JavaScript篇"><a href="#前端知识之JavaScript篇" class="headerlink" title="前端知识之JavaScript篇"></a>前端知识之JavaScript篇</h2><p>2021.12.27 - 2021.1.</p>
+<table>
+<thead>
+<tr>
+<th>题号</th>
+<th>补充内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>一.11</td>
+<td>红宝书 P71 + 各数据类型的转换规则 + 一.18 对象的转换规则<br>类型转换问题：操作（各种操作符）时，确定谁转换成谁，转换优先级和顺序 + a数据类型如何转化成b数据类型</td>
+</tr>
+<tr>
+<td>一.21</td>
+<td><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/assign">MDN Object.assign()</a> 、<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Spread_syntax#%E6%9E%84%E9%80%A0%E5%AD%97%E9%9D%A2%E9%87%8F%E5%AF%B9%E8%B1%A1%E6%97%B6%E4%BD%BF%E7%94%A8%E5%B1%95%E5%BC%80%E8%AF%AD%E6%B3%95">构造字面量对象时使用展开语法</a></td>
+</tr>
+<tr>
+<td>二.2</td>
+<td>面经说的有点绕。const 变量的值为引用值（也即对象数据类型）的时候，在栈空间的变量本身存储的值是对象的指针，它指向存储在堆内存中的真实对象的位置。此时变量直接存储的值，也就是栈空间中对象的指针不能修改，但是堆内存中的对象可以被修改。</td>
+</tr>
+<tr>
+<td>二.6</td>
+<td>扩展操作符的应用情况分类：两个方面：对什么数据操作 + 用于构造什么。<br>对普通对象使用：构造对象字面量<br>对数组对象使用：数组拷贝、数组合并、结构赋值拆分数组、用于函数调用时传入参数<br>ps: 对数组的扩展操作，逻辑上就等价于获得用逗号分隔的数据序列，比如 [1,2,3] —&gt; 1,2,3<br>对（非数组）可迭代对象使用：将可迭代对象转化成数组（比如 argument）<br>定义函数时在形参中使用：将参数收集到一个数组中，类似于 argument</td>
+</tr>
+<tr>
+<td>三.5</td>
+<td><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions">正则表达式 MDN</a></td>
+</tr>
+<tr>
+<td>三.11</td>
+<td>位运算简介看 红宝书：<br>位运算符用于数值的底层操作，也就是操作内存中表示数据的比特（位）。ES中的所有数值都是用IEEE754 64位格式存储，位操作并不直接应用到64位表示，而是先把值转换为32位整数再进行位操作，再把结果转换为64位。</td>
+</tr>
+<tr>
+<td>三.17</td>
+<td>变量提升 提高性能：能够在解析和预编译阶段提高性能，它能够预先一次性地为变量分配栈空间，而不必在函数执行时临时多次分配</td>
+</tr>
+<tr>
+<td>三.18</td>
+<td>详见红宝书 P307</td>
+</tr>
+<tr>
+<td>三.19</td>
+<td>面经说的不清楚 <a target="_blank" rel="noopener" href="https://juejin.cn/post/6938581764432461854">聊聊什么是CommonJs和Es Module及它们的区别</a></td>
+</tr>
+<tr>
+<td>三.21</td>
+<td>面经说的不清楚 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict_mode">严格模式的区别</a></td>
+</tr>
+<tr>
+<td>三.23</td>
+<td>面经说的不清楚 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1EE411R7hL?p=1&share_medium=android&share_plat=android&share_session_id=1af835fa-014b-4365-b4cd-1b3c8970108a&share_source=WEIXIN&share_tag=s_i&timestamp=1641224087&unique_k=7oZrrz4">B站 什么是强/弱类型，动态/静态类型语言？</a>、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%BC%BA%E7%B1%BB%E5%9E%8B/5074514">百度百科 强类型语言</a></td>
+</tr>
+<tr>
+<td>三.25</td>
+<td>红宝书 for-in 用于枚举对象中的非符号键属性；for-of 用于遍历可迭代对象的元素</td>
+</tr>
+<tr>
+<td>三.27</td>
+<td>AJAX精简描述见笔记中的三.16；<br>补充：Axios是一个基于promise的HTTP库，可以用在浏览器和 node.js 中。它本质也是对原生XMLHttpRequest的封装，只不过它是Promise的实现版本，符合最新的ES规范。</td>
+</tr>
+</tbody></table>
+<ul>
+<li>三.16</li>
+</ul>
+<p>以红宝书 P711 为准</p>
+<p>AJAX 是指通过 JavaScript 以异步通信的方式向服务器发送请求来获取额外的数据，而且可以局部地更新页面，不用重新请求和刷新整个页面。</p>
+<p>大致步骤：创建XHR对象、注册onreadystatechange事件处理程序、调用open()方法为发送请求做准备、调用setRequestHeader()设置请求头部、调用send()方法发送请求、收到响应后XHR对象相应属性被填充响应数据</p>
+<p>代码示例见 P716</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (xhr.status &gt;= <span class="number">200</span> &amp;&amp; xhr.status &lt; <span class="number">300</span> || xhr.status == <span class="number">304</span>) &#123;</span><br><span class="line">            alert(xhr.responseText);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            alert(<span class="string">&quot;Request was unsuccessful: &quot;</span> + xhr.status);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">xhr.open(<span class="string">&quot;post&quot;</span>, <span class="string">&quot;postexample.php&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">xhr.setResponseHeader(<span class="string">&quot;Content-Type&quot;</span>, <span class="string">&quot;application/x-www-form-urlencoded&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> form = <span class="built_in">document</span>.getElementById(<span class="string">&quot;user-info);</span></span><br><span class="line"><span class="string">xhr.send(serialize(form));</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>思考函数和对象的关系</li>
+</ul>
+<p><strong>JS 函数</strong> 的本质是对象，而 <strong>对象</strong> 又需要用构造函数来创建，看似这是一个鸡生蛋蛋生鸡的矛盾问题，其实这是概念定义模糊的导致的。可以这样理解，函数 和 对象（常规意义的对象，键值对的集合，主要用于集成数据） 确实不一样，但是考虑到它们在存储本质上的相似性，还是将函数算作对象（广义对象）中的一种（因为对象更具存储意味），即将 常规意义对象 的含义扩展并应用到函数上。</p>
+<p>PS：函数和常规对象（定义完成后）的存储本质确实相同，都是在栈内存中有个变量存储指针，指针指向堆空间中的某个键值对集合的位置；但两者在使用调用的时候会有不同的行为（由编译器等决定，访问对象-获取它的属性，访问函数-获取它的属性，调用函数-执行各种语句）。</p>
+<p>所以当我们追溯函数和常规对象的本质（存储形式如何，使用/调用时的行为），剥离“函数”和“对象”两个词汇对两者的概括和区分后，发现两者是各自存在的各自洽的，有区别也有共性。所以正确的表述是，<strong>JS 函数</strong> 的本质是<strong>广义对象</strong>， <strong>常规对象</strong> 需要用<strong>构造函数</strong>来创建。</p>
+<h2 id="前端知识之浏览器原理篇"><a href="#前端知识之浏览器原理篇" class="headerlink" title="前端知识之浏览器原理篇"></a>前端知识之浏览器原理篇</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/54882306">浏览器与Node的事件循环(Event Loop)有何区别?</a> 中先介绍了 JavaScript 在浏览器大背景下的执行机制。此处我补充思考一点，浏览器执行JS，是先编译出可执行代码，然后运行可执行代码的同时调用栈/执行栈会配合着运作（即运行到某个函数就将其上下文入栈，运行完毕即出栈）。此处有个疑问，当首屏渲染时，script 标签 代码全部运行完成后，进入监听事件等异步运行阶段，根据博客内容，main()函数（也即全局上下文？）已经出栈，但异步代码又是处理的 main() 中的内容，它们要如何追踪 main() 中的内容呢？闭包时的情况也有些许类似。</p>
+
       
     </div>
 
@@ -329,7 +461,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-12-21 15:02:44" itemprop="dateModified" datetime="2021-12-21T15:02:44+08:00">2021-12-21</time>
+        <time title="修改时间：2022-01-04 15:51:29" itemprop="dateModified" datetime="2022-01-04T15:51:29+08:00">2022-01-04</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -771,7 +903,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-12-24 14:44:53" itemprop="dateModified" datetime="2021-12-24T14:44:53+08:00">2021-12-24</time>
+        <time title="修改时间：2022-01-04 15:51:26" itemprop="dateModified" datetime="2022-01-04T15:51:26+08:00">2022-01-04</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -911,8 +1043,8 @@
 <h3 id="JavaScript-数据结构与算法"><a href="#JavaScript-数据结构与算法" class="headerlink" title="JavaScript 数据结构与算法"></a>JavaScript 数据结构与算法</h3><p>2021.11.29 - 2021</p>
 <ul>
 <li>（理论/实践）数据结构和算法（C++描述） + 学习JavaScript数据结构与算法</li>
-<li>（实践 - 后台/C++实现）<a target="_blank" rel="noopener" href="https://interviewguide.cn/#/Doc/Knowledge/%E7%AE%97%E6%B3%95/%E5%B8%A6%E4%BD%A0%E5%BF%AB%E9%80%9F%E5%88%B7%E5%AE%8C67%E9%81%93%E5%89%91%E6%8C%87offer/README?id=%e5%b8%a6%e4%bd%a0%e5%bf%ab%e9%80%9f%e5%88%b7%e5%ae%8c67%e9%81%93%e5%89%91%e6%8c%87offer">带你快速刷完67道剑指offer</a>、<a target="_blank" rel="noopener" href="https://github.com/MisterBooo/LeetCodeAnimation">LeetCode Animation</a>、<a target="_blank" rel="noopener" href="https://github.com/youngyangyang04/leetcode-master">LeetCode 刷题攻略</a></li>
-<li>（实践 - 前端/JS实现）<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903919722692621">前端该如何准备数据结构和算法？</a> + <a target="_blank" rel="noopener" href="https://github.com/ConardLi/awesome-coding-js">awesome-coding-js 2.5k 🌟</a>、<a target="_blank" rel="noopener" href="https://juejin.cn/post/6847009772500156429#heading-15">写给前端的算法进阶指南</a>+<a target="_blank" rel="noopener" href="https://github.com/sl1673495/leetcode-javascript/issues?page=1&q=is:issue+is:open">对应100道前端精选算法题 1.2k 🌟</a>、<a target="_blank" rel="noopener" href="https://www.nowcoder.com/discuss/101711?type=5">JS版剑指offer ①</a> <a target="_blank" rel="noopener" href="https://www.cnblogs.com/lilicat/p/15491755.html">②</a>、<a target="_blank" rel="noopener" href="https://github.com/sisterAn/JavaScript-Algorithms">适用于前端的数据结构与算法系列 3.3k 🌟</a>、<a target="_blank" rel="noopener" href="https://codetop.cc/home">CodeTop 企业题库 前端 230道</a>、<a target="_blank" rel="noopener" href="https://github.com/trekhleb/javascript-algorithms">JavaScript Algorithms and Data Structures</a>;</li>
+<li>（实践 - 后台/C++实现）<a target="_blank" rel="noopener" href="https://interviewguide.cn/#/Doc/Knowledge/%E7%AE%97%E6%B3%95/%E5%B8%A6%E4%BD%A0%E5%BF%AB%E9%80%9F%E5%88%B7%E5%AE%8C67%E9%81%93%E5%89%91%E6%8C%87offer/README?id=%e5%b8%a6%e4%bd%a0%e5%bf%ab%e9%80%9f%e5%88%b7%e5%ae%8c67%e9%81%93%e5%89%91%e6%8c%87offer">带你快速刷完67道剑指offer</a>、<a target="_blank" rel="noopener" href="https://github.com/MisterBooo/LeetCodeAnimation">LeetCode Animation</a>、<a target="_blank" rel="noopener" href="https://github.com/youngyangyang04/leetcode-master">LeetCode 刷题攻略</a>、<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problem-list/2cktkvj/">LeetCode Hot 100</a></li>
+<li>（实践 - 前端/JS实现）<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903919722692621">前端该如何准备数据结构和算法？</a> + <a target="_blank" rel="noopener" href="https://github.com/ConardLi/awesome-coding-js">awesome-coding-js 2.5k 🌟</a>、<a target="_blank" rel="noopener" href="https://juejin.cn/post/6847009772500156429#heading-15">写给前端的算法进阶指南</a>+<a target="_blank" rel="noopener" href="https://github.com/sl1673495/leetcode-javascript/issues?page=1&q=is:issue+is:open">对应100道前端精选算法题 1.2k 🌟</a>、<a target="_blank" rel="noopener" href="https://www.nowcoder.com/discuss/101711?type=5">JS版剑指offer ①</a> <a target="_blank" rel="noopener" href="https://www.cnblogs.com/lilicat/p/15491755.html">②</a>、<a target="_blank" rel="noopener" href="https://github.com/sisterAn/JavaScript-Algorithms">适用于前端的数据结构与算法系列 80道 3.3k 🌟</a>、<a target="_blank" rel="noopener" href="https://codetop.cc/home">CodeTop 企业题库 前端 230道</a>、<a target="_blank" rel="noopener" href="https://github.com/trekhleb/javascript-algorithms">JavaScript Algorithms and Data Structures</a>;</li>
 </ul>
 <p>PS：<a href="">刷题日志和笔记</a></p>
 <blockquote>
@@ -922,7 +1054,11 @@
 <li><p>从 Web 开发的大背景 思考前端</p>
 <p>  感觉有必要先了解 Web网页的开发模式 这一大背景：</p>
 <p>  目前我对前端的认知是，用户在浏览器中输入URL，浏览器从服务器加载 HTML、CSS、JS 等资源，本地浏览器对获取的内容进行渲染显示，并响应用户对页面的操作。前端就负责整个页面的实现（所谓 HTML-结构内容 CSS-样式布局 JS-行为）+科学的代码风格和设计模式/理念，以及考虑在浏览器端和网络传输方面能做的性能优化，也可以了解服务端的开发使得我们写出对后台更友好的页面（甚至迈向全栈）——值得思考的问题是：什么情况下，浏览器要和服务器通信（请求数据，更新页面，打开新页面等）？又有哪些事情需要在服务端处理/哪些是从服务器获取数据后在浏览器处理？前端开发 和 MVC MVP MVVM 等 Web开发模式有什么关系（感觉更像是服务端而非前端的东西）。</p>
-<p>  MVC MVP MVVM 简介：<a target="_blank" rel="noopener" href="https://iter01.com/519597.html">不要再問我MVC、MVP、MVVM了</a>，<a target="_blank" rel="noopener" href="https://www.yuque.com/sunluyong/node/mvc">Web 设计模式</a></p>
+<p>  MVC MVP MVVM 简介：<a target="_blank" rel="noopener" href="https://iter01.com/519597.html">不要再問我MVC、MVP、MVVM了</a>，<a target="_blank" rel="noopener" href="https://www.yuque.com/sunluyong/node/mvc">Web 设计模式</a>，<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV137411N7aB?from=search&seid=12360290446601578306&spm_id_from=333.337.0.0">B站 MVC、MVP和MVVM</a></p>
+  <div align="center">
+  <img src="https://s2.loli.net/2022/01/04/5cKkqt3mypzhNw8.png" width="70%">
+  </div>
+
 <p>  我们写好的完整页面（包括展示和交互等），打包好的文件（如果使用了webpack）最终仍是要部署到（具有某个域名的）服务器上的，最终用户还是要从从浏览器输入网址域名，从我们的服务器上请求该网页的（开发时，我们用本机的某个端口模拟来这个服务器）。</p>
 </li>
 <li><p>React 简介</p>
@@ -1173,7 +1309,7 @@
 <p>前端路由原理 + 基本使用</p>
 </blockquote>
 <p>  基于浏览器的历史记录，即 BOM 的 history 对象。在页面点击按钮或链接，取消其默认事件处理，设置事件处理为调用 history API 对浏览器历史记录进行修改（栈结构，历史记录入栈出栈替换等）+ 给 history 对象添加历史记录变更事件的事件处理函数，让历史记录发生改变时做出相应的前端变更。</p>
-<p>  在 react-router-dom 的帮助下，以上过程可封装为：将需要路由功能的组件（导航和展示）用一个 BrowserProuter组件 包裹（通常是整个 &lt; APP /&gt; 组件，可创建多个 &lt; BrowserProuter &gt; 组件，不同路由器下有各自的路由规则 + 创建设置路由链接（点了改变地址栏和历史记录） + 注册路由（建立地址栏路径和组件映射关系，地址栏变更的时候渲染对应的组件）</p>
+<p>  在 react-router-dom 的帮助下，以上过程可封装为：将需要路由功能的组件（导航和展示）用一个 BrowserProuter组件 包裹需要路由功能的组件（通常是整个 &lt; APP /&gt; 组件，可创建多个 &lt; BrowserProuter &gt; 组件，不同路由器下有各自的路由规则） + 创建设置路由链接（点了改变地址栏和历史记录） + 注册路由（建立地址栏路径和组件映射关系，地址栏变更的时候渲染对应的组件）</p>
 <p>  一般组件和路由组件的区别：语法写法不同不必说；一般组件是自然渲染，而路由组件是路由到它的时候渲染；我们区分存放它们的代码文件的位置（一般是 components 和 pages）；渲染实例化时接受的参数props内容不同，一般组件传入什么接收什么，路由组件包含 history, location, match 等。</p>
 </li>
 </ul>
@@ -1293,7 +1429,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
