@@ -20,12 +20,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="前端知识之HTML篇2021.12.15 - 2021.27 前端知识之CSS篇2021.12.15 - 2021.27    题号 补充内容    一.18 重新認識 Pixel、DPI &#x2F; PPI 以及像素密度   一.20 css基线与行高   二.02 前端响应式布局基础——rem   二.03 MDN-BFC10 分钟理解BFC 原理   二.07 B站 CSS3-flex布局30分钟学">
+<meta name="description" content="前端知识之HTML篇2021.12.15 - 2021.27 前端知识之CSS篇2021.12.15 - 2021.1.27    题号 补充内容    一.18 重新認識 Pixel、DPI &#x2F; PPI 以及像素密度   一.20 css基线与行高   二.02 前端响应式布局基础——rem   二.03 MDN-BFC10 分钟理解BFC 原理   二.07 B站 CSS3-flex布局30分">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端-知识点笔记">
 <meta property="og:url" content="http://example.com/2021/12/21/%E5%89%8D%E7%AB%AF-%E7%9F%A5%E8%AF%86%E7%82%B9%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Wu&#39;s Blog">
-<meta property="og:description" content="前端知识之HTML篇2021.12.15 - 2021.27 前端知识之CSS篇2021.12.15 - 2021.27    题号 补充内容    一.18 重新認識 Pixel、DPI &#x2F; PPI 以及像素密度   一.20 css基线与行高   二.02 前端响应式布局基础——rem   二.03 MDN-BFC10 分钟理解BFC 原理   二.07 B站 CSS3-flex布局30分钟学">
+<meta property="og:description" content="前端知识之HTML篇2021.12.15 - 2021.27 前端知识之CSS篇2021.12.15 - 2021.1.27    题号 补充内容    一.18 重新認識 Pixel、DPI &#x2F; PPI 以及像素密度   一.20 css基线与行高   二.02 前端响应式布局基础——rem   二.03 MDN-BFC10 分钟理解BFC 原理   二.07 B站 CSS3-flex布局30分">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2021/12/24/zVO4t9HI1RNQLDE.png">
 <meta property="og:image" content="https://s2.loli.net/2021/12/24/1Oy6bnwHjNg5Pfs.png">
@@ -33,8 +33,9 @@
 <meta property="og:image" content="https://s2.loli.net/2021/12/24/tmIGKykpaBgEn2q.png">
 <meta property="og:image" content="https://s2.loli.net/2021/12/26/9ZCRy3UkN2x8hnA.png">
 <meta property="og:image" content="https://s2.loli.net/2021/12/27/2JQNZrinCwphuTf.png">
+<meta property="og:image" content="https://s2.loli.net/2022/01/05/VgEHs45NtURnKJa.png">
 <meta property="article:published_time" content="2021-12-21T07:03:34.000Z">
-<meta property="article:modified_time" content="2022-01-04T07:51:27.896Z">
+<meta property="article:modified_time" content="2022-01-08T09:27:46.590Z">
 <meta property="article:author" content="Wu Chaojie">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://s2.loli.net/2021/12/24/zVO4t9HI1RNQLDE.png">
@@ -222,7 +223,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-01-04 15:51:27" itemprop="dateModified" datetime="2022-01-04T15:51:27+08:00">2022-01-04</time>
+        <time title="修改时间：2022-01-08 17:27:46" itemprop="dateModified" datetime="2022-01-08T17:27:46+08:00">2022-01-08</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -245,7 +246,7 @@
     
     <div class="post-body" itemprop="articleBody">
         <h2 id="前端知识之HTML篇"><a href="#前端知识之HTML篇" class="headerlink" title="前端知识之HTML篇"></a>前端知识之HTML篇</h2><p>2021.12.15 - 2021.27</p>
-<h2 id="前端知识之CSS篇"><a href="#前端知识之CSS篇" class="headerlink" title="前端知识之CSS篇"></a>前端知识之CSS篇</h2><p>2021.12.15 - 2021.27</p>
+<h2 id="前端知识之CSS篇"><a href="#前端知识之CSS篇" class="headerlink" title="前端知识之CSS篇"></a>前端知识之CSS篇</h2><p>2021.12.15 - 2021.1.27</p>
 <table>
 <thead>
 <tr>
@@ -340,7 +341,7 @@
     <img src="https://s2.loli.net/2021/12/27/2JQNZrinCwphuTf.png" width="30%">
 </div>
 
-<h2 id="前端知识之JavaScript篇"><a href="#前端知识之JavaScript篇" class="headerlink" title="前端知识之JavaScript篇"></a>前端知识之JavaScript篇</h2><p>2021.12.27 - 2021.1.</p>
+<h2 id="前端知识之JavaScript篇"><a href="#前端知识之JavaScript篇" class="headerlink" title="前端知识之JavaScript篇"></a>前端知识之JavaScript篇</h2><p>2021.12.27 - 2022.1.8</p>
 <table>
 <thead>
 <tr>
@@ -411,11 +412,63 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (xhr.status &gt;= <span class="number">200</span> &amp;&amp; xhr.status &lt; <span class="number">300</span> || xhr.status == <span class="number">304</span>) &#123;</span><br><span class="line">            alert(xhr.responseText);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            alert(<span class="string">&quot;Request was unsuccessful: &quot;</span> + xhr.status);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">xhr.open(<span class="string">&quot;post&quot;</span>, <span class="string">&quot;postexample.php&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">xhr.setResponseHeader(<span class="string">&quot;Content-Type&quot;</span>, <span class="string">&quot;application/x-www-form-urlencoded&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> form = <span class="built_in">document</span>.getElementById(<span class="string">&quot;user-info);</span></span><br><span class="line"><span class="string">xhr.send(serialize(form));</span></span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>思考函数和对象的关系</li>
+<li>四.1</li>
 </ul>
-<p><strong>JS 函数</strong> 的本质是对象，而 <strong>对象</strong> 又需要用构造函数来创建，看似这是一个鸡生蛋蛋生鸡的矛盾问题，其实这是概念定义模糊的导致的。可以这样理解，函数 和 对象（常规意义的对象，键值对的集合，主要用于集成数据） 确实不一样，但是考虑到它们在存储本质上的相似性，还是将函数算作对象（广义对象）中的一种（因为对象更具存储意味），即将 常规意义对象 的含义扩展并应用到函数上。</p>
-<p>PS：函数和常规对象（定义完成后）的存储本质确实相同，都是在栈内存中有个变量存储指针，指针指向堆空间中的某个键值对集合的位置；但两者在使用调用的时候会有不同的行为（由编译器等决定，访问对象-获取它的属性，访问函数-获取它的属性，调用函数-执行各种语句）。</p>
-<p>所以当我们追溯函数和常规对象的本质（存储形式如何，使用/调用时的行为），剥离“函数”和“对象”两个词汇对两者的概括和区分后，发现两者是各自存在的各自洽的，有区别也有共性。所以正确的表述是，<strong>JS 函数</strong> 的本质是<strong>广义对象</strong>， <strong>常规对象</strong> 需要用<strong>构造函数</strong>来创建。</p>
+<p>思考函数和对象的关系</p>
+<p><strong>JS 函数</strong> 的本质是对象，而 <strong>对象</strong> 又需要用构造函数来创建，看似这是一个鸡生蛋蛋生鸡的矛盾问题，其实这是概念定义模糊的导致的。可以这样理解，<strong>函数</strong> 和 <strong>常规对象</strong>（常规意义的对象，键值对的集合，主要用于集成数据）确实不一样（将这两者作为根本起点，不然怎么都追溯不到源头），但是考虑到它们在存储本质上的相似性，还是将函数算作一种<strong>广义对象</strong>（此时对象主要突出其存储层面的意义）。</p>
+<p>PS：函数和常规对象（定义完成后）的存储本质确实相同，都是在栈内存中有个变量存储指针，指针指向堆空间中的某个键值对集合的位置；但两者在使用调用的时候会有不同的行为（由解释器等决定，访问对象-获取它的属性，访问函数-获取它的属性，调用函数-执行各种语句）。我们可以将 <strong>函数</strong> 和 <strong>常规对象</strong> 这两个基本概念以及它们的底层本质 作为我们创建整个 JavaScript Object 体系的初始条件/原材料。</p>
+<p>所以当我们追溯函数和常规对象的本质（存储形式如何，使用/调用时的行为），剥离“函数”和“对象”两个词汇对两者的概括和区分后，发现两者是各自存在的各自洽的，有区别也有共性。所以正确的表述是，<strong>JS 函数</strong> 的本质是<strong>广义对象</strong>， <strong>（常规&amp;广义）对象</strong> 需要用<strong>构造函数</strong>来创建。</p>
+<div align="right">
+    <img src="https://s2.loli.net/2022/01/05/VgEHs45NtURnKJa.png" width="80%">
+</div>
+
+<ul>
+<li>五.1</li>
+</ul>
+<p>关于 <code>setTimeout()</code> ，它接受的函数只是函数的定义，并非直接调用了函数。函数中涉及到的外部的变量，得在调用它的时候才能确定变量的值。（也因此，外部函数/作用域执行结束后，其上下文不会被销毁——普通情况下执行完就要销毁，而会保留？）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt;= <span class="number">5</span>; i++) &#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> <span class="title">timer</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i)</span><br><span class="line">  &#125;, i * <span class="number">1000</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>至于 for-let 语句，此前就有疑问，let 的作用域是块，那 for 语句括号中的 let 变量算什么？原来是，for 每执行一次块语句，就会为当前的块作用域 let 一个变量。普通情况下，此次块语句执行完成，这个块作用域的 let 变量也就被销毁了。但以下代码中，let 变量被引入到了 setTimeout 中的回调函数的定义中，只要每次的异步调用不完成，对应的 let 变量就不会被销毁。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt;= <span class="number">5</span>; i++) &#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> <span class="title">timer</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i)</span><br><span class="line">  &#125;, i * <span class="number">1000</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>自行补充复习 红宝书 中闭包的内容。</p>
+<p>五.2/3</p>
+<p>面试还是背面经，但私下要有自己的理解</p>
+<p>关键在于理清概念：作用域&amp;访问规则、执行上下文、作用域链</p>
+<p>注：上下文变量对象 和 作用域链 的实际关系——见红宝书-闭包小节</p>
+<p><strong>红宝书 小结</strong></p>
+<blockquote>
+<p>任何变量(不管包含的是原始值还是引用值)都存在于某个执行上下文中(也称为作用域)。这个上下文(作用域)决定了变量的生命周期，以及它们可以访问代码的哪些部分。执行上下文可以总结 如下。</p>
+<ul>
+<li>执行上下文分全局上下文、函数上下文和块级上下文。</li>
+<li>代码执行流每进入一个新上下文，都会创建一个作用域链，用于搜索变量和函数。</li>
+<li>函数或块的局部上下文不仅可以访问自己作用域内的变量，而且也可以访问任何包含上下文乃至全局上下文中的变量。</li>
+<li>全局上下文只能访问全局上下文中的变量和函数，不能直接访问局部上下文中的任何数据。</li>
+<li>变量的执行上下文用于确定什么时候释放内存。</li>
+</ul>
+</blockquote>
+<p>注：一般来说，作用域偏向于描述一套我们编写代码是的访问数据的规则（作用域就是一片代码区域-全局/函数/块，规则就是当下区域代码能够访问当下区域和上层区域的数据），执行上下文则是这套规则的具体底层实现机制。小结中的<code>上下文</code>更偏向于是作用域的概念。</p>
+<p><strong>补充：</strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/482318118/answer/2085785870">JS 的执行上下文和作用域到底有什么区别和联系？</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/bala/p/12146607.html">JS 代码的执行流程</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/bala/p/12158354.html">JavaScript 是如何支持块级作用域的 —— 词法环境</a></p>
+<p>可以看看犀牛书，系统地深入一下</p>
+<ul>
+<li>七.3</li>
+</ul>
+<p>关于 Promise，一是学习其行为：同步代码中的行为+异步部分的行为（代码语法，代码执行的流程），二是理解其逻辑作用：封装包裹异步操作，并作为其对应的“尚不存在的结果的替身”，让我们方便在同步代码中安排制定异步代码的内容和流程。</p>
+<p>PS：在行为方面，期约有三种状态，并非都是pending状态——“尚不存在的结果”，我们自然可以创建一个有结果的期约来玩语法，但我们始终要清楚期约主要的作用和意义就是拿来处理“尚不存在的结果”。以下的思考，我们也都是要行为和逻辑结合起来思考，只单独考虑某一方面是无法充分理解期约的设计的。</p>
+<p>单个期约的行为比较简单（三个状态，传入的执行器函数同步/立即执行），一串期约的链式作用的行为就有点复杂。关键在于理解<code>then()</code>。</p>
+<p>在逻辑的角度/在同步代码中，可以这样理解<code>then()</code>：某个期约解决后，它接收这一个期约的结果，然后用一个处理函数进行一定的响应操作——可能会有返回值。<code>then()</code>会返回一个根据处理函数的返回值构建的期约。<br>从<code>then()</code>的行为方面考量，有意思的是它在同步代码中直接返回一个期约，这个期约和它的处理函数的返回值挂钩——也就是，then方法返回的期约，“接住”“兜住”了其处理函数返回的结果，这点挺神奇的。实际上来说，<code>then()</code>中的处理函数可能还未执行，其返回值也自然就还不存在，<code>then()</code>返回的期约是怎么和它挂钩呢？这就得看JS的底层实现了。<br>此处，我们可以从逻辑上将<code>then()</code>里面的处理函数，也当作是一个“异步操作”（类似于setTimeout及其回调。此处类比则是等待期约解决，回调就是处理函数），<code>then()</code> 返回的期约就是对它的封装，也是尚未执行的处理函数返回结果的替代。<br>进一步来说，以下面代码<code>p2</code>为例：同步代码执行时，<code>p2</code>就代表着尚未执行处理函数的返回值的替代。等到异步环节处理函数执行完，我们得到了一个返回的期约——也就是“等待之前的期约解决并执行处理函数”这个“异步操作”的结果，此时后台会自动调用<code>Promise.resovle()</code>将这个结果转化成<code>p2</code>的值，<code>p2</code>在这个角度上来说就不再是一个“替代”，而是货真价实的值。至于<code>p2</code>取得的这个处理函数返回的期约什么时候解决，又是另一回事了。 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">p1 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>)=&gt;</span>&#123;<span class="built_in">setTimeout</span>(resolve, <span class="number">1000</span>, <span class="number">1</span>)&#125;);</span><br><span class="line">p2 = p1.then(<span class="function">(<span class="params">value</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>)=&gt;</span>&#123;<span class="built_in">setTimeout</span>(resolve, <span class="number">1000</span>, <span class="number">2</span>)&#125;);</span><br><span class="line">&#125;);</span><br><span class="line">p3 = p2.then(<span class="function">(<span class="params">value</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>)=&gt;</span>&#123;<span class="built_in">setTimeout</span>(resolve, <span class="number">1000</span>, <span class="number">3</span>)&#125;);</span><br><span class="line">&#125;);</span><br><span class="line">p4 = p3.then(<span class="function">(<span class="params">value</span>)=&gt;</span>&#123;<span class="built_in">console</span>.log(value)&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 控制台每隔一秒输出</span></span><br><span class="line"><span class="number">1</span>                               VM4663:<span class="number">3</span> </span><br><span class="line"><span class="number">2</span>                               VM4663:<span class="number">7</span> </span><br><span class="line"><span class="number">3</span>                               VM4663:<span class="number">10</span> </span><br></pre></td></tr></table></figure>
+
+<p><strong>总结来说</strong>：<br>一个期约就是一段包裹了异步操作的代码，并代表了异步操作尚未存在的结果（要习惯期约的一体两面,它即代表了一定的操作，也代表该操作的结果）。</p>
+<p><code>then()</code>就是等某个期约有结果后，针对它进行一定的操作（可能是同步操作或异步操作,异步操作一般被封装在一个期约中），这个操作可能有返回结果（确定的值，或者是一个异步操作的期约）。<code>then()</code>返回一个期约，这个期约可以理解为是对“等待之前的期约解决并执行处理函数”这个“异步操作”的封装，是对该操作尚未return的结果的替代。</p>
+<p>进一步简化<code>then()</code>的细节，得出结论——将<strong>异步代码串行化</strong>：在同步代码中指定好一系列的<code>then()</code>后，在<u>异步阶段</u>中，最初定义的期约解决后，以此解决值为输入，执行其<code>then()</code>中的处理函数，处理函数返回的值用一个新的期约接住。新的期约结果解决后，再以此解决值为输入，继续执行后面的<code>then()</code>中的处理函数。（实际打代码的时候就这么看。重点在于：是一个接一个的，要等前一个解决；处理函数中要记得return需要的期约/异步操作）</p>
+<ul>
+<li>七.9</li>
+</ul>
+<p><code>then()</code>虽然避免了回调地狱，但是<code>then()</code>提供的操作异步代码的模式也有问题：往then里面塞处理函数比较麻烦，而且实际上同步代码只是给异步代码的执行做出了“规定”，同步代码和异步代码在概念上还是比较分离的（同步代码仅制定异步的规则——它自顾自地直接执行下去，一系列的then我们都得单独拉到“异步阶段”来思考——需要步步推演。但是如果只then一下的话，情况还是清晰明了的）</p>
+<p>于是就有了 async 和 await，其巧妙的设计让我们能以写同步代码的方式写异步代码，是一种更自然方便的编程思维。</p>
 <h2 id="前端知识之浏览器原理篇"><a href="#前端知识之浏览器原理篇" class="headerlink" title="前端知识之浏览器原理篇"></a>前端知识之浏览器原理篇</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/54882306">浏览器与Node的事件循环(Event Loop)有何区别?</a> 中先介绍了 JavaScript 在浏览器大背景下的执行机制。此处我补充思考一点，浏览器执行JS，是先编译出可执行代码，然后运行可执行代码的同时调用栈/执行栈会配合着运作（即运行到某个函数就将其上下文入栈，运行完毕即出栈）。此处有个疑问，当首屏渲染时，script 标签 代码全部运行完成后，进入监听事件等异步运行阶段，根据博客内容，main()函数（也即全局上下文？）已经出栈，但异步代码又是处理的 main() 中的内容，它们要如何追踪 main() 中的内容呢？闭包时的情况也有些许类似。</p>
 
     </div>
