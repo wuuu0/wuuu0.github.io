@@ -209,7 +209,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-01-08 17:27:46" itemprop="dateModified" datetime="2022-01-08T17:27:46+08:00">2022-01-08</time>
+        <time title="修改时间：2022-01-13 14:49:06" itemprop="dateModified" datetime="2022-01-13T14:49:06+08:00">2022-01-13</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -231,7 +231,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="前端知识之HTML篇"><a href="#前端知识之HTML篇" class="headerlink" title="前端知识之HTML篇"></a>前端知识之HTML篇</h2><p>2021.12.15 - 2021.27</p>
+          <h2 id="学习资料"><a href="#学习资料" class="headerlink" title="学习资料"></a>学习资料</h2><p><a target="_blank" rel="noopener" href="https://www.yuque.com/cuggz/interview">前端面试题汇总</a></p>
+<h2 id="前端知识之HTML篇"><a href="#前端知识之HTML篇" class="headerlink" title="前端知识之HTML篇"></a>前端知识之HTML篇</h2><p>2021.12.15 - 2021.27</p>
+<p><mark>需要再补充一些面经</mark></p>
 <h2 id="前端知识之CSS篇"><a href="#前端知识之CSS篇" class="headerlink" title="前端知识之CSS篇"></a>前端知识之CSS篇</h2><p>2021.12.15 - 2021.1.27</p>
 <table>
 <thead>
@@ -327,6 +329,7 @@
     <img src="https://s2.loli.net/2021/12/27/2JQNZrinCwphuTf.png" width="30%">
 </div>
 
+<p><mark>需要再补充一些面经</mark></p>
 <h2 id="前端知识之JavaScript篇"><a href="#前端知识之JavaScript篇" class="headerlink" title="前端知识之JavaScript篇"></a>前端知识之JavaScript篇</h2><p>2021.12.27 - 2022.1.8</p>
 <table>
 <thead>
@@ -372,8 +375,12 @@
 <td>面经说的不清楚 <a target="_blank" rel="noopener" href="https://juejin.cn/post/6938581764432461854">聊聊什么是CommonJs和Es Module及它们的区别</a></td>
 </tr>
 <tr>
+<td>三.20</td>
+<td>补充：DOM-红宝书 P401</td>
+</tr>
+<tr>
 <td>三.21</td>
-<td>面经说的不清楚 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict_mode">严格模式的区别</a></td>
+<td>补充区别 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict_mode">严格模式的区别</a></td>
 </tr>
 <tr>
 <td>三.23</td>
@@ -437,7 +444,13 @@
 <p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/482318118/answer/2085785870">JS 的执行上下文和作用域到底有什么区别和联系？</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/bala/p/12146607.html">JS 代码的执行流程</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/bala/p/12158354.html">JavaScript 是如何支持块级作用域的 —— 词法环境</a></p>
-<p>可以看看犀牛书，系统地深入一下</p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6896668614272024589">深入浅出执行上下文、词法环境、变量环境</a></p>
+<p>梳理一下 执行上下文-变量存储-函数 的关系：</p>
+<ol>
+<li>以运行时环境的存储构造为基础——<a target="_blank" rel="noopener" href="https://www.cnblogs.com/bala/p/12188441.html">栈空间和堆空间：数据是如何存储的？</a>，进行后续思考。</li>
+<li><strong>函数调用</strong>会创建执行上下文——它存储在栈结构中（包括入口程序的调用，对应全局上下文），上下文中包含一个变量对象/活动对象（完整的执行上下文见 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/bala/p/12188441.html">栈空间和堆空间：数据是如何存储的？</a>），存储了函数体中定义的变量（换句话说，不调用函数的话，函数体中定义的变量实际上在存储空间里是不存在的）。其中引用类型的数据（对象）会存储在堆空间中。</li>
+<li><strong>函数</strong>仅<strong>定义</strong>未调用时，可以认为它是一个特殊的对象（也即引用类型数据）——该对象中包含它的源代码+属性，它的命名会当作变量存储在变量对象/活动对象中（但红宝书P311中，全局变量对象中的compare指向的是compare上下文，而不是compare定义，说明函数compare被调用后有一些特殊的操作）。</li>
+</ol>
 <ul>
 <li>七.3</li>
 </ul>
@@ -447,7 +460,7 @@
 <p>在逻辑的角度/在同步代码中，可以这样理解<code>then()</code>：某个期约解决后，它接收这一个期约的结果，然后用一个处理函数进行一定的响应操作——可能会有返回值。<code>then()</code>会返回一个根据处理函数的返回值构建的期约。<br>从<code>then()</code>的行为方面考量，有意思的是它在同步代码中直接返回一个期约，这个期约和它的处理函数的返回值挂钩——也就是，then方法返回的期约，“接住”“兜住”了其处理函数返回的结果，这点挺神奇的。实际上来说，<code>then()</code>中的处理函数可能还未执行，其返回值也自然就还不存在，<code>then()</code>返回的期约是怎么和它挂钩呢？这就得看JS的底层实现了。<br>此处，我们可以从逻辑上将<code>then()</code>里面的处理函数，也当作是一个“异步操作”（类似于setTimeout及其回调。此处类比则是等待期约解决，回调就是处理函数），<code>then()</code> 返回的期约就是对它的封装，也是尚未执行的处理函数返回结果的替代。<br>进一步来说，以下面代码<code>p2</code>为例：同步代码执行时，<code>p2</code>就代表着尚未执行处理函数的返回值的替代。等到异步环节处理函数执行完，我们得到了一个返回的期约——也就是“等待之前的期约解决并执行处理函数”这个“异步操作”的结果，此时后台会自动调用<code>Promise.resovle()</code>将这个结果转化成<code>p2</code>的值，<code>p2</code>在这个角度上来说就不再是一个“替代”，而是货真价实的值。至于<code>p2</code>取得的这个处理函数返回的期约什么时候解决，又是另一回事了。 </p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">p1 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>)=&gt;</span>&#123;<span class="built_in">setTimeout</span>(resolve, <span class="number">1000</span>, <span class="number">1</span>)&#125;);</span><br><span class="line">p2 = p1.then(<span class="function">(<span class="params">value</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>)=&gt;</span>&#123;<span class="built_in">setTimeout</span>(resolve, <span class="number">1000</span>, <span class="number">2</span>)&#125;);</span><br><span class="line">&#125;);</span><br><span class="line">p3 = p2.then(<span class="function">(<span class="params">value</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>)=&gt;</span>&#123;<span class="built_in">setTimeout</span>(resolve, <span class="number">1000</span>, <span class="number">3</span>)&#125;);</span><br><span class="line">&#125;);</span><br><span class="line">p4 = p3.then(<span class="function">(<span class="params">value</span>)=&gt;</span>&#123;<span class="built_in">console</span>.log(value)&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 控制台每隔一秒输出</span></span><br><span class="line"><span class="number">1</span>                               VM4663:<span class="number">3</span> </span><br><span class="line"><span class="number">2</span>                               VM4663:<span class="number">7</span> </span><br><span class="line"><span class="number">3</span>                               VM4663:<span class="number">10</span> </span><br></pre></td></tr></table></figure>
 
-<p><strong>总结来说</strong>：<br>一个期约就是一段包裹了异步操作的代码，并代表了异步操作尚未存在的结果（要习惯期约的一体两面,它即代表了一定的操作，也代表该操作的结果）。</p>
+<p><strong>总结来说</strong>：<br>一个期约就是一段包裹了异步操作的代码（对象），并代表了异步操作尚未存在的结果（要习惯期约的一体两面,它即代表了一定的操作，也代表该操作的结果）。</p>
 <p><code>then()</code>就是等某个期约有结果后，针对它进行一定的操作（可能是同步操作或异步操作,异步操作一般被封装在一个期约中），这个操作可能有返回结果（确定的值，或者是一个异步操作的期约）。<code>then()</code>返回一个期约，这个期约可以理解为是对“等待之前的期约解决并执行处理函数”这个“异步操作”的封装，是对该操作尚未return的结果的替代。</p>
 <p>进一步简化<code>then()</code>的细节，得出结论——将<strong>异步代码串行化</strong>：在同步代码中指定好一系列的<code>then()</code>后，在<u>异步阶段</u>中，最初定义的期约解决后，以此解决值为输入，执行其<code>then()</code>中的处理函数，处理函数返回的值用一个新的期约接住。新的期约结果解决后，再以此解决值为输入，继续执行后面的<code>then()</code>中的处理函数。（实际打代码的时候就这么看。重点在于：是一个接一个的，要等前一个解决；处理函数中要记得return需要的期约/异步操作）</p>
 <ul>
@@ -455,7 +468,45 @@
 </ul>
 <p><code>then()</code>虽然避免了回调地狱，但是<code>then()</code>提供的操作异步代码的模式也有问题：往then里面塞处理函数比较麻烦，而且实际上同步代码只是给异步代码的执行做出了“规定”，同步代码和异步代码在概念上还是比较分离的（同步代码仅制定异步的规则——它自顾自地直接执行下去，一系列的then我们都得单独拉到“异步阶段”来思考——需要步步推演。但是如果只then一下的话，情况还是清晰明了的）</p>
 <p>于是就有了 async 和 await，其巧妙的设计让我们能以写同步代码的方式写异步代码，是一种更自然方便的编程思维。</p>
-<h2 id="前端知识之浏览器原理篇"><a href="#前端知识之浏览器原理篇" class="headerlink" title="前端知识之浏览器原理篇"></a>前端知识之浏览器原理篇</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/54882306">浏览器与Node的事件循环(Event Loop)有何区别?</a> 中先介绍了 JavaScript 在浏览器大背景下的执行机制。此处我补充思考一点，浏览器执行JS，是先编译出可执行代码，然后运行可执行代码的同时调用栈/执行栈会配合着运作（即运行到某个函数就将其上下文入栈，运行完毕即出栈）。此处有个疑问，当首屏渲染时，script 标签 代码全部运行完成后，进入监听事件等异步运行阶段，根据博客内容，main()函数（也即全局上下文？）已经出栈，但异步代码又是处理的 main() 中的内容，它们要如何追踪 main() 中的内容呢？闭包时的情况也有些许类似。</p>
+<h2 id="前端知识之浏览器原理篇"><a href="#前端知识之浏览器原理篇" class="headerlink" title="前端知识之浏览器原理篇"></a>前端知识之浏览器原理篇</h2><p>2022.1.8-2022.1.13</p>
+<p>重要补充资料：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1x54y1B7RE?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click">【干货】浏览器是如何运作的？</a></p>
+<ul>
+<li>关于函数的执行和执行上下文</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/54882306">浏览器与Node的事件循环(Event Loop)有何区别?</a> 中先介绍了 JavaScript 在浏览器大背景下的执行机制。此处我补充思考一点，浏览器执行JS，是先编译出可执行代码，然后运行可执行代码的同时调用栈/执行栈会配合着运作（即运行到某个函数就将其上下文入栈，运行完毕即出栈）。此处有个疑问，当首屏渲染时，script 标签 代码全部运行完成后，进入监听事件等异步运行阶段，根据博客内容，main()函数（也即全局上下文？）已经出栈，但异步代码又是处理的 main() 中的内容，它们要如何追踪 main() 中的内容呢？闭包时的情况也有些许类似。</p>
+<p>解答：<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/bala/p/12188441.html">栈空间和堆空间：数据是如何存储的？</a> 中提到：“产生闭包的核心有两步：第一步是需要预扫描内部函数；第二部是把内部函数引用的外部变量保存到堆中。”<br>红宝书 P312 也在生命周期方面做出了解答（但并未说具体存储情况）。</p>
+<table>
+<thead>
+<tr>
+<th>题号</th>
+<th>补充内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>一.1</td>
+<td>替换：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903781704925191">XSS攻击与CSRF攻击</a><br>补充：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6912030758404259854">XSS攻击-攻击流程图</a></td>
+</tr>
+<tr>
+<td>一.2</td>
+<td>整理——什么是进程线程？：<br>从概念上来说，进程是某个程序的一次运行活动，线程是某个程序中的某个代码片段的一次运行活动。<br>详细的解释是，启动一个程序时，操作系统会为该程序创建一个独立的虚拟内存空间，在逻辑上这个虚拟的内存空间仅为这个程序所用，它用来存放程序代码、运行中的数据、打开的文件等等，然后cpu就会执行内存空间中的代码，我们将这一整个程序的运行过程称为进程。不同进程可以时分复用cpu，以实现并发的效果。<br>单个程序中不同的代码片段也可以时分复用地在cpu中并发执行，程序中的某个代码片段的运行活动，我们称之为线程，整个程序本身也可以看作是一个大的代码片段，它的运行活动我们称之为主线程。<br>总结来说，进程是资源分配的最小单位，线程是CPU调度的最小单位。通常将进程当作是某个程序运行时的资源容器，线程则是该程序的各个代码片段的执行流。<br>ps：要从 底层真实情况+抽象后逻辑上的使用 两个角度来理解进程线程。在大多数情况下（特别是前端），我们以抽象逻辑视角来看待进程线程：每个进程都有自己的内存空间、多个cpu，但文件和打印机等I/O之类的资源还是得共享竞争；每个线程都有自己的cpu，按自己的执行流走就好</td>
+</tr>
+<tr>
+<td>五.2.4</td>
+<td>区分：减少DOM操作，减少回流重绘（想想渲染流程，比如我可以在操作DOM时阻断后续的布局和绘制）</td>
+</tr>
+<tr>
+<td>七.2.1</td>
+<td>替换：CORS的概念简介：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CORS">MDN-CORS</a></td>
+</tr>
+<tr>
+<td>八.9</td>
+<td>补充：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/54882306">浏览器与Node的事件循环(Event Loop)有何区别?</a></td>
+</tr>
+<tr>
+<td>九.1</td>
+<td>补充：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904016325902344">一文搞懂V8引擎的垃圾回收</a></td>
+</tr>
+</tbody></table>
 
       
     </div>
@@ -956,7 +1007,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-01-05 11:29:32" itemprop="dateModified" datetime="2022-01-05T11:29:32+08:00">2022-01-05</time>
+        <time title="修改时间：2022-01-13 10:24:21" itemprop="dateModified" datetime="2022-01-13T10:24:21+08:00">2022-01-13</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1003,20 +1054,32 @@
 <li><p>Luke的视频：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1x54y1B7RE">浏览器是如何运作的？</a></p>
 <p>  详细讲解了 从打开窗口输入 url 地址，到呈现出页面这个过程中，浏览器内部发生了什么事情。将浏览器的各个程序模块和初次加载流程讲的很清楚。<br>  不足之处在于，没有讲清楚 JS 在初次加载后的执行情景，没有讲到屏幕每帧刷新时浏览器会做什么。</p>
 <p>  初次解析渲染完 html 后，JS 修改页面（代码修改dom和cssom），和重绘重排是怎么个对应关系？JS 每改变一处地方，就重新渲染一次？还是会累计一定修改再重新渲染？还是取决于屏幕刷新率？每次渲染都要拿完整的 DOM 结构从头开始？</p>
+<p>  这些问题在第三点——JavaScript 权威指南中得到了解答</p>
 </li>
 <li><p>红宝书第二章，介绍script标签</p>
 <p>  defer和async script标签，到底何时执行（书里面说，defer的话，在html解析完成后执行，又说在DomContentLoad事件前执行，这不是矛盾吗）</p>
 <p>  还说异步加载的 script标签 最好不要（直接）修改页面结构，但其实是可以修改的，只是可能需要重新渲染（document.write 需要重新解析构造DOM，而document.body.appenChild 这种直接操作DOM的是否会好一些？）</p>
 </li>
 <li><p>JavaScript 权威指南 - 15.1章节 Web编程基础。</p>
-<p>  较详细地讲解了 JS 在浏览器中的执行情景。</p>
+<p>  较详细地讲解了 JS 在浏览器中的执行情景：两个阶段 首屏渲染阶段 异步阶段和事件驱动。（不只是站在JS的执行的角度，而是着眼于浏览器整体进程和线程的角度看JS的执行流程）</p>
+<p>  补充：关于第二阶段，<a target="_blank" rel="noopener" href="https://www.yuque.com/cuggz/interview/browser#f6bcc6442d51dcb840a33ee87102c203">文章-对事件循环的理解</a> 中提到，在事件循环中，每执行完微任务就会检查是否需要渲染——这就是我们之前疑问的JS执行和渲染时机的关系。</p>
 </li>
 </ul>
 <h3 id="Html-CSS-JavaScript"><a href="#Html-CSS-JavaScript" class="headerlink" title="Html + CSS + JavaScript"></a>Html + CSS + JavaScript</h3><p>2021.4.1 - 2021.8.22</p>
 <ul>
-<li>（理论）HTML CSS 菜鸟教程，简单过了一一遍</li>
-<li>（理论）JavaScript 红宝书比较详细地过了一遍</li>
-<li>（理论）JS 运行时环境 - V8 /浏览器/Node  学习一个语言，除了语法，还要理解它的工作原理。语言工作原理主要考虑 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%BC%96%E8%AF%91%E6%9C%9F"><strong>编译/解释时</strong></a> 和 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%9F%B7%E8%A1%8C%E6%9C%9F"><strong>运行时</strong></a> （维基百科）  V8 和 运行时 的大致区分，可见 <a target="_blank" rel="noopener" href="https://blog.csdn.net/dglf54292/article/details/101232084?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522163126602316780261998069%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=163126602316780261998069&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v2~rank_v29-8-101232084.pc_v2_rank_blog_default&utm_term=JavaScript&spm=1018.2226.3001.4450"> Javascript工作原理引擎，运行时，函数调用栈</a>。总结来说，V8 主要负责以下工作：编译和执行 JS 代码、处理调用栈、内存分配、垃圾回收。其他支持 JS 执行的部分则属于更大范围的运行时（浏览器/Node）。  V8：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1zV411z7RX?spm_id_from=333.999.0.0">Luke - V8引擎编译优化JS</a>  综合：<a target="_blank" rel="noopener" href="https://blog.sessionstack.com/how-does-javascript-actually-work-part-1-b0bacc073cf">How JavaScript works</a>、<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=JavaScript&t=blog&u=dglf54292">JavaScript 工作原理（前链接中文版）</a>、<a target="_blank" rel="noopener" href="https://www.cnblogs.com/bala/default.html?page=3">JS 工作原理</a>、<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/54882306">浏览器与Node的事件循环有何区别?</a></li>
+<li><p>（理论）HTML CSS 菜鸟教程，简单过了一一遍</p>
+</li>
+<li><p>（理论）JavaScript 红宝书比较详细地过了一遍</p>
+</li>
+<li><p>（理论）JS 运行时环境 - V8 /浏览器/Node</p>
+<p>  学习一个语言，除了语法，还要理解它的工作原理。语言工作原理主要考虑 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%BC%96%E8%AF%91%E6%9C%9F"><strong>编译/解释时</strong></a> 和 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%9F%B7%E8%A1%8C%E6%9C%9F"><strong>运行时</strong></a> （维基百科）</p>
+<p>  V8 和 运行时 的大致区分，可见 <a target="_blank" rel="noopener" href="https://blog.csdn.net/dglf54292/article/details/101232084?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522163126602316780261998069%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=163126602316780261998069&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v2~rank_v29-8-101232084.pc_v2_rank_blog_default&utm_term=JavaScript&spm=1018.2226.3001.4450"> Javascript工作原理引擎，运行时，函数调用栈</a>。总结来说，V8 主要负责以下工作：编译和执行 JS 代码、处理调用栈、内存分配、垃圾回收。其他支持 JS 执行的部分则属于更大范围的运行时（浏览器/Node）。</p>
+<p>  V8：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1zV411z7RX?spm_id_from=333.999.0.0">Luke - V8引擎编译优化JS</a></p>
+<p>  综合：<a target="_blank" rel="noopener" href="https://blog.sessionstack.com/how-does-javascript-actually-work-part-1-b0bacc073cf">How JavaScript works</a>、<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=JavaScript&t=blog&u=dglf54292">JavaScript 工作原理（前链接中文版）</a>、<a target="_blank" rel="noopener" href="https://www.cnblogs.com/bala/default.html?page=3">JS 工作原理</a>、<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/54882306">浏览器与Node的事件循环有何区别?</a></p>
+<p>  JavaScript 运行时</p>
+  <div align="center">
+  <img src="https://images2018.cnblogs.com/blog/1292490/201806/1292490-20180601224104706-1052750258.png" width="60%">
+  </div></li>
 </ul>
 <p>2021.9.1 - 2021.9.7</p>
 <ul>
@@ -1249,7 +1312,7 @@
 <blockquote>
 <p>这个元素会挂载默认的styles、得到这个元素的computed属性、注册相应的Event Listener、DOM Breakpoints以及大量的properties，这些属性、方法的注册肯定是需要h耗费大量时间的。<br>尤其是在 <strong>js操作DOM</strong> 的过程中，不仅有dom本身的繁重，js的操作也需要浪费时间，我们认为js和DOM之间有一座桥，如果你频繁的在桥两边走动，显然效率是很低的，如果你的JavaScript操作DOM的方式还非常不合理，那么显然就会更糟糕了。<br>而 React 的虚拟DOM就是解决这个问题的！ 虽然它解决不了DOM自身的繁重，但是虚拟DOM可以对JavaScript操作DOM这一部分内容进行优化。</p>
 </blockquote>
-<p>  <a target="_blank" rel="noopener" href="https://juejin.cn/post/6994959998283907102">15张图，20分钟吃透Diff算法核心原理</a> 除了更少地 <strong>js操作DOM</strong>，在浏览器渲染的角度是否也有优化？该博客下面的评论中讨论了这个问题。有人认为一次 真实DOM操作 就会导致一次浏览器回流（即重新渲染一次DOM，是对全部DOM还是局部DOM重新渲染，得看具体浏览器的实现，暂时不确定），那么减少了 <strong>js操作真实DOM</strong> 的次数，也减少了渲染的成本；但也有人说浏览器会“攒”一定数量的 真实DOM操作 再进行渲染。<mark>这一块不是很清楚。</mark></p>
+<p>  <a target="_blank" rel="noopener" href="https://juejin.cn/post/6994959998283907102">15张图，20分钟吃透Diff算法核心原理</a> 除了更少地 <strong>js操作DOM</strong>，在浏览器渲染的角度是否也有优化？该博客下面的评论中讨论了这个问题。有人认为一次 真实DOM操作 就会导致一次浏览器回流（即重新渲染一次DOM，是对全部DOM还是局部DOM重新渲染，得看具体浏览器的实现，暂时不确定），那么减少了 <strong>js操作真实DOM</strong> 的次数，也减少了渲染的成本；但也有人说浏览器会“攒”一定数量的 真实DOM操作 再进行渲染。<mark>这一块不是很清楚。——浏览器针对回流与重绘进行了自身的优化：渲染队列，就是会定期积攒一定时间段的回流重绘操作，然后一波处理。但需要注意的是，操作DOM和回流重绘并非严格的一一对应，即便是将密集的的DOM操作打包在一起仅进行一次回流重绘，但实际上DOM操作可能还是进行了那么多次。（不确定，待核实）</mark></p>
 <p>  <strong>React 的 更新、渲染 流程和原理</strong></p>
 <p>  <mark>可以确定的是：</mark><br>  VDOM 的本质就是一个数据结构与 DOM 一一对应的 JS 对象。如果是首次渲染，我们先得到 VDOM，然后 基于 VDOM 将内容转化成 真实DOM，然后渲染；当我们的 UI-View 需要发生改变（更新）时，我们先对 VDOM 这个“简单”易操作的 JS 对象 进行操作——这一步代价比较小，然后将新的到的 VDOM 与 之前的 VDOM 进行比较，得出差异，然后对 真实DOM 进行增量操作。</p>
 <p>  结合上上一小节的生命周期，总结：</p>
@@ -1480,6 +1543,8 @@
     <div class="footer-inner">
 
 
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 <div class="copyright">
   &copy; 
   <span itemprop="copyrightYear">2022</span>
@@ -1488,6 +1553,11 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Wu Chaojie</span>
 </div>
+  <div class="powered-by">
+  <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+    本站访客量:<span id="busuanzi_value_site_pv"></span>
+  </span>
+  </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
