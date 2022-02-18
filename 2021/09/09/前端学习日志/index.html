@@ -44,7 +44,7 @@
 <meta property="og:image" content="https://s2.loli.net/2021/12/15/I7lrOfyVb32W4UB.gif">
 <meta property="og:image" content="https://s2.loli.net/2021/12/15/Kw6hGz2XZIjOtNm.png">
 <meta property="article:published_time" content="2021-09-09T13:20:34.000Z">
-<meta property="article:modified_time" content="2022-01-30T04:30:30.000Z">
+<meta property="article:modified_time" content="2022-02-18T09:46:22.061Z">
 <meta property="article:author" content="Wu Chaojie">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.loli.net/2021/09/09/VhPN1HcquWDva7t.png">
@@ -151,7 +151,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -232,7 +232,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-01-30 12:30:30" itemprop="dateModified" datetime="2022-01-30T12:30:30+08:00">2022-01-30</time>
+        <time title="修改时间：2022-02-18 17:46:22" itemprop="dateModified" datetime="2022-02-18T17:46:22+08:00">2022-02-18</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -308,6 +308,7 @@
 
 <ul>
 <li><p>IFC-行高、行级盒子（行内框）、行盒（行框）</p>
+<p>  <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/line-height">MDN line-height</a>：line-height CSS 属性用于设置多行元素的空间量，如多行文本的间距。对于块级元素，它指定元素行盒（line boxes）的最小高度。对于非替代的 inline 元素，它用于计算行盒（line box）的高度。</p>
 <p>  <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/59f31a1704de">css基线与行高</a>、<a target="_blank" rel="noopener" href="https://www.cnblogs.com/xiaokeai0110/p/9862765.html">行模型和对齐 一</a>、<a target="_blank" rel="noopener" href="https://blog.csdn.net/guantina/article/details/80166065">行模型和对齐 二</a></p>
 <p>  关键在于理清楚这些值之间的决定关系：容器的line-height，行内元素的字体大小 决定行级盒子的大小（可以将line-height当作锚点？line-height的定义锁定了两行的相对位置，不论两行中的字体大小有多少种）；行内元素的垂直对齐方式，决定了行内元素（行级盒子）之间的相对位置；同一行中最顶和最底的行级盒子边界决定了行盒的高度。</p>
 </li>
@@ -478,7 +479,7 @@
 </li>
 </ul>
 <h4 id="React基础-——官方文档学习"><a href="#React基础-——官方文档学习" class="headerlink" title="React基础 ——官方文档学习"></a>React基础 ——官方文档学习</h4><p>2021.11.29 - 2021.12.08 </p>
-<p>详细的笔记，看博客<a href="">前端——React笔记</a></p>
+<p>详细的笔记，看博客 <a href="">前端——React笔记</a></p>
 <ul>
 <li><p><a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/tutorial/tutorial.html">官方入门教程</a></p>
 </li>
@@ -495,10 +496,9 @@
 <ul>
 <li><a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/hooks-intro.html">Hook</a>Hook 使你在非 class 的情况下可以使用更多的 React 特性。 从概念上讲，React 组件一直更像是函数。而 Hook 则拥抱了函数，同时也没有牺牲 React 的精神原则。</li>
 </ul>
-<hr>
 <p>2021.12.08 - 2021.12.15</p>
 <h4 id="React-脚手架"><a href="#React-脚手架" class="headerlink" title="React 脚手架"></a>React 脚手架</h4><ul>
-<li><p><a target="_blank" rel="noopener" href="https://create-react-app.dev/docs/getting-started">create-react-app 官方文档</a></p>
+<li><p><a target="_blank" rel="noopener" href="https://www.html.cn/create-react-app/docs/getting-started/">create-react-app 官方文档</a></p>
 </li>
 <li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1wy4y1D7JT?p=49">react 脚手架 尚硅谷 P49-P54</a></p>
 <blockquote>
@@ -583,7 +583,7 @@
 <p>前端路由原理 + 基本使用</p>
 </blockquote>
 <p>  基于浏览器的历史记录，即 BOM 的 history 对象。在页面点击按钮或链接，取消其默认事件处理，设置事件处理为调用 history API 对浏览器历史记录进行修改（栈结构，历史记录入栈出栈替换等）+ 给 history 对象添加历史记录变更事件的事件处理函数，让历史记录发生改变时做出相应的前端变更。</p>
-<p>  在 react-router-dom 的帮助下，以上过程可封装为：将需要路由功能的组件（导航和展示）用一个 BrowserProuter组件 包裹需要路由功能的组件（通常是整个 &lt; APP /&gt; 组件，可创建多个 &lt; BrowserProuter &gt; 组件，不同路由器下有各自的路由规则） + 创建设置路由链接（点了改变地址栏和历史记录） + 注册路由（建立地址栏路径和组件映射关系，地址栏变更的时候渲染对应的组件）</p>
+<p>  在 react-router-dom 的帮助下，以上过程可封装为：将需要路由功能的组件（导航和展示）用一个 BrowserProuter组件 包裹需要路由功能的组件（通常是整个 &lt; APP /&gt; 组件，可创建多个 &lt; BrowserRouter &gt; 组件，不同路由器下有各自的路由规则）+ 创建设置路由链接（点了改变地址栏和历史记录）+ 注册路由（建立地址栏路径和组件映射关系，地址栏变更的时候渲染对应的组件）</p>
 <p>  一般组件和路由组件的区别：语法写法不同不必说；一般组件是自然渲染，而路由组件是路由到它的时候渲染；我们区分存放它们的代码文件的位置（一般是 components 和 pages）；渲染实例化时接受的参数props内容不同，一般组件传入什么接收什么，路由组件包含 history, location, match 等。</p>
 </li>
 </ul>
