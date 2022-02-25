@@ -34,9 +34,10 @@
 <meta property="og:image" content="https://s2.loli.net/2021/12/26/9ZCRy3UkN2x8hnA.png">
 <meta property="og:image" content="https://s2.loli.net/2021/12/27/2JQNZrinCwphuTf.png">
 <meta property="og:image" content="https://s2.loli.net/2022/01/05/VgEHs45NtURnKJa.png">
+<meta property="og:image" content="https://s2.loli.net/2022/02/25/IYh5r12yGN8vUgB.jpg">
 <meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2018/09/https-intro.png">
 <meta property="article:published_time" content="2021-12-21T07:03:34.000Z">
-<meta property="article:modified_time" content="2022-02-18T09:46:26.694Z">
+<meta property="article:modified_time" content="2022-02-25T12:27:16.589Z">
 <meta property="article:author" content="Wu Chaojie">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://s2.loli.net/2021/12/24/zVO4t9HI1RNQLDE.png">
@@ -224,7 +225,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-02-18 17:46:26" itemprop="dateModified" datetime="2022-02-18T17:46:26+08:00">2022-02-18</time>
+        <time title="修改时间：2022-02-25 20:27:16" itemprop="dateModified" datetime="2022-02-25T20:27:16+08:00">2022-02-25</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -298,6 +299,10 @@
 <td><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/59f31a1704de">css基线与行高</a></td>
 </tr>
 <tr>
+<td>一.22</td>
+<td>替换：<br>CSS预处理器用于将Sass、Less等语言编译成CSS，它允许我们使用层级、mixin、变量、循环、函数等语法，来编写样式代码。这样使我们的样式代码更加简洁易读，也更具有可维护性、可拓展性、和复用性。此外，使用Sass、Less可以轻松实现多重继承，且完全兼容CSS代码。<br>CSS后处理器在完成的CSS样式表中根据CSS规范处理CSS代码，以保证CSS代码的有效性。目前最常做的是给CSS属性添加浏览器私有前缀，实现跨浏览器兼容的问题。</td>
+</tr>
+<tr>
 <td>二.02</td>
 <td><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903607347707918">前端响应式布局基础——rem</a></td>
 </tr>
@@ -324,6 +329,30 @@
 <tr>
 <td>四.1</td>
 <td>设置一个像素为零的div块，可以想象以一个点划两条垂直和水平的线，border-top right bottom left 就是以这两条线为边界，border 的大小指定的是 border 的厚度</td>
+</tr>
+</tbody></table>
+<p>二.1 补充</p>
+<p>百分比, em：具体的含义要看用在什么属性上：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>line-height 以及 大部分属性</th>
+<th>font-szie</th>
+<th>盒子属性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>百分比</td>
+<td>相比当前元素的字体大小</td>
+<td>相比父级元素的字体大小</td>
+<td>相比父级元素的盒子width</td>
+</tr>
+<tr>
+<td>em</td>
+<td>相比当前元素的字体大小</td>
+<td>相比父级元素的字体大小</td>
+<td>相比当前元素的字体大小</td>
 </tr>
 </tbody></table>
 <p>三.1</p>
@@ -368,6 +397,8 @@
     <img src="https://s2.loli.net/2021/12/26/9ZCRy3UkN2x8hnA.png" width="70%">
 </div>
 
+<p>一种情况是：想让兄弟元素的 margin 不重叠，就需要将一个兄弟放到一个 BFC 上下文中（而不是让它自己触发 BFC）。参考资料：<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000012265930">边距重叠与BFC</a></p>
+<p>其他情况是：将顶部/底部兄弟元素设置<code>display: inline-block</code>；将底部兄弟元素设置浮动、和绝对定位</p>
 <p>关于父子元素的 margin 重叠问题 &amp; 子元素 margin 溢出父元素问题，参考 <a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000039093635">子元素margin-top导致父元素移动的问题</a>。</p>
 <p>四.1</p>
 <p>利用 border 来绘制各种图形——border的绘制规则</p>
@@ -411,7 +442,7 @@
 </tr>
 <tr>
 <td>三.17</td>
-<td>变量提升 提高性能：能够在解析和预编译阶段提高性能，它能够预先一次性地为变量分配栈空间，而不必在函数执行时临时多次分配</td>
+<td>关于提高性能：<br>在JS中，拿到一个函数要执行，会有以下步骤：<br>解析：预编译，语法检查，生成可执行代码（可能后续调用也会沿用已编译好的代码）；创建执行上下文，为声明的变量分配存储空间并让其占位（并不填充其被赋予的值）<BR>执行：执行函数中的代码<br>声明提升，就是为了方便声明的变量能够在一开始解析的时候就被一次性收集处理好，以提高性能</td>
 </tr>
 <tr>
 <td>三.18</td>
@@ -419,7 +450,7 @@
 </tr>
 <tr>
 <td>三.19</td>
-<td>面经说的不清楚 <a target="_blank" rel="noopener" href="https://juejin.cn/post/6938581764432461854">聊聊什么是CommonJs和Es Module及它们的区别</a></td>
+<td>补充： <a target="_blank" rel="noopener" href="https://juejin.cn/post/6938581764432461854">聊聊什么是CommonJs和Es Module及它们的区别</a>、<a href=""></a><br>总结：<br>commonJs是被加载的时候运行，esModule是编译的时候运行（是否可以动态引入）<br>commonJs输出的是值的浅拷贝，esModule输出值的引用<br>commentJs具有缓存。在第一次被加载时，会完整运行整个文件并输出一个对象，拷贝（浅拷贝）在内存中。下次加载文件时，直接从内存中取值</td>
 </tr>
 <tr>
 <td>三.20</td>
@@ -447,14 +478,33 @@
 </tr>
 </tbody></table>
 <ul>
+<li>一.3 总结类型判断</li>
+</ul>
+<p>获取数据的原型、构造函数（原始数据类型会被隐式转换成包装类型），然后再对比判断</p>
+<ol>
+<li><code>Object.prototype.getString.call(obj)</code> 返回字符串</li>
+<li><code>obj._proto_</code> &lt;=&gt; <code>Object.getPrototypeOf(obj)</code> 返回原型对象</li>
+<li><code>obj.constructor</code> 返回构造函数</li>
+</ol>
+<p>从类型入手，直接判断</p>
+<ol>
+<li><code>Array.isArray(obj)</code></li>
+<li><code>Array.prototype.isPrototypeOf(obj)</code></li>
+<li><code>obj instanceof Array</code></li>
+</ol>
+<ul>
 <li>三.16</li>
 </ul>
 <p>以红宝书 P711 为准</p>
-<p>AJAX 是指通过 JavaScript 以异步通信的方式向服务器发送请求来获取额外的数据，而且可以局部地更新页面，不用重新请求和刷新整个页面。</p>
+<p>AJAX 是指通过 JavaScript 以异步通信的方式向服务器发送请求来获取额外的数据，而且可以局部地更新页面，不用刷新重新请求整个页面。</p>
 <p>大致步骤：创建XHR对象、注册onreadystatechange事件处理程序、调用open()方法为发送请求做准备、调用setRequestHeader()设置请求头部、调用send()方法发送请求、收到响应后XHR对象相应属性被填充响应数据</p>
 <p>代码示例见 P716</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (xhr.status &gt;= <span class="number">200</span> &amp;&amp; xhr.status &lt; <span class="number">300</span> || xhr.status == <span class="number">304</span>) &#123;</span><br><span class="line">            alert(xhr.responseText);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            alert(<span class="string">&quot;Request was unsuccessful: &quot;</span> + xhr.status);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">xhr.open(<span class="string">&quot;post&quot;</span>, <span class="string">&quot;postexample.php&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">xhr.setResponseHeader(<span class="string">&quot;Content-Type&quot;</span>, <span class="string">&quot;application/x-www-form-urlencoded&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> form = <span class="built_in">document</span>.getElementById(<span class="string">&quot;user-info);</span></span><br><span class="line"><span class="string">xhr.send(serialize(form));</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> SERVER_URL = <span class="string">&quot;/server&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line"><span class="comment">// 设置状态监听函数</span></span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (xhr.status &gt;= <span class="number">200</span> &amp;&amp; xhr.status &lt; <span class="number">300</span> || xhr.status == <span class="number">304</span>) &#123;</span><br><span class="line">            alert(xhr.responseText);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            alert(<span class="string">&quot;Request was unsuccessful: &quot;</span> + xhr.status);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 设置请求失败时的监听函数</span></span><br><span class="line">xhr.onerror = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.error(<span class="built_in">this</span>.statusText);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 创建 Http 请求</span></span><br><span class="line">xhr.open(<span class="string">&quot;GET&quot;</span>, url, <span class="literal">true</span>);</span><br><span class="line"><span class="comment">// 设置请求头信息</span></span><br><span class="line">xhr.responseType = <span class="string">&quot;json&quot;</span>;</span><br><span class="line">xhr.setRequestHeader(<span class="string">&quot;Accept&quot;</span>, <span class="string">&quot;application/json&quot;</span>);</span><br><span class="line"><span class="comment">// 发送 Http 请求</span></span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br></pre></td></tr></table></figure>
 
+<p>用 Promise 封装 AJAX</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getJSON</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> getPromase = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (xhr.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> ((xhr.status &gt;= <span class="number">200</span> &amp;&amp; xhr.status &lt; <span class="number">300</span>) || xhr.status === <span class="number">304</span>) &#123;</span><br><span class="line">          resolve(xhr.responseText);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">          reject(xhr.status);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    xhr.onerror = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      reject(<span class="keyword">new</span> <span class="built_in">Error</span>(xhr.status));</span><br><span class="line">    &#125;</span><br><span class="line">    xhr.open(<span class="string">&quot;GET&quot;</span>, url, <span class="literal">true</span>);</span><br><span class="line">    xhr.responseType = <span class="string">&quot;json&quot;</span>;</span><br><span class="line">    xhr.setRequestHeader(<span class="string">&quot;Accept&quot;</span>, <span class="string">&quot;application/json&quot;</span>);</span><br><span class="line">    xhr.send(<span class="literal">null</span>);</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">return</span> getPromase;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>补充：<a target="_blank" rel="noopener" href="https://blog.csdn.net/zoulonglong/article/details/80501029">form和ajax表单提交方式的区别</a></p>
 <ul>
 <li>三.补充</li>
 </ul>
@@ -481,7 +531,7 @@
 
 <p>自行补充复习 红宝书 中闭包的内容。</p>
 <p>五.2/3</p>
-<p>面试还是背面经，但私下要有自己的理解</p>
+<p>面试还是背红宝书 P87-89，面经保留“创建执行上下文”部分的内容</p>
 <p>关键在于理清概念：作用域&amp;访问规则、执行上下文、作用域链</p>
 <p>注：上下文变量对象 和 作用域链 的实际关系——见红宝书-闭包小节</p>
 <p><strong>红宝书 小结</strong></p>
@@ -495,7 +545,7 @@
 <li>变量的执行上下文用于确定什么时候释放内存。</li>
 </ul>
 </blockquote>
-<p>注：一般来说，作用域偏向于描述一套我们编写代码是的访问数据的规则（作用域就是一片代码区域-全局/函数/块，规则就是当下区域代码能够访问当下区域和上层区域的数据），执行上下文则是这套规则的具体底层实现机制。小结中的<code>上下文</code>更偏向于是作用域的概念。</p>
+<p>注：一般来说，作用域偏向于描述一套我们编写代码时的访问数据的规则，是静态的，一开始就定义好的（作用域就是一片代码区域-全局/函数/块，规则就是当下区域代码能够访问当下区域和上层区域的数据）；执行上下文则是这套规则的具体底层实现机制。小结中的<code>上下文</code>更偏向于是作用域的概念。</p>
 <p><strong>补充：</strong></p>
 <p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/482318118/answer/2085785870">JS 的执行上下文和作用域到底有什么区别和联系？</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/bala/p/12146607.html">JS 代码的执行流程</a></p>
@@ -513,11 +563,12 @@
 <p>关于 Promise，一是学习其行为：同步代码中的行为+异步部分的行为（代码语法，代码执行的流程），二是理解其逻辑作用：封装包裹异步操作，并作为其对应的“尚不存在的结果的替身”，让我们方便在同步代码中安排制定异步代码的内容和流程。</p>
 <p>PS：在行为方面，期约有三种状态，并非都是pending状态——“尚不存在的结果”，我们自然可以创建一个有结果的期约来玩语法，但我们始终要清楚期约主要的作用和意义就是拿来处理“尚不存在的结果”。以下的思考，我们也都是要行为和逻辑结合起来思考，只单独考虑某一方面是无法充分理解期约的设计的。</p>
 <p>单个期约的行为比较简单（三个状态，传入的执行器函数同步/立即执行），一串期约的链式作用的行为就有点复杂。关键在于理解<code>then()</code>。</p>
-<p>在逻辑的角度/在同步代码中，可以这样理解<code>then()</code>：某个期约解决后，它接收这一个期约的结果，然后用一个处理函数进行一定的响应操作——可能会有返回值。<code>then()</code>会返回一个根据处理函数的返回值构建的期约。<br>从<code>then()</code>的行为方面考量，有意思的是它在同步代码中直接返回一个期约，这个期约和它的处理函数的返回值挂钩——也就是，then方法返回的期约，“接住”“兜住”了其处理函数返回的结果，这点挺神奇的。实际上来说，<code>then()</code>中的处理函数可能还未执行，其返回值也自然就还不存在，<code>then()</code>返回的期约是怎么和它挂钩呢？这就得看JS的底层实现了。<br>此处，我们可以从逻辑上将<code>then()</code>里面的处理函数，也当作是一个“异步操作”（类似于setTimeout及其回调。此处类比则是等待期约解决，回调就是处理函数），<code>then()</code> 返回的期约就是对它的封装，也是尚未执行的处理函数返回结果的替代。<br>进一步来说，以下面代码<code>p2</code>为例：同步代码执行时，<code>p2</code>就代表着尚未执行处理函数的返回值的替代。等到异步环节处理函数执行完，我们得到了一个返回的期约——也就是“等待之前的期约解决并执行处理函数”这个“异步操作”的结果，此时后台会自动调用<code>Promise.resovle()</code>将这个结果转化成<code>p2</code>的值，<code>p2</code>在这个角度上来说就不再是一个“替代”，而是货真价实的值。至于<code>p2</code>取得的这个处理函数返回的期约什么时候解决，又是另一回事了。或者总结来说，<code>p2</code>期约就对应返回它的<code>then()</code>中<code>return</code>的期约，<code>return</code>中的期约该什么时候解决，<code>p2</code>就什么时候解决，并且两者解决值相同。</p>
+<p>在逻辑的角度/在同步代码中，可以这样理解<code>then()</code>：某个期约解决后，它接收这一个期约的结果，然后用一个处理函数进行一定的响应操作——可能会有返回值。<code>then()</code>会返回一个根据处理函数的返回值构建的期约。<br>从<code>then()</code>的行为方面考量，有意思的是它在同步代码中直接返回一个期约，这个期约和它的处理函数的返回值挂钩——也就是，then方法返回的期约，“接住”“兜住”了其处理函数返回的结果，这点挺神奇的。实际上来说，<code>then()</code>中的处理函数可能还未执行，其返回值也自然就还不存在，<code>then()</code>返回的期约是怎么和它挂钩呢？这就得看JS的底层实现了。</p>
+<p>进一步来说，以下面代码<code>p2</code>为例：同步代码执行时，<code>p2</code>就代表着尚未执行处理函数的返回值的替代。等到异步环节处理函数执行完，我们得到了一个返回的期约——也就是<code>p1.then</code>中返回的那个，此时后台会自动调用<code>Promise.resovle()</code>将这个结果转化成<code>p2</code>的值。至于<code>p2</code>取得的这个处理函数返回的期约什么时候解决，又是另一回事了。<strong>总结来说</strong>，<code>p2</code>期约就对应返回它的<code>then()</code>中<code>return</code>的期约，<code>return</code>中的期约该什么时候解决，<code>p2</code>就什么时候解决，并且两者解决值相同。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">p1 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>)=&gt;</span>&#123;<span class="built_in">setTimeout</span>(resolve, <span class="number">1000</span>, <span class="number">1</span>)&#125;);</span><br><span class="line">p2 = p1.then(<span class="function">(<span class="params">value</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>)=&gt;</span>&#123;<span class="built_in">setTimeout</span>(resolve, <span class="number">1000</span>, <span class="number">2</span>)&#125;);</span><br><span class="line">&#125;);</span><br><span class="line">p3 = p2.then(<span class="function">(<span class="params">value</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>)=&gt;</span>&#123;<span class="built_in">setTimeout</span>(resolve, <span class="number">1000</span>, <span class="number">3</span>)&#125;);</span><br><span class="line">&#125;);</span><br><span class="line">p4 = p3.then(<span class="function">(<span class="params">value</span>)=&gt;</span>&#123;<span class="built_in">console</span>.log(value)&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 控制台每隔一秒输出</span></span><br><span class="line"><span class="number">1</span>                               VM4663:<span class="number">3</span> </span><br><span class="line"><span class="number">2</span>                               VM4663:<span class="number">7</span> </span><br><span class="line"><span class="number">3</span>                               VM4663:<span class="number">10</span> </span><br></pre></td></tr></table></figure>
 
 <p><strong>总结来说</strong>：<br>一个期约就是一段包裹了异步操作的代码（对象），并代表了异步操作尚未存在的结果（要习惯期约的一体两面,它即代表了一定的操作，也代表该操作的结果）。</p>
-<p><code>then()</code>就是等某个期约有结果后，针对它进行一定的操作（可能是同步操作或异步操作,异步操作一般被封装在一个期约中），这个操作可能有返回结果（确定的值，或者是一个异步操作的期约）。<code>then()</code>返回一个期约，这个期约可以理解为是对“等待之前的期约解决并执行处理函数”这个“异步操作”的封装，是对该操作尚未return的结果的替代。</p>
+<p><code>then()</code>就是等某个期约有结果后，针对它进行一定的操作（可能是同步操作或异步操作,异步操作一般被封装在一个期约中），这个操作可能有返回结果（确定的值，或者是一个异步操作的期约）。<code>then()</code>返回一个期约，这个期约“对应”处理函数中的返回值（因为处理函数只是定义了有return值，但实际上并没有被调用，所以在同步代码中，只能说是“对应”）。</p>
 <p>进一步简化<code>then()</code>的细节，得出结论——将<strong>异步代码串行化</strong>：在同步代码中指定好一系列的<code>then()</code>后，在<u>异步阶段</u>中，最初定义的期约解决后，以此解决值为输入，执行其<code>then()</code>中的处理函数，处理函数返回的值用一个新的期约接住。新的期约结果解决后，再以此解决值为输入，继续执行后面的<code>then()</code>中的处理函数。（实际打代码的时候就这么看。重点在于：是一个接一个的，要等前一个解决；处理函数中要记得return需要的期约/异步操作）</p>
 <ul>
 <li>七.9</li>
@@ -527,6 +578,60 @@
 <p>如果只then一下的话，情况还是清晰明了的。<br>此外，红宝书P354底部的注解说到，在实际开发中，对于并行的异步操作，我们更关注它的结果而非执行顺序。对于同步和异步的关系也是，如果我们不需要异步同步相结合，那么我们一直then也是可以的，我们只关注异步操作后接着如何操作，并不关心它与同步代码的关系——异步就是异步，同步就是同步，分开来看.</p>
 </blockquote>
 <p>于是就有了 async 和 await，其巧妙的设计让我们能以写同步代码的方式写异步代码，是一种更自然方便的编程思维。</p>
+<ul>
+<li>八.2</li>
+</ul>
+<p>总结一下</p>
+<table>
+<thead>
+<tr>
+<th>继承方式</th>
+<th>基本思路</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>原型链继承</td>
+<td>new一个SuperType对象，<br>赋值给SubType的prototype属性</td>
+<td></td>
+<td>1.原型链中包含的引用值会被所有示例共享<br>2.子类实例化时不能给父类型的构造函数传参</td>
+</tr>
+<tr>
+<td>盗用构造函数</td>
+<td>在子类构造函数中通过call/apply<br>调用父类构造函数</td>
+<td>1.解决了原型包含引用值导致的继承问题<br>2.可以在子类构造函数中向父类构造函数传参</td>
+<td>1.必须在构造函数中定义方法，函数不能在实例间重用<br>2.子类不能访问父类原型上定义的方法</td>
+</tr>
+<tr>
+<td>组合继承</td>
+<td>综合了原型链和盗用构造函数：<br>用原型链继承原型上的属性和方法<br>用盗用构造函数继承实例属性</td>
+<td>集中两者优点：<br>1.子类可以访问父类原型的属性和方法<br>2.每个实例都有自己的属性，且继承了父类实例属性</td>
+<td>存在效率问题：父类构造函数会被调用两次</td>
+</tr>
+<tr>
+<td>原型式继承</td>
+<td>创建一个对象，<br>它由一个临时的构造函数创建，且_proto_属性指向某个对象</td>
+<td>适合不需要单独创建构造函数，<br>但仍需要在对象间共享信息的场合</td>
+<td>被“挂靠”的对象的引用值属性依旧会被“挂着”的对象共享</td>
+</tr>
+<tr>
+<td>寄生式继承</td>
+<td>类似于寄生构造函数/原型式继承和工厂模式：<br>创建一个函数，它用原型式继承创建一个实例，<br>然后再增强这个实例（添加属性、方法），最后返回它</td>
+<td>适合关注对象，不在乎类型和构造函数的场景</td>
+<td>对象的函数是独有的，不能重用</td>
+</tr>
+<tr>
+<td>寄生式组合继承</td>
+<td>用盗用构造函数继承属性，用混合式原型链继承方法：<br>也就是用寄生式继承获取一个增强的父类原型的“副本”，然后将它当作子类原型</td>
+<td>改进了组合继承，效率更高</td>
+<td></td>
+</tr>
+</tbody></table>
+<div align="center">
+    <img src="https://s2.loli.net/2022/02/25/IYh5r12yGN8vUgB.jpg" width="60%">
+</div>
+
 <h2 id="前端知识之浏览器原理篇"><a href="#前端知识之浏览器原理篇" class="headerlink" title="前端知识之浏览器原理篇"></a>前端知识之浏览器原理篇</h2><p>2022.1.8-2022.1.13</p>
 <ul>
 <li><p>重要补充资料——<strong>牢记</strong>：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1x54y1B7RE?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click">【干货】浏览器是如何运作的？</a></p>
