@@ -1154,12 +1154,12 @@ pre code {
 }
 @media (min-width: 1200px) {
   .header-inner {
-    width: 600px;
+    width: 1160px;
   }
 }
 @media (min-width: 1600px) {
   .header-inner {
-    width: 73%;
+    width: 50%;
   }
 }
 .site-brand-container {
@@ -1595,12 +1595,12 @@ pre code {
 }
 @media (min-width: 1200px) {
   .footer-inner {
-    width: 600px;
+    width: 1160px;
   }
 }
 @media (min-width: 1600px) {
   .footer-inner {
-    width: 73%;
+    width: 50%;
   }
 }
 .use-motion .footer {
@@ -2480,12 +2480,12 @@ ul.breadcrumb li:last-child {
 }
 @media (min-width: 1200px) {
   .main {
-    width: 600px;
+    width: 1160px;
   }
 }
 @media (min-width: 1600px) {
   .main {
-    width: 73%;
+    width: 50%;
   }
 }
 @media (max-width: 991px) {
