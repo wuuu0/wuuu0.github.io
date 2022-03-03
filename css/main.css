@@ -1154,7 +1154,7 @@ pre code {
 }
 @media (min-width: 1200px) {
   .header-inner {
-    width: 1160px;
+    width: 40em;
   }
 }
 @media (min-width: 1600px) {
@@ -1595,7 +1595,7 @@ pre code {
 }
 @media (min-width: 1200px) {
   .footer-inner {
-    width: 1160px;
+    width: 40em;
   }
 }
 @media (min-width: 1600px) {
@@ -2480,7 +2480,7 @@ ul.breadcrumb li:last-child {
 }
 @media (min-width: 1200px) {
   .main {
-    width: 1160px;
+    width: 40em;
   }
 }
 @media (min-width: 1600px) {

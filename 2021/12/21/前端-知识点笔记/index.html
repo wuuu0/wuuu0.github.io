@@ -35,9 +35,9 @@
 <meta property="og:image" content="https://s2.loli.net/2021/12/27/2JQNZrinCwphuTf.png">
 <meta property="og:image" content="https://s2.loli.net/2022/01/05/VgEHs45NtURnKJa.png">
 <meta property="og:image" content="https://s2.loli.net/2022/02/25/IYh5r12yGN8vUgB.jpg">
-<meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2018/09/https-intro.png">
+<meta property="og:image" content="https://segmentfault.com/img/bVbClUl">
 <meta property="article:published_time" content="2021-12-21T07:03:34.000Z">
-<meta property="article:modified_time" content="2022-02-25T12:27:16.589Z">
+<meta property="article:modified_time" content="2022-03-03T06:42:33.000Z">
 <meta property="article:author" content="Wu Chaojie">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://s2.loli.net/2021/12/24/zVO4t9HI1RNQLDE.png">
@@ -144,7 +144,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -152,6 +152,11 @@
           <a href="/categories/">
         <span class="site-state-item-count">1</span>
         <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
@@ -225,7 +230,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-02-25 20:27:16" itemprop="dateModified" datetime="2022-02-25T20:27:16+08:00">2022-02-25</time>
+        <time title="修改时间：2022-03-03 14:42:33" itemprop="dateModified" datetime="2022-03-03T14:42:33+08:00">2022-03-03</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -508,7 +513,7 @@
 <ul>
 <li>三.补充</li>
 </ul>
-<p><a target="_blank" rel="noopener" href="https://github.com/zachrey/zblog/issues/3">【JS概念】纯函数和副作用</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zachrey/zblog/issues/3">【JS概念】纯函数和副作用</a><br><a target="_blank" rel="noopener" href="https://llh911001.gitbooks.io/mostly-adequate-guide-chinese/content/">函数式编程指北</a></p>
 <p>红宝书 第7章 迭代器和生成器</p>
 <ul>
 <li>四.1</li>
@@ -532,6 +537,12 @@
 <p>自行补充复习 红宝书 中闭包的内容。</p>
 <p>五.2/3</p>
 <p>面试还是背红宝书 P87-89，面经保留“创建执行上下文”部分的内容</p>
+<ul>
+<li>执行上下文：是什么；变量对象</li>
+<li>全局上下文：是什么；window对象；代码执行完后销毁；</li>
+<li>函数上下文：是什么；活动对象；代码执行-函数上下文-执行栈；</li>
+<li>作用域链：是什么-存储了各级变量对象；标识符解析规则</li>
+</ul>
 <p>关键在于理清概念：作用域&amp;访问规则、执行上下文、作用域链</p>
 <p>注：上下文变量对象 和 作用域链 的实际关系——见红宝书-闭包小节</p>
 <p><strong>红宝书 小结</strong></p>
@@ -650,7 +661,7 @@
 </thead>
 <tbody><tr>
 <td>一.1</td>
-<td>替换：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903781704925191">XSS攻击与CSRF攻击</a><br>补充：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6912030758404259854">XSS攻击-攻击流程图</a><br>补充：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1s5411s7qd?from=search&seid=3968350037173219363&spm_id_from=333.337.0.0">B站 XSS原理和攻防 （讲的比较清晰）</a><br>补充：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/mysticbinary/p/12542695.html">DOM-XSS攻击原理与防御</a> <br>DOM XSS：不经过服务器（使用本地已有/缓存的html、js等），且需要前端代码中本身存在一定的问题，然后攻击者根据这些问题针对性地构造出某种的恶意的输入（url、input等），让浏览器用有问题的参数运行js代码实现XSS攻击。</td>
+<td>替换：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903781704925191">XSS攻击与CSRF攻击</a><br>补充：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6912030758404259854">XSS攻击-攻击流程图</a><br>补充：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1s5411s7qd?from=search&seid=3968350037173219363&spm_id_from=333.337.0.0">B站 XSS原理和攻防 （讲的比较清晰）</a><br>补充：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/mysticbinary/p/12542695.html">DOM-XSS攻击原理与防御</a> <br><strong>答题总结</strong>：<br>是什么、有什么危害、分类及其攻击流程-构造/用户访问/执行恶意代码/实现攻击效果<br>为什么、如何防范<br><br>DOM XSS：不经过服务器（使用本地已有/缓存的html、js等），且需要前端代码中本身存在一定的问题，然后攻击者根据这些问题针对性地构造出某种的恶意的输入（url、input等），让浏览器用有问题的参数运行js代码实现XSS攻击。</td>
 </tr>
 <tr>
 <td>一.2</td>
@@ -677,6 +688,11 @@
 <td>补充：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904016325902344">一文搞懂V8引擎的垃圾回收</a></td>
 </tr>
 </tbody></table>
+<p>补充：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903575684907016">Cookie 和 Session 关系和区别</a></p>
+<blockquote>
+<p>链接：<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/5a2d287965824d3ca93921bf89f8654c">https://www.nowcoder.com/questionTerminal/5a2d287965824d3ca93921bf89f8654c</a><br>来源：牛客网</p>
+</blockquote>
+<p>cookie实际上是一小段的文本信息。客户端请求服务器，如果服务器需要记录该用户的状态，就使用response向客户端浏览器颁发一个cookie。客户端浏览器会把cookie保存起来。当浏览器再次请求该网站时，浏览器就会把请求地址和cookie一同给服务器。服务器检查该cookie，从而判断用户的身份和状态。服务器还可以根据需要修改cookie的内容。<br>session是另一种记录客户状态的机制。不同的是cookie保存在客户端浏览器中，而session保存在服务器上。客户端浏览器访问服务器的时候，服务器把客户端信息以某种形式记录在服务器上，这就是session。客户端浏览器再次访问时只需要从该session中查找该客户的状态就可以了。<br>如果说cookie机制是通过检查客户身上的“通行证”，那么session机制就是通过检查服务器上的“客户明细表”来确认客户身份。</p>
 <h2 id="前端知识之性能优化篇"><a href="#前端知识之性能优化篇" class="headerlink" title="前端知识之性能优化篇"></a>前端知识之性能优化篇</h2><p>2022.1.21 - 2022. </p>
 <table>
 <thead>
@@ -694,19 +710,7 @@
 <td>补充：要理解何为预和懒，首先要知道本来是如何加载。<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000010032501">Web图片资源的加载与渲染时机</a> <a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903545016156174">浏览器页面资源加载过程与优化</a></td>
 </tr>
 </tbody></table>
-<h2 id="前端知识之前端工程化篇"><a href="#前端知识之前端工程化篇" class="headerlink" title="前端知识之前端工程化篇"></a>前端知识之前端工程化篇</h2><table>
-<thead>
-<tr>
-<th>题号</th>
-<th>补充</th>
-</tr>
-</thead>
-<tbody><tr>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<p>一.1 git 和 svn 的区别（替换）</p>
+<h2 id="前端知识之前端工程化篇"><a href="#前端知识之前端工程化篇" class="headerlink" title="前端知识之前端工程化篇"></a>前端知识之前端工程化篇</h2><p>一.1 git 和 svn 的区别（替换）</p>
 <p>完整对比：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/WindrunnerMax/p/14171924.html">Git与SVN对比</a></p>
 <ul>
 <li>git 和 svn 最大的区别在于 git 是分布式的而 svn 是集中式的<br>核心区别：版本库存储位置、个人版本管理方式、协作同步方式。<a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/896043488029600/896202780297248">集中式vs分布式</a>。</li>
@@ -724,7 +728,7 @@
 <p>这两类程序的目标不一样。前者主要是解决重复任务的问题，后者则更像一套前端工程化解决方案，解决前端静态资源依赖管理的问题。严格来说，NPM 脚本才是 Grunt 和 Gulp 的替代品，但 webpack 确实客观上简化了此前“过度使用”Grunt和Gulp和NPM脚本的Web开发任务流程。</p>
 <p>二.13 怎么配置单页面应用？怎么配置多页面应用？</p>
 <p>待补充总结性内容</p>
-<h2 id="前端知识之计算机网络篇"><a href="#前端知识之计算机网络篇" class="headerlink" title="前端知识之计算机网络篇"></a>前端知识之计算机网络篇</h2><p>一.4 替换</p>
+<h2 id="前端知识之计算机网络篇"><a href="#前端知识之计算机网络篇" class="headerlink" title="前端知识之计算机网络篇"></a>前端知识之计算机网络篇</h2><p>一.4 补充</p>
 <p>HTTP的常用方法</p>
 <ul>
 <li><p>GET方法<br>GET方法用于使用给定的URI从给定服务器中检索信息，即从指定资源中请求数据。使用GET方法的请求应该只是检索数据，并且不应对数据产生其他影响。</p>
@@ -755,39 +759,68 @@
 <p>一.18 补充</p>
 <p>HTTP1 —&gt; HTTP2 —&gt; HTTP3 发展脉络</p>
 <p>HTTP1.0：一次HTTP请求应答，就是要建立一次TCP连接<br>HTTP1.1：多次HTTP请求应答，可以共用一次TCP连接，但是每对请求应答得排队一个个来——HTTP的队头阻塞<br>HTTP2.0：多次HTTP请求应答，可以共用一次TCP连接，以多路复用的形式实现多对请求应答同时进行，但传输层仍是TCP——TCP的队头阻塞<br>HTTP3.0：传输层改用UDP协议，配合QUIC协议簇实现了可靠传输，且没有TCP队头阻塞的问题</p>
-<p>PS：注意区分 HTTP 和 TCP 的队头阻塞（head-of-line blocking）</p>
+<p>PS：注意区分 HTTP 和 TCP 的队头阻塞（head-of-line blocking）：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/330300133">关于队头阻塞（Head-of-Line blocking），看这一篇就足够了</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=GriONb4EfPY">HTTP/2 Critical Limitation that led to HTTP/3 &amp; QUIC</a></p>
-<p>二.4 补充</p>
-<p>HTTPS-TSL 四次握手</p>
-<div align="center">
-    <img src="https://www.runoob.com/wp-content/uploads/2018/09/https-intro.png" width=60%>
-</div>
-
-<p>二.6 补充解释</p>
+<p>二.3 补充</p>
 <p>假设A生成了一对公钥私钥：</p>
 <p>非对称加密：A将公钥发送给B，B用A的公钥加密数据再发送给A，A用私钥解密——用来确保B发给A的内容不泄露<br>数字签名：A将公钥发送给B，A用私钥加密数据再将数据发送给B，B用A的公钥解密——用来确保数据是A发送的且未被篡改</p>
 <p>核心都是：A的私钥不会通过网络传输，确保仅被A持有；A的公钥通过网络发送，谁都可能获取。</p>
-<p>最后对CA证书的HASH摘要进行数字签名，就是确保用户收到的摘要未被修改——也即真实CA证书的摘要。收到CA证书后对它进行同样的HASH操作，和数字签名摘要做对比即可验证CA证书的完整性和正确性。</p>
-<p>本质还是要确定收到的CA证书是正确的，当然可以直接对CA证书做数字签名。但是HASH可以减少需要加密和传输的数据，且同样能证明CA证书的正确性，就是多了一些步骤而已。</p>
+<p>关键概念：服务器的公钥 –hash–&gt; 信息摘要 –CA私钥签名–&gt; 数字证书</p>
+<p>数字证书的目标就是确保客户端收到的公钥是服务器的公钥。客户端根据数字证书（有CA签名确保其来源和正确性），可以获得服务器公钥的hash值，此为真；客户端还会收到“服务器”发过来的公钥（可能已被恶意置换），此为不确定，因此需要将其同样hash，与数字证书的hash来比较验伪。</p>
+<p>本质就是要确定收到的“服务器”公钥是正确的，当然可以直接对服务器公钥做数字签名。但是HASH可以减少需要加密和传输的数据，且同样能证明公钥的正确性，就是多了一些步骤而已。</p>
+<p>二.4 补充</p>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000021494676">HTTPS 详解一：附带最精美详尽的 HTTPS 原理图</a></p>
+<p>HTTPS-TSL 四次握手</p>
+<div align="center">
+    <img src="https://segmentfault.com/img/bVbClUl" width=80%>
+</div>
+
+<p>三 HTTP 状态码</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/febobo/web-interview/issues/144">面试官：说说HTTP 常见的状态码有哪些，适用场景？</a></p>
+<p>一些状态码的适用场景：</p>
+<ul>
+<li><p>100：客户端在发送POST数据给服务器前，征询服务器情况，看服务器是否处理POST的数据，如果不处理，客户端则不上传POST数据，如果处理，则POST上传数据。常用于POST大数据传输</p>
+</li>
+<li><p>206：一般用来做断点续传，或者是视频文件等大文件的加载</p>
+</li>
+<li><p>301：永久重定向会缓存。新域名替换旧域名，旧的域名不再使用时，用户访问旧域名时用301就重定向到新的域名</p>
+</li>
+<li><p>302：临时重定向不会缓存，常用 于未登陆的用户访问用户中心重定向到登录页面</p>
+</li>
+<li><p>304：协商缓存，告诉客户端有缓存，直接使用缓存中的数据，返回页面的只有头部信息，是没有内容部分</p>
+</li>
+<li><p>400：参数有误，请求无法被服务器识别</p>
+</li>
+<li><p>403：告诉客户端禁止访问该站点或者资源，如在外网环境下，然后访问只有内网IP才能访问的时候则返回</p>
+</li>
+<li><p>404：服务器找不到资源时，或者服务器拒绝请求又不想说明理由时</p>
+</li>
+<li><p>503：服务器停机维护时，主动用503响应请求或 nginx 设置限速，超过限速，会返回503</p>
+</li>
+<li><p>504：网关超时</p>
+</li>
+</ul>
 <p>四.补充</p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Rp4y1a7xQ?spm_id_from=333.1007.top_right_bar_window_history.content.click">详解DNS服务，DNS解析，DNS劫持和污染</a></p>
+<p>DNS劫持：<strong>是</strong>指通过某些手段取得某域名的解析记录控制权，进而<strong>修改此域名的解析结果</strong>，导致对该域名的访问由原IP地址转入到修改后的指定IP。<strong>其结果</strong>就是对特定的网址不能访问或访问的是假网址，从而实现窃取资料或者破坏原有正常服务的目的。</p>
 <p>五.替换</p>
 <p><strong>理解</strong>计算机网络层次模型：</p>
 <ul>
-<li>每个层次的作用和联系：为上层提供服务+管理和优化下层+本身设计</li>
+<li>每个层次的作用和联系：本为上层提供服务+使用下层服务/管理和优化下层+本身设计</li>
 <li>同层次协议对等通信：可以单独讨论某个层次的协议</li>
 <li>具体的实现：传输介质、硬件+软件、传输数据流&amp;各层次协议数据的包裹和解包</li>
 </ul>
 <p>在实际应用的时候，我们可以自上而下+一次仅看一层的来看。反正在某一层，我就能享受这一层的服务效果，且这个服务效果是基于下面层次的服务效果。</p>
 <p>参考：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/69554474">【计算机网络】你真的理解数据链路层吗？</a></p>
 <p><strong>网络模型</strong></p>
-<p>（1）应用层：直接为应用进程提供网络通信服务。应用层协议定义的是应用进程间通讯和交互的规则，不同的应用有着不同的应用层协议，如 HTTP协议（万维网服务）、FTP协议（文件传输）、SMTP协议（电子邮件）、DNS（域名查询）等。<br>（2）表示层：提供各种用于应用层数据的编码和转换功能,确保一个系统的应用层发送的数据能被另一个系统的应用层识别。如果必要，该层可提供一种标准表示形式，用于将计算机内部的多种数据格式转换成通信中采用的标准表示形式。数据压缩和加密也是表示层可提供的转换功能之一。<br>（3）会话层：就是负责建立、管理和终止表示层实体之间的通信会话。该层的通信由不同设备中的应用程序之间的服务请求和响应组成。<br>（4）传输层：有时也译为运输层，它负责为两台主机中的进程提供通信服务。该层主要有以下两种协议：</p>
+<p>（1）应用层：直接为应用进程提供网络通信服务。应用层协议定义的是应用进程间通讯和交互的规则，不同的应用有着不同的应用层协议，如 HTTP协议（万维网服务）、FTP协议（文件传输）、SMTP协议（电子邮件）、DNS（域名查询）等。<br>（2）表示层：提供数据编码和转换功能，为不同终端的应用层提供数据和信息正确的语法表示变换方法。数据压缩和加密也是表示层可提供的转换功能之一。<br>（3）会话层：就是负责建立、管理和终止表示层实体之间的通信会话，实现两个会话用户之间实现有组织的，同步的数据传输。<br>（4）传输层：它负责为两台主机中的进程提供基础的通信服务。该层主要有以下两种协议：</p>
 <ul>
 <li>传输控制协议 (Transmission Control Protocol，TCP)：提供面向连接的、可靠的数据传输服务。具体而言是建立主机端口之间连接实现可靠的数据传输。数据传输的基本单位是报文段（segment）。</li>
 <li>用户数据报协议 (User Datagram Protocol，UDP)：提供无连接的、尽最大努力的数据传输服务，但不保证数据传输的可靠性，数据传输的基本单位是用户数据报。</li>
 </ul>
-<p>（5）网络层：有时也译为网际层，它负责为两台主机提供通信服务，并通过选择合适的路由将数据分组传递到目标主机。<br>（6）数据链路层：负责将网络层交下来的 IP 数据报封装成帧，并在链路的两个相邻节点间传送帧，每一帧都包含数据和必要的控制信息（如同步信息、地址信息、差错控制等）。<br>（7）物理层：确保比特流数据在物理媒介上进行传输，定义了与传输媒介相关的接口特性，如机械特性、电气特性、功能特性。</p>
+<p>（5）网络层：它负责为两台主机提供通信服务。网络层把从传输层接收到的数据报文拆分成分组，通过路由选择算法选择合适的网络路径将数据分组传递到目标主机。<br>（6）数据链路层：负责将网络层交下来的 IP 数据报封装成帧，并在链路的两个相邻节点间传送帧，每一帧都包含数据和必要的控制信息（如同步信息、地址信息、差错控制等）。数据链路层是对物理层传输原始比特流的功能的加强，将物理层提供的可能出错的物理连接改造成为逻辑上无差错的数据链路，使之对网络层表现为一无差错的线路。数据链路层提供了相邻节点间的线路，网络层则是规划了数据的传输路径。<br>（7）物理层：确保比特流数据在物理媒介上进行传输，定义了与传输媒介相关的接口特性，尽可能屏蔽传输介质和物理设备的差异。</p>
 <p>六.补充</p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/NCXN2iW_DpEHEiePDP7Yhg">计算机网络经典20问！</a> 更精简</p>
 <ul>
 <li>TCP 设计动机</li>
 </ul>
@@ -797,8 +830,9 @@
 <li>面经内容补充</li>
 </ul>
 <p>TCP协议 将应用层报文切割成报文段，再交给IP层，IP层进行包装即可（也就是分段的好的话就不需要IP层另外进行分片）；UDP协议 传输完整报文，不进行分段，交给IP层后由IP层来进行分片。</p>
-<p>TCP协议内容：建立连接（三次握手）、传输过程、断开连接（四次挥手）</p>
-<p>补充：快速重传、滑动窗口 的图文解释——<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/108822858">一文搞定 UDP 和 TCP 高频面试题！</a></p>
+<p>TCP协议内容：建立连接（三次握手）、传输过程（确认机制、超时重传/可靠传输、流量控制/ARQ协议和滑动窗口、拥塞控制）、断开连接（四次挥手）</p>
+<p>替换：<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000039165592">TCP 三次握手和四次挥手</a></p>
+<p>补充：快速重传、滑动窗口 的图文解释——<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/108822858">一文搞定 UDP 和 TCP 高频面试题！</a>、<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000022144695">面试准备 TCP 知识，看这一篇就够了</a></p>
 <p>七.补充</p>
 <p>注意区分：TCP是全双工（发送端连续发送数据的同时，接收端可以同时返回确认；也即可以连续多次发出数据，不必一一等待确认）、HTTP1.1是半双工（完成一对请求响应后，才能进行下一对）、HTTP2.0是全双工（可以同时发送多对请求响应，不必一一等待响应）</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/welongfor/article/details/86622790">http 协议 是否 全双工 说明</a></p>
