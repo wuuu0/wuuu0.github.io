@@ -1150,7 +1150,7 @@ pre code {
 }
 .header-inner {
   margin: 0 auto;
-  width: calc(60% - 20px);
+  width: calc(100% - 40px);
 }
 @media (min-width: 1200px) {
   .header-inner {
@@ -1591,7 +1591,7 @@ pre code {
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
-  width: calc(60% - 20px);
+  width: calc(100% - 40px);
 }
 @media (min-width: 1200px) {
   .footer-inner {
@@ -2476,7 +2476,7 @@ ul.breadcrumb li:last-child {
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  width: calc(60% - 20px);
+  width: calc(100% - 40px);
 }
 @media (min-width: 1200px) {
   .main {
