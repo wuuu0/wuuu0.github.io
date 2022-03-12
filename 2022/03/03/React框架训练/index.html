@@ -20,30 +20,34 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="概述React 框架的知识掌握不牢固、实战经验少，故想要通过一些训练来熟练掌握React 框架，包括 React-router、React-redux、Axios。训练素材主要来自官方文档、尚硅谷案例、深挖项目。">
+<meta name="description" content="概述框架&#96;&#96;&#96;的知识掌握不牢固、实战经验少，故想要通过一些训练来熟练掌握，包括 React-router、React-redux、Axios。训练素材主要来自官方文档、博客1234567891011121314151617## Axios[Axios 中文文档](https:&#x2F;&#x2F;www.axios-http.cn&#x2F;docs&#x2F;intro)[一篇Axios入门教程](https:&#x2F;&#x2F;juejin.cn">
 <meta property="og:type" content="article">
-<meta property="og:title" content="React框架训练">
+<meta property="og:title" content="React 系列训练">
 <meta property="og:url" content="http://example.com/2022/03/03/React%E6%A1%86%E6%9E%B6%E8%AE%AD%E7%BB%83/index.html">
 <meta property="og:site_name" content="Wu&#39;s Blog">
-<meta property="og:description" content="概述React 框架的知识掌握不牢固、实战经验少，故想要通过一些训练来熟练掌握React 框架，包括 React-router、React-redux、Axios。训练素材主要来自官方文档、尚硅谷案例、深挖项目。">
+<meta property="og:description" content="概述框架&#96;&#96;&#96;的知识掌握不牢固、实战经验少，故想要通过一些训练来熟练掌握，包括 React-router、React-redux、Axios。训练素材主要来自官方文档、博客1234567891011121314151617## Axios[Axios 中文文档](https:&#x2F;&#x2F;www.axios-http.cn&#x2F;docs&#x2F;intro)[一篇Axios入门教程](https:&#x2F;&#x2F;juejin.cn">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2021/12/15/I7lrOfyVb32W4UB.gif">
+<meta property="og:image" content="https://s2.loli.net/2022/03/09/mGPEDL68I2Y3gF5.jpg">
+<meta property="og:image" content="https://segmentfault.com/img/remote/1460000011473976/view?w=1149&h=554">
 <meta property="article:published_time" content="2022-03-03T09:47:41.000Z">
-<meta property="article:modified_time" content="2022-03-03T13:25:58.490Z">
+<meta property="article:modified_time" content="2022-03-10T03:36:11.437Z">
 <meta property="article:author" content="Wu Chaojie">
 <meta property="article:tag" content="React router">
 <meta property="article:tag" content="React redux">
 <meta property="article:tag" content="Axios">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2021/12/15/I7lrOfyVb32W4UB.gif">
 
 
 <link rel="canonical" href="http://example.com/2022/03/03/React%E6%A1%86%E6%9E%B6%E8%AE%AD%E7%BB%83/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/03/03/React%E6%A1%86%E6%9E%B6%E8%AE%AD%E7%BB%83/","path":"2022/03/03/React框架训练/","title":"React框架训练"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/03/03/React%E6%A1%86%E6%9E%B6%E8%AE%AD%E7%BB%83/","path":"2022/03/03/React框架训练/","title":"React 系列训练"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>React框架训练 | Wu's Blog</title>
+<title>React 系列训练 | Wu's Blog</title>
   
 
 
@@ -122,7 +126,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-Router"><span class="nav-number">2.</span> <span class="nav-text">React Router</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8C%E7%94%A8%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">基本概念和用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E9%98%B6"><span class="nav-number">2.2.</span> <span class="nav-text">进阶</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redux"><span class="nav-number">3.</span> <span class="nav-text">Redux</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="nav-number">3.1.</span> <span class="nav-text">基础概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Redux-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">3.1.1.</span> <span class="nav-text">Redux 是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redux-%E6%9C%AF%E8%AF%AD%E5%92%8C%E6%A6%82%E5%BF%B5"><span class="nav-number">3.1.2.</span> <span class="nav-text">Redux 术语和概念</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E7%BB%93%E6%9E%84"><span class="nav-number">3.2.</span> <span class="nav-text">应用结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#React-redux"><span class="nav-number">3.3.</span> <span class="nav-text">React-redux</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -148,7 +152,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -205,7 +209,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          React框架训练
+          React 系列训练
         </h1>
 
         <div class="post-meta-container">
@@ -215,10 +219,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-03-03 17:47:41 / 修改时间：21:25:58" itemprop="dateCreated datePublished" datetime="2022-03-03T17:47:41+08:00">2022-03-03</time>
+      <time title="创建时间：2022-03-03 17:47:41" itemprop="dateCreated datePublished" datetime="2022-03-03T17:47:41+08:00">2022-03-03</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-03-10 11:36:11" itemprop="dateModified" datetime="2022-03-10T11:36:11+08:00">2022-03-10</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -239,8 +249,159 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><code>React 框架</code>的知识掌握不牢固、实战经验少，故想要通过一些训练来熟练掌握<code>React 框架</code>，包括 React-router、React-redux、Axios。训练素材主要来自官方文档、尚硅谷案例、深挖项目。</p>
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><figure class="highlight plaintext"><figcaption><span>框架```的知识掌握不牢固、实战经验少，故想要通过一些训练来熟练掌握，包括 React-router、React-redux、Axios。训练素材主要来自官方文档、博客</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## Axios</span><br><span class="line"></span><br><span class="line">[Axios 中文文档](https://www.axios-http.cn/docs/intro)</span><br><span class="line"></span><br><span class="line">[一篇Axios入门教程](https://juejin.cn/post/6884561821127491597)（主要看这个）</span><br><span class="line"></span><br><span class="line">训练案例：[Axios Crash Course | HTTP Library](https://www.youtube.com/watch?v=6LyagkoRWYA)</span><br><span class="line"></span><br><span class="line">PS：案例里用的 [JSONPlaceholder](https://jsonplaceholder.typicode.com/)，似乎在服务端配置了跨域</span><br><span class="line"></span><br><span class="line">比如，我们在任意网站按```F12```调试，输入以下代码，都可以请求成功</span><br><span class="line"></span><br><span class="line">```js</span><br><span class="line">fetch(&#x27;https://jsonplaceholder.typicode.com/todos/1&#x27;)</span><br><span class="line">  .then(response =&gt; response.json())</span><br><span class="line">  .then(json =&gt; console.log(json))</span><br></pre></td></tr></table></figure>
 
+<h2 id="React-Router"><a href="#React-Router" class="headerlink" title="React Router"></a>React Router</h2><h3 id="基本概念和用法"><a href="#基本概念和用法" class="headerlink" title="基本概念和用法"></a>基本概念和用法</h3><p><a target="_blank" rel="noopener" href="https://react-guide.github.io/react-router-cn/index.html">React Router 中文文档</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/6583b7258e78">React Router教程</a>（主要看这个）</p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7025418839454122015">什么，React Router已经到V6了 ？？</a>（有空看看）</p>
+<h3 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h3><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/8bc325107994">React-Router 嵌套路由</a></p>
+<p><a target="_blank" rel="noopener" href="https://react-guide.github.io/react-router-cn/docs/guides/advanced/ComponentLifecycle.html">React 路由 组件生命周期</a><br>基本符合之前的设想：每次切换路由就会导致 被切换的组件卸载，切换到的组件挂载</p>
+<h2 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h2><p><a target="_blank" rel="noopener" href="http://cn.redux.js.org/tutorials/index">Redux 官方文档</a></p>
+<h3 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h3><p>在教程的第一节，会包含使用 Redux 需要了解的关键术语和概念</p>
+<h4 id="Redux-是什么？"><a href="#Redux-是什么？" class="headerlink" title="Redux 是什么？"></a>Redux 是什么？</h4><ul>
+<li>Redux 是一个使用叫做“action”的事件来管理和更新应用状态的模式和工具库 它以集中式Store（centralized store）的方式对整个应用中使用的状态进行集中管理，其规则确保状态只能以可预测的方式更新。</li>
+</ul>
+<p><strong>为什么要使用？</strong></p>
+<ul>
+<li><p>Redux 帮你管理“全局”状态 - 哪些应用程序的许多部分都需要的状态。</p>
+</li>
+<li><p>Redux 提供的模式和工具使您更容易理解应用程序中的状态何时、何地、为什么以及如何更新，以及当这些更改发生时您的应用程序逻辑将如何表现。 Redux 指导您编写可预测和可测试的代码，这有助于让您确信您的应用程序将按预期工作。</p>
+</li>
+</ul>
+<p><strong>什么时候应该使用？</strong></p>
+<ul>
+<li>在应用的大量地方，都存在大量的状态</li>
+<li>应用状态会随着时间的推移而频繁更新</li>
+<li>更新该状态的逻辑可能很复杂</li>
+<li>中型和大型代码量的应用，很多人协同开发</li>
+</ul>
+<h4 id="Redux-术语和概念"><a href="#Redux-术语和概念" class="headerlink" title="Redux 术语和概念"></a>Redux 术语和概念</h4><p>在我们深入研究一些实际代码之前，让我们先谈谈使用 Redux 需要了解的一些术语和概念</p>
+<p>了解 Redux 在没有 Redux Toolkit 的情况下如何使用</p>
+<p><strong>概念</strong></p>
+<ul>
+<li><p>单向数据流</p>
+</li>
+<li><p>不可变性 Immutability</p>
+</li>
+</ul>
+<p><strong>术语</strong></p>
+<ul>
+<li>Action、Action Creator</li>
+<li>Reducer</li>
+<li>Store</li>
+<li>Dispatch</li>
+<li>Selector</li>
+</ul>
+<div align="center">
+<img src="https://s2.loli.net/2021/12/15/I7lrOfyVb32W4UB.gif" width="70%">
+</div>
+
+<h3 id="应用结构"><a href="#应用结构" class="headerlink" title="应用结构"></a>应用结构</h3><p>下面使用 Redux-toolkit 来介绍 Redux 的基本使用</p>
+<p>补充资料：<a target="_blank" rel="noopener" href="https://redux-toolkit-cn.netlify.app/tutorials/basic-tutorial/">基础教程: 介绍 Redux 工具包</a></p>
+<blockquote>
+<p>要意识到，上面的动画表达的是 Redux 最基本的特性。Redux 库为我们提供了基本的 API 来使用这些基本特性，Redux-toolkit 的话则提供了更方便的 API 来使用这些特性</p>
+</blockquote>
+<p><strong>创建 Store</strong></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; configureStore &#125; <span class="keyword">from</span> <span class="string">&#x27;@reduxjs/toolkit&#x27;</span></span><br><span class="line"><span class="keyword">import</span> counterReducer <span class="keyword">from</span> <span class="string">&#x27;../features/counter/counterSlice&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> configureStore(&#123;</span><br><span class="line">  <span class="attr">reducer</span>: &#123;</span><br><span class="line">    <span class="attr">counter</span>: counterReducer</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>Redux store 是使用 Redux Toolkit 中的<code>configureStore</code>函数创建的。<code>configureStore</code>要求我们传入一个<code>reducer</code>参数。</p>
+<p>当我们传入一个像<code>&#123;counter: counterReducer&#125;</code>这样的对象时，它表示我们希望在 Redux 状态对象中有一个<code>state.counter</code>部分，并且我们希望<code>counterReducer</code>函数负责决定是否以及如何在 dispatch action 时更新<code>state.counter</code>部分。</p>
+<p>Redux 切片 (Slice)</p>
+<p>“切片”是应用中单个功能的 Redux reducer 逻辑和 action 的集合, 通常一起定义在一个文件中。该名称来自于将根 Redux 状态对象拆分为多个状态“切片。看下面的例子</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; configureStore &#125; <span class="keyword">from</span> <span class="string">&#x27;@reduxjs/toolkit&#x27;</span></span><br><span class="line"><span class="keyword">import</span> usersReducer <span class="keyword">from</span> <span class="string">&#x27;../features/users/usersSlice&#x27;</span></span><br><span class="line"><span class="keyword">import</span> postsReducer <span class="keyword">from</span> <span class="string">&#x27;../features/posts/postsSlice&#x27;</span></span><br><span class="line"><span class="keyword">import</span> commentsReducer <span class="keyword">from</span> <span class="string">&#x27;../features/comments/commentsSlice&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> configureStore(&#123;</span><br><span class="line">  <span class="attr">reducer</span>: &#123;</span><br><span class="line">    <span class="attr">users</span>: usersReducer,</span><br><span class="line">    <span class="attr">posts</span>: postsReducer,</span><br><span class="line">    <span class="attr">comments</span>: commentsReducer</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>例子中，<code>state.users</code>，<code>state.posts</code>，和<code>state.comments</code>均是 Redux state 的一个切片“slice”。由于<code>usersReducer</code>负责更新<code>state.users</code>切片，我们将其称为“slice reducer”函数。</p>
+<p><strong>创建 Slice Reducer 和 Action</strong></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createSlice &#125; <span class="keyword">from</span> <span class="string">&#x27;@reduxjs/toolkit&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> counterSlice = createSlice(&#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;counter&#x27;</span>,</span><br><span class="line">  <span class="attr">initialState</span>: &#123;</span><br><span class="line">    <span class="attr">value</span>: <span class="number">0</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">reducers</span>: &#123;</span><br><span class="line">    <span class="attr">increment</span>: <span class="function"><span class="params">state</span> =&gt;</span> &#123;</span><br><span class="line">      state.value += <span class="number">1</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">decrement</span>: <span class="function"><span class="params">state</span> =&gt;</span> &#123;</span><br><span class="line">      state.value -= <span class="number">1</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">incrementByAmount</span>: <span class="function">(<span class="params">state, action</span>) =&gt;</span> &#123;</span><br><span class="line">      state.value += action.payload</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> &#123; increment, decrement, incrementByAmount &#125; = counterSlice.actions</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> counterSlice.reducer</span><br></pre></td></tr></table></figure>
+
+<p>Redux Toolkit 有一个名为<code>createSlice</code>的函数，<strong>它负责</strong>生成 action 类型字符串、action creator 函数和 action 对象的工作。<strong>您所要做的</strong>就是为这个切片定义一个名称，编写一个包含 reducer 函数的对象，它会自动生成相应的 action 代码。</p>
+<p>更多规则：Reducer 的规则、Reducer 与 不可变更新/ Immer 库、用 Thunk 编写异步逻辑</p>
+<p>关于 Thunk：大致流程是：组件/view dispatch 一个函数（可包含同步+异步行为），中间件接收并运行函数并生成 action 并将其 dispatch 到 Store</p>
+<p><strong>React Counter 组件</strong></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">Counter</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> count = useSelector(selectCount)</span><br><span class="line">  <span class="keyword">const</span> dispatch = useDispatch()</span><br><span class="line">  <span class="keyword">const</span> [incrementAmount, setIncrementAmount] = useState(<span class="string">&#x27;2&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&#123;styles.row&#125;</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">button</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">          <span class="attr">className</span>=<span class="string">&#123;styles.button&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">          <span class="attr">aria-label</span>=<span class="string">&quot;Increment value&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">          <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> dispatch(increment())&#125;</span></span><br><span class="line"><span class="xml">        &gt;</span></span><br><span class="line"><span class="xml">          +</span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">className</span>=<span class="string">&#123;styles.value&#125;</span>&gt;</span>&#123;count&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">button</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">          <span class="attr">className</span>=<span class="string">&#123;styles.button&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">          <span class="attr">aria-label</span>=<span class="string">&quot;Decrement value&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">          <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> dispatch(decrement())&#125;</span></span><br><span class="line"><span class="xml">        &gt;</span></span><br><span class="line"><span class="xml">          -</span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      &#123;/* 这里省略了额外的 render 代码 */&#125;</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在我们的组件中，看起来我们并没有将当前计数器的值存储为 state。而是放到<code>count</code>变量中，但它不是来自<code>useState</code>hooks。<a target="_blank" rel="noopener" href="https://react-redux.js.org/api/hooks">React-Redux 库</a> 有一组自定义 hooks，允许你的 React 组件与 Redux store 交互。（我们的组件不能直接与 Redux store 对话，因为组件文件中不能引入 store）</p>
+<ul>
+<li>使用<code>useSelector</code>提取数据</li>
+<li>使用<code>useDispatch</code>来 dispatch action</li>
+</ul>
+<p><strong>Redux State 和 组件 State</strong></p>
+<p>整个应用程序所需的全局状态应该放在 Redux store 中。而只在一个地方用到的状态应该放到组件的 state。</p>
+<p>一些常用的经验法则，用于确定应该将哪种数据放入 Redux：</p>
+<ul>
+<li>应用程序的其他部分是否关心这些数据？</li>
+<li>您是否需要能够基于这些原始数据创建进一步的派生数据？</li>
+<li>是否使用相同的数据来驱动多个组件？</li>
+<li>能够将这种状态恢复到给定的时间点（即时间旅行调试）对您是否有价值？</li>
+<li>是否要缓存数据（即，如果数据已经存在，则使用它的状态而不是重新请求它）？</li>
+<li>您是否希望在热重载 UI 组件（交换时可能会丢失其内部状态）时保持此数据一致？</li>
+</ul>
+<p><strong>Providing the Store</strong></p>
+<p>我们已经看到我们的组件可以使用 useSelector 和 useDispatch 这两个 hooks 与 Redux 的 store 通信。奇怪的是，我们并没有导入 store，那么这些 hooks 怎么知道要与哪个 Redux store 对话呢？</p>
+<p>使用一个名为 <Provider> 的组件在幕后传递 Redux store，以便我们的组件可以访问它</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">Provider</span> <span class="attr">store</span>=<span class="string">&#123;store&#125;</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">App</span> /&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">Provider</span>&gt;</span></span>,</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">&#x27;root&#x27;</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<div align="center">
+<img src="https://s2.loli.net/2022/03/09/mGPEDL68I2Y3gF5.jpg" width="100%">
+</div>
+
+<h3 id="React-redux"><a href="#React-redux" class="headerlink" title="React-redux"></a>React-redux</h3><p><a target="_blank" rel="noopener" href="https://react-redux.js.org/">React-redux 官方文档</a></p>
+<p>Why Use React Redux? Redux 和 React-redux 的关系？</p>
+<blockquote>
+<p>Redux itself is a standalone library that can be used with any UI layer or framework, including React, Angular, Vue, Ember, and vanilla JS. Although Redux and React are commonly used together, they are independent of each other.</p>
+</blockquote>
+<blockquote>
+<p>React Redux is the official Redux UI binding library for React.</p>
+</blockquote>
+<p>进一步说，Redux 主要是实现了 dispatch、action、store/state/reducer（参见之前的动画），其本身只提供了一种数据流的概念+数据更新的机制（<a target="_blank" rel="noopener" href="http://cn.redux.js.org/introduction/core-concepts">更本质的 Redux</a>）。真实的 Redux 全流程类似下面的描述：</p>
+<p>组件触发事件，调用了 Redux dispatch —&gt; Redux 运作 —&gt; 返回数据（Redux state）给组件，组件更新渲染</p>
+<p>可见 Redux 没有直接负责一下事情：组件触发事件时，如何实现调用 Redux dispatch；Redux 处理完 action 后返回的 Redux state，如何传给我们的组件并让它更新渲染？ 这些事情，就是由 UI binding library 来实现。React-redux 就是 React 框架对应的 UI binding library</p>
+<p><strong>Connecting API</strong></p>
+<p>参考资料：<a target="_blank" rel="noopener" href="https://react-redux.js.org/tutorials/connect">Tutorial: Using the API connect</a></p>
+<p>在之前计数器的案例中，我们用<code>useSelector</code>和<code>useDispatch</code>实现了 React 组件和 Redux 的连接，这也是现在官方推荐的方式</p>
+<div align="center">
+<img src="https://segmentfault.com/img/remote/1460000011473976/view?w=1149&h=554" width="100%">
+</div>
+
+<p>此前的做法是使用 connection API，大致用法如下：</p>
+<ul>
+<li>Providing th Store</li>
+</ul>
+<p>首先我们需要让我们的组件能够获取到<code>store</code>。我们可以在应用组件的最外层套上一个由 React Redux 提供的 <Provider /> API</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; Provider &#125; <span class="keyword">from</span> <span class="string">&#x27;react-redux&#x27;</span></span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">&#x27;./redux/store&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> rootElement = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;root&#x27;</span>)</span><br><span class="line">ReactDOM.render(</span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">Provider</span> <span class="attr">store</span>=<span class="string">&#123;store&#125;</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">TodoApp</span> /&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">Provider</span>&gt;</span></span>,</span><br><span class="line">  rootElement</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Connecting the Component</li>
+</ul>
+<p>React Redux 为我们提供了一个<code>connect</code> function，让我们能够从<code>store</code>中读取数据（包括 state 和 dispatch）（并且能够在<code>store</code>中数据更新时，自动重新读取）</p>
+<p>The connect function takes two arguments, both optional:</p>
+<ul>
+<li><p><code>mapStateToProps</code>: called every time the store state changes. It receives the entire store state, and should return an object of data this component needs.</p>
+</li>
+<li><p><code>mapDispatchToProps</code>: this parameter can either be a function, or an object.</p>
+<ul>
+<li>If it’s a function, it will be called once on component creation. It will receive dispatch as an argument, and should return an object full of functions that use dispatch to dispatch actions.</li>
+<li>If it’s an object full of action creators, each action creator will be turned into a prop function that automatically dispatches its action when called. Note: We recommend using this “object shorthand” form.</li>
+</ul>
+</li>
+</ul>
+<p>下面看具体的使用方法。</p>
+<p>① 首先，对于需要更改 store state 的组件，它要能够将 action dispatch 到 store。简化流程：</p>
+<ul>
+<li>从 Redux 工程文件中（概念上 Action 属于 Redux 范畴，我们实现时也一般将 Action 放在 Redux 文件夹实现）导入 action creator</li>
+<li>作为<code>connect</code>的第二个参数。导出组件时调用<code>connect</code>包装组件</li>
+<li>action creator 作为 props 传入组件中，组件调用 action creator 就会创建对应的 action，并自动调用 redux dispatch 将其发送到 store</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// components/AddTodo.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; connect &#125; <span class="keyword">from</span> <span class="string">&#x27;react-redux&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; addTodo &#125; <span class="keyword">from</span> <span class="string">&#x27;../redux/actions&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AddTodo</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">  handleAddTodo = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// dispatches actions to add todo</span></span><br><span class="line">    <span class="built_in">this</span>.props.addTodo(<span class="built_in">this</span>.state.input)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// sets state back to empty string</span></span><br><span class="line">    <span class="built_in">this</span>.setState(&#123; <span class="attr">input</span>: <span class="string">&#x27;&#x27;</span> &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="title">render</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">input</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">          <span class="attr">onChange</span>=<span class="string">&#123;(e)</span> =&gt;</span> this.updateInput(e.target.value)&#125;</span></span><br><span class="line"><span class="xml">          value=&#123;this.state.input&#125;</span></span><br><span class="line"><span class="xml">        /&gt;</span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">className</span>=<span class="string">&quot;add-todo&quot;</span> <span class="attr">onClick</span>=<span class="string">&#123;this.handleAddTodo&#125;</span>&gt;</span></span></span><br><span class="line"><span class="xml">          Add Todo</span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> connect(<span class="literal">null</span>, &#123; addTodo &#125;)(AddTodo)</span><br></pre></td></tr></table></figure>
+
+<p>store 接收到 action，redux 进行处理并更改 state。</p>
+<p>② 然后，对于依赖 store state 的组件，它们需要同 redux 连接起来，获取 store 的 state，并保持它变化，组件获取的值也变化同时更新渲染。简化流程：</p>
+<ul>
+<li>在组件端实现一个<code>mapStateToProps</code>函数，它描述了组件想要从 store 中获取 state 的哪一部分数据（可以用 selector 方法简化）。</li>
+<li><code>mapStateToProps</code>函数作为<code>connect</code>第一个参数。导出组件时调用<code>connect</code>包装组件</li>
+<li><code>mapStateToProps</code>函数的返回值是一个对象，对象中的 key 值会作为同名 props 传入组件</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// components/TodoList.js</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ...other imports</span></span><br><span class="line"><span class="keyword">import</span> &#123; connect &#125; <span class="keyword">from</span> <span class="string">&quot;react-redux&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; getTodos &#125; <span class="keyword">from</span> <span class="string">&quot;../redux/selectors&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> TodoList = <span class="comment">// ... UI component implementation</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> connect(<span class="function"><span class="params">state</span> =&gt;</span> (&#123; <span class="attr">todos</span>: getTodos(state) &#125;))(TodoList);</span><br></pre></td></tr></table></figure>
     </div>
 
     

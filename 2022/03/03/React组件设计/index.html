@@ -20,18 +20,20 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="React 哲学（官方文档）尝试自己用 Hooks 写出来 React 组件设计实践——组件的组织React组件设计实践总结 宝藏系列，主要是文字经验总结，有空细读 精通react&#x2F;vue组件设计精通React&#x2F;Vue系列 作者自己封装的几个组件，可以拿来练手">
+<meta name="description" content="React 哲学（官方文档）官方文档 尝试自己用 Hooks 写出来。复现的代码见：CodeSandBox - React Philosophy 第一步：将设计好的 UI 划分为组件层级 根据单一功能原则划分组件 列出组件层级  FilterableProductTable SearchBar ProductTable ProductCategoryRow ProductRow    第二步：用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="React 组件设计">
 <meta property="og:url" content="http://example.com/2022/03/03/React%E7%BB%84%E4%BB%B6%E8%AE%BE%E8%AE%A1/index.html">
 <meta property="og:site_name" content="Wu&#39;s Blog">
-<meta property="og:description" content="React 哲学（官方文档）尝试自己用 Hooks 写出来 React 组件设计实践——组件的组织React组件设计实践总结 宝藏系列，主要是文字经验总结，有空细读 精通react&#x2F;vue组件设计精通React&#x2F;Vue系列 作者自己封装的几个组件，可以拿来练手">
+<meta property="og:description" content="React 哲学（官方文档）官方文档 尝试自己用 Hooks 写出来。复现的代码见：CodeSandBox - React Philosophy 第一步：将设计好的 UI 划分为组件层级 根据单一功能原则划分组件 列出组件层级  FilterableProductTable SearchBar ProductTable ProductCategoryRow ProductRow    第二步：用">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/2/2/17005d7e20a61b52~tplv-t2oaga2asx-watermark.awebp">
 <meta property="article:published_time" content="2022-03-03T09:33:22.000Z">
-<meta property="article:modified_time" content="2022-03-03T13:25:57.658Z">
+<meta property="article:modified_time" content="2022-03-11T13:16:32.001Z">
 <meta property="article:author" content="Wu Chaojie">
 <meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/2/2/17005d7e20a61b52~tplv-t2oaga2asx-watermark.awebp">
 
 
 <link rel="canonical" href="http://example.com/2022/03/03/React%E7%BB%84%E4%BB%B6%E8%AE%BE%E8%AE%A1/">
@@ -120,7 +122,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#React-%E5%93%B2%E5%AD%A6%EF%BC%88%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">React 哲学（官方文档）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-%E7%BB%84%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5%E2%80%94%E2%80%94%E7%BB%84%E4%BB%B6%E7%9A%84%E7%BB%84%E7%BB%87"><span class="nav-number">2.</span> <span class="nav-text">React 组件设计实践——组件的组织</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B2%BE%E9%80%9Areact-vue%E7%BB%84%E4%BB%B6%E8%AE%BE%E8%AE%A1"><span class="nav-number">3.</span> <span class="nav-text">精通react&#x2F;vue组件设计</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#React-%E5%93%B2%E5%AD%A6%EF%BC%88%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">React 哲学（官方文档）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-%E7%BB%84%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A1%88%E4%BE%8B"><span class="nav-number">2.</span> <span class="nav-text">React 组件设计案例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB-MaterialUI-%E6%8C%89%E9%92%AE"><span class="nav-number">2.1.</span> <span class="nav-text">类 MaterialUI 按钮</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS3-%E5%AE%9E%E7%8E%B0%E7%82%B9%E5%87%BB%E5%8A%A8%E6%95%88"><span class="nav-number">2.1.1.</span> <span class="nav-text">CSS3 实现点击动效</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%84%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF"><span class="nav-number">2.1.2.</span> <span class="nav-text">组件设计思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#React-%E5%B0%81%E8%A3%85"><span class="nav-number">2.1.3.</span> <span class="nav-text">React 封装</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E5%AE%9A%E5%88%B6%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1"><span class="nav-number">2.2.</span> <span class="nav-text">可定制的进度条</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%84%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">组件设计思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E8%BF%9B%E5%BA%A6%E6%9D%A1%E7%9A%84%E9%9D%99%E6%80%81%E6%A0%B7%E5%BC%8F"><span class="nav-number">2.2.2.</span> <span class="nav-text">实现进度条的静态样式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AE%E6%92%AD%E5%9B%BE-Swiper"><span class="nav-number">2.3.</span> <span class="nav-text">轮播图 Swiper</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E7%89%88"><span class="nav-number">2.3.1.</span> <span class="nav-text">基础版</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-%E7%BB%84%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%AE%9E%E8%B7%B5%E2%80%94%E2%80%94%E7%BB%84%E4%BB%B6%E7%9A%84%E7%BB%84%E7%BB%87"><span class="nav-number">3.</span> <span class="nav-text">React 组件设计实践——组件的组织</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -146,7 +148,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -213,10 +215,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-03-03 17:33:22 / 修改时间：21:25:57" itemprop="dateCreated datePublished" datetime="2022-03-03T17:33:22+08:00">2022-03-03</time>
+      <time title="创建时间：2022-03-03 17:33:22" itemprop="dateCreated datePublished" datetime="2022-03-03T17:33:22+08:00">2022-03-03</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-03-11 21:16:32" itemprop="dateModified" datetime="2022-03-11T21:16:32+08:00">2022-03-11</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -237,9 +245,141 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="React-哲学（官方文档）"><a href="#React-哲学（官方文档）" class="headerlink" title="React 哲学（官方文档）"></a>React 哲学（官方文档）</h2><p>尝试自己用 Hooks 写出来</p>
+        <h2 id="React-哲学（官方文档）"><a href="#React-哲学（官方文档）" class="headerlink" title="React 哲学（官方文档）"></a>React 哲学（官方文档）</h2><p><a target="_blank" rel="noopener" href="https://react.docschina.org/docs/thinking-in-react.html">官方文档</a></p>
+<p>尝试自己用 Hooks 写出来。复现的代码见：<a target="_blank" rel="noopener" href="https://codesandbox.io/">CodeSandBox - React Philosophy</a></p>
+<p><strong>第一步：将设计好的 UI 划分为组件层级</strong></p>
+<p>根据单一功能原则划分组件</p>
+<p>列出组件层级</p>
+<ul>
+<li>FilterableProductTable</li>
+<li>SearchBar</li>
+<li>ProductTable<ul>
+<li>ProductCategoryRow</li>
+<li>ProductRow</li>
+</ul>
+</li>
+</ul>
+<p><strong>第二步：用 React 创建一个静态版本</strong></p>
+<p>先假设我们已经从后台获取了数据（要清楚后台的数据格式）</p>
+<p>先根据该已有的后台数据，渲染出来一个没有交互功能的，应用的静态版本</p>
+<ul>
+<li>小型应用：自上而下</li>
+<li>大型应用：自下而上。每实现一个小组件测试一个小组件。</li>
+</ul>
+<p>这一步要清楚自顶向下的数据流（<strong>单向数据流，单向绑定</strong>）情况如何。后端数据整个输入给谁的<code>props</code>？父组件的什么数据要继续下传？子组件<code>props</code>接受自谁，包含了什么属性？</p>
+<p>如何根据后台数据渲染组件？和后台数据的结构有关。此例子中，就是简单的遍历后台数据（数组），然后根据某些控制字段判断条件对应创建元素即可</p>
+<p>包含关系：<br>① 在我们的例子中，<code>ProductTable</code>和<code>Row</code>是包含关系，我们是将渲染<code>Row</code>的必要数据通过<code>props</code>传给<code>ProductTable</code>后，再由<code>ProductTable</code>自己<code>render</code>出<code>Row</code>来。<br>② <a target="_blank" rel="noopener" href="https://react.docschina.org/docs/composition-vs-inheritance.html">官方文档-组合&amp;继承</a> 中的<code>children</code>模式则是直接将子组件传递给父组件。<br>这两者方法都可以应对官方文档里说的“有些组件无法提前知晓它们子组件的具体内容”情况。第二种官方文档里的<code>children</code>模式一般什么时候使用呢？</p>
+<p><strong>第三步：确定 UI state 的最小（且完整）表示</strong></p>
+<p>通过问自己以下三个问题，你可以逐个检查相应数据是否属于 state：</p>
+<ul>
+<li>该数据是否是由父组件通过 props 传递而来的？如果是，那它应该不是 state。</li>
+<li>该数据是否随时间的推移而保持不变？如果是，那它应该也不是 state。（一般来说，交互处就需要 state）</li>
+<li>你能否根据其他 state 或 props 计算出该数据的值？如果是，那它也不是 state。</li>
+</ul>
+<p>注意，要以设计的组件当前层级的视角去思考上面的准则。比如获取后端数据肯定是会变的，但是它是在我们设计的<code>FilterableProdcutTable</code>之外获取的数据，对于这个组件来说，就把它当<code>props</code>就好</p>
+<p>状态的抽取还是挺看经验的</p>
+<p><strong>第四步：确定 state 放置的位置</strong></p>
+<p>对于应用中的每一个 state：</p>
+<ul>
+<li>找到根据这个 state 进行渲染的所有组件。</li>
+<li>找到他们的共同所有者（common owner）组件（在组件层级上高于所有需要该 state 的组件）。</li>
+<li>该共同所有者组件或者比它层级更高的组件应该拥有该 state。</li>
+<li>如果你找不到一个合适的位置来存放该 state，就可以直接创建一个新的组件来存放该 state，并将这一新组件置于高于共同所有者组件层级的位置。</li>
+</ul>
+<p>针对状态，稍微细分一下组件，其实有 <strong>状态设置者</strong>（一般就是状态提升前的状态所有者，此处是<code>SerchBar</code>） 和 <strong>状态响应者</strong>（此处是<code>ProductTable</code>） 之分。在这个例子中，状态提升后，两者需要从父组件获取状态——设置者需要即使更新显示当前的设置状态，响应者自然就是需要响应状态。</p>
+<p><strong>第五步：添加反向数据流</strong></p>
+<p>在创建状态的组件上，定义“伪”事件处理函数，然后将它们通过<code>props</code>传递给对应的子组件</p>
+<p>子组件拿到父组件的“伪”事件处理函数，自己定义真的事件处理函数，挂载到元素上去，实现反向数据流：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UI交互/事件 ---&gt; （异步）调用真事件处理函数 ---&gt; 调用“伪”事件处理函数，设置状态</span><br></pre></td></tr></table></figure>
+
+<p>值得讨论的是，此处“伪”事件处理函数指负责<code>setState</code>，留出一个接口给子组件传值进来设置状态。复杂情况下，事件处理的逻辑可能需要分层实现，即在每个层次的组件就实现其对应的事件处理逻辑</p>
+<hr>
+<h2 id="React-组件设计案例"><a href="#React-组件设计案例" class="headerlink" title="React 组件设计案例"></a>React 组件设计案例</h2><h3 id="类-MaterialUI-按钮"><a href="#类-MaterialUI-按钮" class="headerlink" title="类 MaterialUI 按钮"></a>类 MaterialUI 按钮</h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904066435252238">精通React/Vue系列</a> 作者自己封装的几个组件，可以拿来练手</p>
+</blockquote>
+<p>参考资料：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904054917693453">纯 CSS 打造 materialUI 按钮 封装成react组件</a></p>
+<h4 id="CSS3-实现点击动效"><a href="#CSS3-实现点击动效" class="headerlink" title="CSS3 实现点击动效"></a>CSS3 实现点击动效</h4><p>参考资料：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/transition">CSS transition MDN</a></p>
+<p>总结来说，就是对同一个元素的不同状态（通过伪类，比如<code>:hover</code>）（也可以是父元素的不同状态下的同一子组件），设置不同的样式。如果设置了<code>transition</code>属性（一般设置在正常的样式中，而不是伪类样式中），则在状态变化时，两个样式的切换会有动画。</p>
+<h4 id="组件设计思路"><a href="#组件设计思路" class="headerlink" title="组件设计思路"></a>组件设计思路</h4><p>组件的设计思路我这里参考ant-design的模式, 基于开闭原则,我们知道一个可扩展的按钮组件一般都具备如下特点:</p>
+<ul>
+<li>允许用户修改按钮样式</li>
+<li>对外暴露按钮事件方法</li>
+<li>提供按钮主题和外形配置</li>
+<li>可插拔,可组合</li>
+</ul>
+<p><strong>抽象来说</strong>：确定需求（功能/效果如何）+提供接口（开发者如何使用）</p>
+<p>基于以上几点,我们来设计这个react组件</p>
+<h4 id="React-封装"><a href="#React-封装" class="headerlink" title="React 封装"></a>React 封装</h4><p>参考资料：<a target="_blank" rel="noopener" href="https://www.npmjs.com/package/classnames">classnames 模块</a>，简单来说就是把多个字符串，以空格为间隔拼接成一个字符串</p>
+<p>要深刻认识到 Webpack 中一切皆模块。当我们在封装<code>Button</code>时，<code>import</code>了它的样式，之后<code>export</code>这个<code>Button</code>后，它就自带了样式，不必再<code>import</code>它的样式。在<code>Antd</code>中，有时候我们引用了组件还不够，还要再引入样式的情况，应该是需要一些公用/补充样式？</p>
+<p>所谓给用户暴露设置项，就是用户通过<code>Button</code>的<code>props</code>输入配置，<code>Button</code>拿到配置后进行相应的处理。比如用户自定义样式，用户输入的<code>type</code>下放到<code>Button</code>中就是一个类名，我们给<code>div</code>添加这个类，并且在<code>Button</code>的<code>css/less</code>文件中设置相关的样式即可；用户自定义处理函数，<code>Button</code>收到后设置给<code>div</code>的对应的事件处理函数即可</p>
+<h3 id="可定制的进度条"><a href="#可定制的进度条" class="headerlink" title="可定制的进度条"></a>可定制的进度条</h3><p>参考资料：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904055702028296">快速实现一个可定制的进度条组件</a></p>
+<p>自己的实现：<a target="_blank" rel="noopener" href="https://codesandbox.io/s/progress-component-bvd884?file=/src/Progress/index.jsx">CodeSandBox - Progress</a></p>
+<p><strong>组件设计三原则</strong></p>
+<ul>
+<li>高内聚, 低耦合（尤其是vue/react组件中, 降低组件之间的耦合尤为重要）</li>
+<li>组件边界划分清晰（每一个组件都有自己清晰的边界划分）</li>
+<li>单一职责（每一个组件只负责某一特定的表现或者功能）</li>
+</ul>
+<h4 id="组件设计思路-1"><a href="#组件设计思路-1" class="headerlink" title="组件设计思路"></a>组件设计思路</h4><p>由于组件设计的前提还是基于需求, 所以我们第一步是要确认需求. 一个进度条组件一般都会有如下需求点:</p>
+<ul>
+<li>通过进度控制进度条长度</li>
+<li>进度条总长度可以由用户来控制</li>
+<li>随时修改精度条的颜色（来自于设计师或产品经理独特而百变的审美）</li>
+<li>当进度为100%时进度条可以自动消失（可能的需求）</li>
+<li>进度提示文本（用户想知道当前长度下的具体进度, 比如体温计）</li>
+<li>对于不同的进度节点,需要有不同的进度条颜色（比如游戏人物里的血, 快没血的时候为红色, 血满的时候为蓝色）</li>
+</ul>
+<p>需求收集好之后，得出如下线框图：</p>
+<div align="center">
+    <img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/2/2/17005d7e20a61b52~tplv-t2oaga2asx-watermark.awebp" width=80%>
+</div>
+
+<p>也即大概确定需求和接口后，我们要进一步思考如何实现。上面的思维导图我们也知道了，进度条组件的实现原理就是通过对外暴露一定的属性，使用css先画一个进度条，最后通过属性和样式之间的调度来实现我们需求满满的进度条。至于如何画进度条,下面会详细介绍</p>
+<h4 id="实现进度条的静态样式"><a href="#实现进度条的静态样式" class="headerlink" title="实现进度条的静态样式"></a>实现进度条的静态样式</h4><ul>
+<li>思考 HTML 组织结构 和 CSS 布局和样式（非暴露接口的），实现之</li>
+<li>用<code>JS</code>控制组件样式。<ul>
+<li>在组件中取出<code>props</code>，实现必要的需求逻辑。</li>
+<li>在组件的<code>jsx元素</code>中，传入<code>JS</code>控制的样式。注意，这里直接设置<code>div</code>的内联样式<code>style</code>，而不是通过<code>JS</code>去修改静态样式文件或者添加CSS类来控制样式，那样没必要</li>
+</ul>
+</li>
+</ul>
+<p>在实现过程中，感悟如下</p>
+<ul>
+<li>要清楚我们的需求是什么，想清楚了需求，有大概的实现思路，就成功了一大半</li>
+<li>需求实现步骤：我们先写好了静态样式，然后再通过暴露的接口<code>props</code>+<code>js</code>设置元素的样式。不够熟练的时候，也可以将动态的样式先定死，写进静态样式中；后面再将它们抽离出来<ul>
+<li>HTML和CSS还是要熟练。我们先写静态，然后基于静态写动态，这个过程中，静态的 HTML CSS 是基础</li>
+<li>写动态，也就是<code>js</code>的时候，就是看我们的程序逻辑、对数据的操作处理了（也即正常的编程基础）</li>
+</ul>
+</li>
+</ul>
+<h3 id="轮播图-Swiper"><a href="#轮播图-Swiper" class="headerlink" title="轮播图 Swiper"></a>轮播图 Swiper</h3><h4 id="基础版"><a href="#基础版" class="headerlink" title="基础版"></a>基础版</h4><ul>
+<li>《DOM 编程艺术》中的简陋轮播图</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">moveElement</span>(<span class="params">elementID,final_x,final_y,interval</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!<span class="built_in">document</span>.getElementById) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">if</span> (!<span class="built_in">document</span>.getElementById(elementID)) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">var</span> elem = <span class="built_in">document</span>.getElementById(elementID);</span><br><span class="line">  <span class="keyword">if</span> (elem.movement) &#123;</span><br><span class="line">    <span class="built_in">clearTimeout</span>(elem.movement);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (!elem.style.left) &#123;</span><br><span class="line">    elem.style.left = <span class="string">&quot;0px&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (!elem.style.top) &#123;</span><br><span class="line">    elem.style.top = <span class="string">&quot;0px&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> xpos = <span class="built_in">parseInt</span>(elem.style.left);</span><br><span class="line">  <span class="keyword">var</span> ypos = <span class="built_in">parseInt</span>(elem.style.top);</span><br><span class="line">  <span class="keyword">if</span> (xpos == final_x &amp;&amp; ypos == final_y) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (xpos &lt; final_x) &#123;</span><br><span class="line">    <span class="keyword">var</span> dist = <span class="built_in">Math</span>.ceil((final_x - xpos)/<span class="number">10</span>);</span><br><span class="line">    xpos = xpos + dist;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (xpos &gt; final_x) &#123;</span><br><span class="line">    <span class="keyword">var</span> dist = <span class="built_in">Math</span>.ceil((xpos - final_x)/<span class="number">10</span>);</span><br><span class="line">    xpos = xpos - dist;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (ypos &lt; final_y) &#123;</span><br><span class="line">    <span class="keyword">var</span> dist = <span class="built_in">Math</span>.ceil((final_y - ypos)/<span class="number">10</span>);</span><br><span class="line">    ypos = ypos + dist;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (ypos &gt; final_y) &#123;</span><br><span class="line">    <span class="keyword">var</span> dist = <span class="built_in">Math</span>.ceil((ypos - final_y)/<span class="number">10</span>);</span><br><span class="line">    ypos = ypos - dist;</span><br><span class="line">  &#125;</span><br><span class="line">  elem.style.left = xpos + <span class="string">&quot;px&quot;</span>;</span><br><span class="line">  elem.style.top = ypos + <span class="string">&quot;px&quot;</span>;</span><br><span class="line">  <span class="keyword">var</span> repeat = <span class="string">&quot;moveElement(&#x27;&quot;</span>+elementID+<span class="string">&quot;&#x27;,&quot;</span>+final_x+<span class="string">&quot;,&quot;</span>+final_y+<span class="string">&quot;,&quot;</span>+interval+<span class="string">&quot;)&quot;</span>;</span><br><span class="line">  elem.movement = <span class="built_in">setTimeout</span>(repeat,interval);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/07f36235eb2e">React 实现简易轮播图</a></li>
+</ul>
+<p>自己的实现：<a target="_blank" rel="noopener" href="https://codesandbox.io/">CodeSandBox Swiper</a></p>
+<p>基本思路：把图片横向排列成组(image row),放置在相框(frame)中，隐藏超出相框的部分。利用图片组左侧和相框左侧的距离(margin-left)改变当前展示在相框中的内容，点击左右按钮可以改变这个距离</p>
+<p>需求：实现一个展示区，用于展示一系列图片；有“往前”“往后”两个按钮，点击后能切换图片<br>接口：组件 props 接收一个包含图片路径的数组的参数 srcSet；接收参数 width、height 设置展示区和图片的宽高</p>
+<ul>
+<li>先实现一个静态版本：Swiper 组件的 jsx 元素结构写好；css 样式+布局写好</li>
+<li>提取出状态：当前放送图片的 Index，取值范围在 [0, N-1]，N 为图片的数量</li>
+<li>抽象到现实的映射：Index 和 margin-left 的关系；点击按钮简单的给 index 加减，会让 index 超出取值范围，如何实现值的轮回</li>
+<li>反向数据流：为按钮添加事件处理函数，点击按钮修改 Index 状态</li>
+</ul>
+<p>在以上实现过程中，可以每实现一个小功能就测试一下。比如静态效果实现的如何；确保点击按钮输出 index 的值，确保 index 在 [0, N-1] 中不断轮回，然后再将 index-marginLeft 传入到元素中</p>
+<p>不足：不能自动播放；组后一张图继续往下，会切换到第一张图，效果比较生硬（直接往回滚到第一张）</p>
+<p>补充：</p>
+<p><a target="_blank" rel="noopener" href="https://qa.icopy.site/questions/49291442/react-children-map-vs-children-map-whats-the-different">React.Children.map vs children.map，有什么不同？</a>、<a target="_blank" rel="noopener" href="https://www.kancloud.cn/cris/react/660148">React.Children和props.children</a></p>
+<ul>
+<li>进阶版</li>
+</ul>
+<p>月影大佬 原生JS写轮播图 JS设计模式</p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903939159277576">纯js-普通轮播图、卡片式轮播图、堆叠式轮播图</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/xiaolin/react-image-gallery">React Image Gallery</a></p>
 <h2 id="React-组件设计实践——组件的组织"><a href="#React-组件设计实践——组件的组织" class="headerlink" title="React 组件设计实践——组件的组织"></a>React 组件设计实践——组件的组织</h2><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903842392309768">React组件设计实践总结</a> 宝藏系列，主要是文字经验总结，有空细读</p>
-<h2 id="精通react-vue组件设计"><a href="#精通react-vue组件设计" class="headerlink" title="精通react/vue组件设计"></a>精通react/vue组件设计</h2><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904066435252238">精通React/Vue系列</a> 作者自己封装的几个组件，可以拿来练手</p>
 
     </div>
 
@@ -261,8 +401,8 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/03/03/React%E6%A1%86%E6%9E%B6%E8%AE%AD%E7%BB%83/" rel="next" title="React框架训练">
-                  React框架训练 <i class="fa fa-chevron-right"></i>
+                <a href="/2022/03/03/React%E6%A1%86%E6%9E%B6%E8%AE%AD%E7%BB%83/" rel="next" title="React 系列训练">
+                  React 系列训练 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
