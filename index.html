@@ -665,7 +665,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-03-12 14:30:09" itemprop="dateModified" datetime="2022-03-12T14:30:09+08:00">2022-03-12</time>
+        <time title="修改时间：2022-03-16 15:41:53" itemprop="dateModified" datetime="2022-03-16T15:41:53+08:00">2022-03-16</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1264,6 +1264,7 @@
 <p>轻服务提供了一套简单易用的数据库功能，在云函数/云工程中，只需通过 inspirecloud.db 即可进行操作</p>
 <h3 id="后台实现"><a href="#后台实现" class="headerlink" title="后台实现"></a>后台实现</h3><h2 id="项目难点"><a href="#项目难点" class="headerlink" title="项目难点"></a>项目难点</h2><p>用户管理、用户列表——添加角色 UserForm、UserList 的预设状态、和状态切换细节<br>NewsUpdate、NewsEditor 根据后台数据，显示已有的内容</p>
 <p>部署上线后 NewsUpdate 写新闻，content（字段内容是一堆HTML标签）post 不上去。json-server 和 字节轻服务后台的 区别？防止 xss？——后端news模型忘记写content了。。</p>
+<p>Redux 持久化</p>
 
       
     </div>
@@ -1321,7 +1322,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-03-12 14:30:09" itemprop="dateModified" datetime="2022-03-12T14:30:09+08:00">2022-03-12</time>
+        <time title="修改时间：2022-03-18 11:26:53" itemprop="dateModified" datetime="2022-03-18T11:26:53+08:00">2022-03-18</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1459,16 +1460,21 @@
 <p>React 会在组件挂载时给 current 属性传入 DOM 元素，并在组件卸载时传入 null 值。ref 会在 componentDidMount 或 componentDidUpdate 生命周期钩子触发前更新。</p>
 </blockquote>
 <ul>
-<li>问题</li>
+<li>问题一</li>
 </ul>
 <p>关于<code>ref</code>的更新 和 <code>ref</code>代表元素的内容改变（比如表单的内容）是一回事吗？</p>
-<p>换句话说：表单之类的元素，其内容变化时，<code>ref</code>如何跟进-能保持获取元素的最新内容？</p>
 <p>React <code>ref</code> 直接对应的是元素对象，而不是元素内容，所谓<code>ref</code>更新应该指的是它更新指向的元素对象。所以ref元素内容的变化并不对应<code>ref</code>的更新</p>
+<ul>
+<li>问题二</li>
+</ul>
+<p>表单之类的元素，其内容变化时，<code>ref</code>如何跟进-能保持获取元素的最新内容？或者说：<code>ref</code>如何融入 React 生命周期？用户更新 DOM 表单，是否在 React 生命周期中有对应环节？</p>
+<p><a target="_blank" rel="noopener" href="https://www.yuque.com/cuggz/interview/pgw8v4#29910abcd3bdd1e6cdb330333cfc968a">React中什么是受控组件和非控组件？</a> 中提到了一个概念：受控组件消除了组件的 <strong>局部状态</strong>。也许 <code>ref</code>对应元素的 “局部状态” 就是没有设计进生命周期？</p>
 <p>补充 <a target="_blank" rel="noopener" href="https://react.docschina.org/docs/hooks-reference.html#useref">useRef</a></p>
 <blockquote>
 <p>请记住，当 ref 对象内容发生变化时，useRef 并不会通知你。变更 .current 属性不会引发组件重新渲染。</p>
 </blockquote>
 <h4 id="非受控组件"><a href="#非受控组件" class="headerlink" title="非受控组件"></a>非受控组件</h4><p><a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/uncontrolled-components.html">非受控组件</a></p>
+<p>在大多数情况下，我们推荐使用 受控组件 来处理表单数据。在一个受控组件中，表单数据是由 React 组件来管理的。另一种替代方案是使用非受控组件，这时表单数据将交由 DOM 节点来处理。</p>
 <h4 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h4><p>参考资料：<a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/optimizing-performance.html#avoid-reconciliation">性能优化</a></p>
 <ul>
 <li>调停</li>
@@ -1487,10 +1493,11 @@
 <h4 id="自定义-Hook"><a href="#自定义-Hook" class="headerlink" title="自定义 Hook"></a>自定义 Hook</h4><p>当我们想在两个函数之间共享逻辑时，我们会把它提取到第三个函数中。而组件和 Hook 都是函数，所以也同样适用这种方式。自定义 Hook 是一个函数，其名称以 “use” 开头，函数内部可以调用其他的 Hook。</p>
 <p>要理解自定义 Hook 有什么用，有什么特性/效果，首先要理解什么是 Hook。（看之前的介绍）</p>
 <p>可以理解为，自定义 Hook 就是封装了 useState、useEffect和一些逻辑+数据的 函数，它也是用来给我们的函数组件添加状态、生命周期等特性，但是对它们进行了一定的逻辑处理和封装。从各种方面来说，它就像一个正常的函数。（我们不要忘了一些普遍适用的规则）</p>
+<h4 id="Hook-原理"><a href="#Hook-原理" class="headerlink" title="Hook 原理"></a>Hook 原理</h4><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6891577820821061646">React Hooks原理探究，看完不懂，你打我</a></p>
 <h3 id="React-原理"><a href="#React-原理" class="headerlink" title="React 原理"></a>React 原理</h3><h4 id="React-组件的生命周期"><a href="#React-组件的生命周期" class="headerlink" title="React 组件的生命周期"></a>React 组件的生命周期</h4><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/514fe21b9914">React 组件的生命周期</a></p>
 <p>深入了解组件的生命周期，能让我们初探 React 的底层原理。</p>
 <div align="center">
-<img src="https://s2.loli.net/2021/12/15/iAR38QusWFhLeqm.png" width="60%">
+<img src="https://s2.loli.net/2021/12/15/iAR38QusWFhLeqm.png" width="80%">
 </div>
 
 <p>后面将详细介绍 组件生命周期 中的流程细节。此图反映单个组件的生命周期，不反映父子/嵌套组件的关系（即某个组件整体，不考虑其内部细节）。</p>
@@ -1590,7 +1597,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-03-12 13:50:18" itemprop="dateModified" datetime="2022-03-12T13:50:18+08:00">2022-03-12</time>
+        <time title="修改时间：2022-03-18 19:42:12" itemprop="dateModified" datetime="2022-03-18T19:42:12+08:00">2022-03-18</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1634,6 +1641,18 @@
 <td>替代：label标签通常用作某个表单控件的说明：当用户选择……</td>
 </tr>
 </tbody></table>
+<h3 id="2-对-HTML-语义化的理解"><a href="#2-对-HTML-语义化的理解" class="headerlink" title="2. 对 HTML 语义化的理解"></a>2. 对 HTML 语义化的理解</h3><p>根据文档的内容和结构的语义，选择合适的标签</p>
+<p>优点：</p>
+<ul>
+<li>为程序提供额外信息。有利于搜索引擎爬虫爬取有效信息；博客文章自动生成目录</li>
+<li>对开发者友好。增强文档可读性，让网页结构更清晰；有利于团队的开发和维护</li>
+</ul>
+<p>常见的：</p>
+<ul>
+<li>布局：header footer nav aside</li>
+<li>内容：article main section</li>
+<li>标题: h1</li>
+</ul>
 <h2 id="前端知识之CSS篇"><a href="#前端知识之CSS篇" class="headerlink" title="前端知识之CSS篇"></a>前端知识之CSS篇</h2><p>2021.12.15 - 2021.1.27</p>
 <table>
 <thead>
@@ -1676,7 +1695,7 @@
 </tr>
 <tr>
 <td>二.07</td>
-<td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1N54y1i7dG?p=4">B站 CSS3-flex布局</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/25303493">30分钟学会 flex 布局</a></td>
+<td><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/25303493">30分钟学会 flex 布局</a></td>
 </tr>
 <tr>
 <td>二.11</td>
@@ -1700,6 +1719,13 @@
     <img src="https://s2.loli.net/2022/03/06/gmBXGE4aF3xY7jO.png" width="70%">
 </div>
 
+<h3 id="一-3-display的属性值及其作用"><a href="#一-3-display的属性值及其作用" class="headerlink" title="一.3 display的属性值及其作用"></a>一.3 display的属性值及其作用</h3><p>什么类型、默认宽度、可否设置宽高、是否换行、margin/padding 设置效果</p>
+<h3 id="一-20-对line-height-的理解及其赋值方式"><a href="#一-20-对line-height-的理解及其赋值方式" class="headerlink" title="一.20 对line-height 的理解及其赋值方式"></a>一.20 对line-height 的理解及其赋值方式</h3><p>概念：</p>
+<ul>
+<li>指一行文本的高度，包括了字之间的行间距。本质上是下一行基线到上一行基线的距离</li>
+<li>如果一个容器没有设置 height，那撑开容器高度的就是 line-height，而不是文本内容</li>
+<li>line-height 和 height 设置相同值，可以实现单行文字的垂直居中</li>
+</ul>
 <h3 id="二-1-补充"><a href="#二-1-补充" class="headerlink" title="二.1 补充"></a>二.1 补充</h3><p>百分比, em：具体的含义要看用在什么属性上：</p>
 <table>
 <thead>
@@ -1708,6 +1734,7 @@
 <th>line-height 以及 大部分属性</th>
 <th>font-szie</th>
 <th>盒子属性</th>
+<th>圆角和translate</th>
 </tr>
 </thead>
 <tbody><tr>
@@ -1715,12 +1742,14 @@
 <td>相比当前元素的字体大小</td>
 <td>相比父级元素的字体大小</td>
 <td>相比父级元素的盒子width</td>
+<td>相对于自身元素border内的大小·</td>
 </tr>
 <tr>
 <td>em</td>
 <td>相比当前元素的字体大小</td>
 <td>相比父级元素的字体大小</td>
 <td>相比当前元素的字体大小</td>
+<td></td>
 </tr>
 </tbody></table>
 <h3 id="三-1"><a href="#三-1" class="headerlink" title="三.1"></a>三.1</h3><p>从两个方面理解浮动：浮动元素对同级元素的影响 + 浮动元素对父级（以及父级同级元素）的影响</p>
@@ -1793,7 +1822,7 @@
 </tr>
 <tr>
 <td>二.6</td>
-<td>扩展操作符的应用情况分类：两个方面：对什么数据操作 + 用于构造什么。<br>对普通对象使用：构造对象字面量<br>对数组对象使用：数组拷贝、数组合并、结构赋值拆分数组、用于函数调用时传入参数<br>ps: 对数组的扩展操作，逻辑上就等价于获得用逗号分隔的数据序列，比如 [1,2,3] —&gt; 1,2,3<br>对（非数组）可迭代对象使用：将可迭代对象转化成数组（比如 argument）<br>定义函数时在形参中使用：将参数收集到一个数组中，类似于 argument</td>
+<td>扩展操作符的应用情况分类：两个方面：对什么数据操作 + 用于构造什么。<br>对普通对象使用：构造对象字面量<br>对数组对象使用：数组拷贝、数组合并、解构赋值拆分数组、用于函数调用时传入参数<br>ps: 对数组的扩展操作，逻辑上就等价于获得用逗号分隔的数据序列，比如 [1,2,3] —&gt; 1,2,3<br>对（非数组）可迭代对象使用：将可迭代对象转化成数组、当展开参数传入函数（比如 argument）<br>定义函数时在形参中使用：将参数收集到一个数组中，类似于 argument</td>
 </tr>
 <tr>
 <td>三.5</td>
@@ -1840,7 +1869,7 @@
 <td>补充：发布订阅模式/事件机制 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/onepixel/p/10806891.html">观察者模式与订阅发布模式的区别</a></td>
 </tr>
 </tbody></table>
-<p>获取数据的原型、构造函数（原始数据类型会被隐式转换成包装类型），然后再对比判断</p>
+<h3 id="一-3-总结类型判断"><a href="#一-3-总结类型判断" class="headerlink" title="一.3 总结类型判断"></a>一.3 总结类型判断</h3><p>获取数据的原型、构造函数（原始数据类型会被隐式转换成包装类型），然后再对比判断</p>
 <ol>
 <li><code>Object.prototype.getString.call(obj)</code> 返回字符串</li>
 <li><code>obj._proto_</code> &lt;=&gt; <code>Object.getPrototypeOf(obj)</code> 返回原型对象</li>
@@ -1852,6 +1881,16 @@
 <li><code>Array.prototype.isPrototypeOf(obj)</code></li>
 <li><code>obj instanceof Array</code></li>
 </ol>
+<h3 id="二、ES6"><a href="#二、ES6" class="headerlink" title="二、ES6"></a>二、ES6</h3><ul>
+<li><p>解决原有语法的缺陷和不足<br>let const 块级作用域、Symbol数据类型</p>
+</li>
+<li><p>对原有语法进行增强<br>解构、扩展、模板字符串</p>
+</li>
+<li><p>新增对象、全新的方法，全新的功能<br>Object.assign()、Proxy/Reflect、Promise</p>
+</li>
+<li><p>全新的数据类型和数据结构<br>set/map、class、迭代器/生成器</p>
+</li>
+</ul>
 <h3 id="三-16"><a href="#三-16" class="headerlink" title="三.16"></a>三.16</h3><p>以红宝书 P711 为准</p>
 <p>AJAX 是指通过 JavaScript 以异步通信的方式向服务器发送请求来获取额外的数据，而且可以局部地更新页面，不用刷新重新请求整个页面</p>
 <p>大致步骤：</p>
@@ -1864,7 +1903,7 @@
 <li>收到响应后XHR对象相应属性被填充响应数据</li>
 </ul>
 <p>代码示例见 P716</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> SERVER_URL = <span class="string">&quot;/server&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line"><span class="comment">// 设置状态监听函数</span></span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (xhr.status &gt;= <span class="number">200</span> &amp;&amp; xhr.status &lt; <span class="number">300</span> || xhr.status == <span class="number">304</span>) &#123;</span><br><span class="line">            alert(xhr.responseText);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            alert(<span class="string">&quot;Request was unsuccessful: &quot;</span> + xhr.status);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 设置请求失败时的监听函数</span></span><br><span class="line">xhr.onerror = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.error(<span class="built_in">this</span>.statusText);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 创建 Http 请求</span></span><br><span class="line">xhr.open(<span class="string">&quot;GET&quot;</span>, url, <span class="literal">true</span>);</span><br><span class="line"><span class="comment">// 设置请求头信息</span></span><br><span class="line">xhr.responseType = <span class="string">&quot;json&quot;</span>;</span><br><span class="line">xhr.setRequestHeader(<span class="string">&quot;Accept&quot;</span>, <span class="string">&quot;application/json&quot;</span>);</span><br><span class="line"><span class="comment">// 发送 Http 请求</span></span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> SERVER_URL = <span class="string">&quot;/server&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line"><span class="comment">// 设置状态监听函数</span></span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> ((xhr.status &gt;= <span class="number">200</span> &amp;&amp; xhr.status &lt; <span class="number">300</span>) || xhr.status == <span class="number">304</span>) &#123;</span><br><span class="line">            alert(xhr.responseText);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            alert(<span class="string">&quot;Request was unsuccessful: &quot;</span> + xhr.status);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 设置请求失败时的监听函数</span></span><br><span class="line">xhr.onerror = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.error(xhr.statusText);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 创建 Http 请求</span></span><br><span class="line">xhr.open(<span class="string">&quot;GET&quot;</span>, SERVER_URL, <span class="literal">true</span>);</span><br><span class="line"><span class="comment">// 设置请求头信息</span></span><br><span class="line">xhr.responseType = <span class="string">&quot;json&quot;</span>;</span><br><span class="line">xhr.setRequestHeader(<span class="string">&quot;Accept&quot;</span>, <span class="string">&quot;application/json&quot;</span>);</span><br><span class="line"><span class="comment">// 发送 Http 请求</span></span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br></pre></td></tr></table></figure>
 
 <p>用 Promise 封装 AJAX</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getJSON</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> getPromase = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (xhr.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> ((xhr.status &gt;= <span class="number">200</span> &amp;&amp; xhr.status &lt; <span class="number">300</span>) || xhr.status === <span class="number">304</span>) &#123;</span><br><span class="line">          resolve(xhr.responseText);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">          reject(xhr.status);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    xhr.onerror = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      reject(<span class="keyword">new</span> <span class="built_in">Error</span>(xhr.status));</span><br><span class="line">    &#125;</span><br><span class="line">    xhr.open(<span class="string">&quot;GET&quot;</span>, url, <span class="literal">true</span>);</span><br><span class="line">    xhr.responseType = <span class="string">&quot;json&quot;</span>;</span><br><span class="line">    xhr.setRequestHeader(<span class="string">&quot;Accept&quot;</span>, <span class="string">&quot;application/json&quot;</span>);</span><br><span class="line">    xhr.send(<span class="literal">null</span>);</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">return</span> getPromase;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -1886,6 +1925,7 @@
 <li>作用域链：是什么-存储了各级变量对象；标识符解析规则</li>
 </ul>
 <p>关键在于理清概念：作用域&amp;访问规则、执行上下文、作用域链</p>
+<h3 id="七-1-异步编程的实现方式"><a href="#七-1-异步编程的实现方式" class="headerlink" title="七.1 异步编程的实现方式"></a>七.1 异步编程的实现方式</h3><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903556936548359">Generator 函数异步应用</a></p>
 <h3 id="八-2"><a href="#八-2" class="headerlink" title="八.2"></a>八.2</h3><p>总结一下</p>
 <table>
 <thead>
@@ -1973,10 +2013,6 @@
 <td>补充：<a target="_blank" rel="noopener" href="https://catcat.cc/post/2020-06-23/">循序渐进理解：跨源跨域，再到 XSS 和 CSRF</a></td>
 </tr>
 <tr>
-<td>七.2.1</td>
-<td>替换：CORS的概念简介：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CORS">MDN-CORS</a></td>
-</tr>
-<tr>
 <td>八.9</td>
 <td>补充：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/54882306">浏览器与Node的事件循环(Event Loop)有何区别?</a></td>
 </tr>
@@ -2054,7 +2090,18 @@
 </ul>
 <p>这两类程序的目标不一样。前者主要是解决重复任务的问题，后者则更像一套前端工程化解决方案，解决前端静态资源依赖管理的问题。严格来说，NPM 脚本才是 Grunt 和 Gulp 的替代品，但 webpack 确实客观上简化了此前“过度使用”Grunt和Gulp和NPM脚本的Web开发任务流程。</p>
 <h3 id="二-13-怎么配置单页面应用？怎么配置多页面应用？"><a href="#二-13-怎么配置单页面应用？怎么配置多页面应用？" class="headerlink" title="二.13 怎么配置单页面应用？怎么配置多页面应用？"></a>二.13 怎么配置单页面应用？怎么配置多页面应用？</h3><p>待补充总结性内容</p>
-<h2 id="前端知识之计算机网络篇"><a href="#前端知识之计算机网络篇" class="headerlink" title="前端知识之计算机网络篇"></a>前端知识之计算机网络篇</h2><h3 id="一-4-补充"><a href="#一-4-补充" class="headerlink" title="一.4 补充"></a>一.4 补充</h3><p>HTTP的常用方法</p>
+<h2 id="前端知识之计算机网络篇"><a href="#前端知识之计算机网络篇" class="headerlink" title="前端知识之计算机网络篇"></a>前端知识之计算机网络篇</h2><h3 id="一-1-GET和POST的请求的区别"><a href="#一-1-GET和POST的请求的区别" class="headerlink" title="一.1 GET和POST的请求的区别"></a>一.1 GET和POST的请求的区别</h3><ul>
+<li><strong>作用</strong>：GET 方法请求一个指定资源的表示形式，使用GET的请求应该只被用于获取数据；POST 方法用于将实体提交到指定的资源，通常导致在服务器上的状态变化或副作用</li>
+<li><strong>请求编码</strong>：GET 请求只能进行url编码，而 POST 支持多种编码方式</li>
+<li><strong>缓存</strong>：GET 请求会被浏览器主动缓存，而 POST 不会</li>
+<li><strong>历史记录</strong>：GET 请求参数会被完整保留在浏览器历史记录里，而 POST 不会</li>
+<li><strong>参数</strong>：<ul>
+<li>传递方式：GET 请求参数是通过 URL 传递的，多个参数以&amp;连接，POST 请求放在 request body 中</li>
+<li>编码：GET 只接受 ASCII 字符，而 POST 没有限制</li>
+</ul>
+</li>
+</ul>
+<h3 id="一-4-补充"><a href="#一-4-补充" class="headerlink" title="一.4 补充"></a>一.4 补充</h3><p>HTTP的常用方法</p>
 <ul>
 <li><p>GET方法<br>GET方法用于使用给定的URI从给定服务器中检索信息，即从指定资源中请求数据。使用GET方法的请求应该只是检索数据，并且不应对数据产生其他影响。</p>
 </li>
@@ -2136,7 +2183,7 @@
 <li>传输控制协议 (Transmission Control Protocol，TCP)：提供面向连接的、可靠的数据传输服务。具体而言是建立主机端口之间连接实现可靠的数据传输。数据传输的基本单位是报文段（segment）。</li>
 <li>用户数据报协议 (User Datagram Protocol，UDP)：提供无连接的、尽最大努力的数据传输服务，但不保证数据传输的可靠性，数据传输的基本单位是用户数据报。</li>
 </ul>
-<p>（5）网络层：它负责为两台主机提供通信服务。网络层把从传输层接收到的数据报文拆分成分组，通过路由选择算法选择合适的网络路径将数据分组传递到目标主机。<br>（6）数据链路层：负责将网络层交下来的 IP 数据报封装成帧，并在链路的两个相邻节点间传送帧，每一帧都包含数据和必要的控制信息（如同步信息、地址信息、差错控制等）。数据链路层是对物理层传输原始比特流的功能的加强，将物理层提供的可能出错的物理连接改造成为逻辑上无差错的数据链路，使之对网络层表现为一无差错的线路。数据链路层提供了相邻节点间的线路，网络层则是规划了数据的传输路径。<br>（7）物理层：确保比特流数据在物理媒介上进行传输，定义了与传输媒介相关的接口特性，尽可能屏蔽传输介质和物理设备的差异。</p>
+<p>（5）网络层：它负责为两台主机提供通信服务。网络层把从传输层接收到的数据报文拆分成分组，通过路由选择算法选择合适的网络路径将数据分组传递到目标主机。<br>（6）数据链路层：负责提供网络相邻节点之间的无差错的逻辑链路（数据链路层是对物理层传输原始比特流的功能的加强，将物理层提供的可能出错的物理连接改造成为逻辑上无差错的数据链路，使之对网络层表现为一无差错的线路。）。将网络层交下来的 IP 数据报封装成帧，并在链路的两个相邻节点间传送帧，每一帧都包含数据和必要的控制信息（如同步信息、地址信息、差错控制等）。数据链路层提供了相邻节点间的线路，网络层则是规划了数据的传输路径。<br>（7）物理层：确保比特流数据在物理媒介上进行传输，定义了与传输媒介相关的接口特性，尽可能屏蔽传输介质和物理设备的差异。</p>
 <h3 id="六-补充"><a href="#六-补充" class="headerlink" title="六.补充"></a>六.补充</h3><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/NCXN2iW_DpEHEiePDP7Yhg">计算机网络经典20问！</a> 更精简</p>
 <ul>
 <li>TCP 设计动机</li>
@@ -2154,7 +2201,96 @@
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/welongfor/article/details/86622790">http 协议 是否 全双工 说明</a></p>
 <p>但 WebSocket 和 HTTP 的区别，重点应该不在通信上的双工（即两边是否可以同时发送数据），而是<strong>行为逻辑</strong>。HTTP 必须先由客户端发起请求，然后由服务端响应。WebSocket 则可以由服务器主动向客户端推送信息。</p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1rt411P7G5?from=search&seid=379406896436056311&spm_id_from=333.337.0.0">保证前端实时性的技术：websocket</a><br><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=fG4dkrlaZAA">REST API (HTTP) vs Websockets - Concept Overview With Example</a></p>
+<h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2><h3 id="一、11-哪些方法会触发-React-重新渲染？重新渲染-render-会做些什么？"><a href="#一、11-哪些方法会触发-React-重新渲染？重新渲染-render-会做些什么？" class="headerlink" title="一、11 哪些方法会触发 React 重新渲染？重新渲染 render 会做些什么？"></a>一、11 哪些方法会触发 React 重新渲染？重新渲染 render 会做些什么？</h3><p>关于 父组件重新渲染-子组件重新渲染</p>
+<blockquote>
+<p>“只要父组件重新渲染了，即使传入子组件的 props 未发生变化，那么子组件也会重新渲染，进而触发 render”</p>
+</blockquote>
+<p><strong>问题一</strong>：这生命周期中说的 “props 改变时重新渲染” 是否冲突？</p>
+<p><strong>答</strong>：首先要定义“重新渲染”：是否调用 render（构建 VDOM）、是否进行 Diffing 比较、是否更新其对应的真实 DOM</p>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/q/1010000040771487/a-1020000040779350">React父组件刷新导致子组件重新渲染问题</a> 下面的回答简要介绍了<code>reconsile</code>的过程</p>
+<blockquote>
+<p>一个节点更新前后props相等，且该节点没有更新，并且其子树中也没有更新，这种情况下以该节点为根的fiber子树的reconciliation过程就会到此为止停止diff</p>
+</blockquote>
+<p>所以不确定：子组件到底有没有调用 render？还是说不论 props 如何都要调用 render，但是不一定 diffing 比较？</p>
+<p>暂且先按 <strong>生命周期</strong> 中的说法回答</p>
+<p><strong>问题二</strong>：组件的生命周期 和 Diffing 算法的关系？</p>
+<p>生命周期中的 render 是指返回组件的 VDOM 吗？还是指它会不会被添加到 patch 中并最终被更新？</p>
+<p>后者似乎更合理？先不管三七二十一的到某个完整的VDOM子树，然后根据各种规则（diffing三原则、props有没有变、shouldUpdate等）来判断是否 进行 diffing、patch</p>
+<p>但实际可能并非如此，生命周期中的 render 就是 <code>render()</code> 方法，参考：<a target="_blank" rel="noopener" href="https://react.docschina.org/docs/optimizing-performance.html#avoid-reconciliation">避免调停</a></p>
+<blockquote>
+<p>如果你知道在什么情况下你的组件不需要更新，你可以在 shouldComponentUpdate 中返回 false 来跳过整个渲染过程，其包括该组件的 render 调用以及之后的操作。</p>
+</blockquote>
+<p>以上问题，归根结底，就是不清楚</p>
+<ul>
+<li>组件的生命周期在父子组件的嵌套情况下的表现</li>
+<li><code>render()</code> 如何层层调用，构建 VDOM 树。构建出来的 VDOM 树包括哪些节点？</li>
+</ul>
+<p>个人推测：</p>
+<ul>
+<li><code>setState()</code> 调用后，以被更新的节点为根节点，递归调用 <code>render()</code> 构造 VDOM 子树。递归过程中，判断子节点 <code>props</code> 和 <code>shouldComponentUpdate</code> 情况，决定是否调用其 <code>render()</code> （也即是否将其添加到 VDOM）。最后，以被更新节点为根节点的，经过剪枝后构造的 VDOM，就是我们拿来 Diffing 的 VDOM</li>
+<li>在构造新的 VDOM 树中，被剪枝的部分不会被拿来和旧 VDOM 进行 Diffing（我就是因为它们不要更新才不render出来的，拿去比较的话，岂不是认为我们新的 VDOM 相比旧 VDOM 缺少了这一块，反而要对真 DOM 进行删除操作？）</li>
+<li>博客、面经 中说的 “父组件重新渲染时，不管传入的 props 有没有变化，都会引起子组件的重新渲染” 不一定正确</li>
+</ul>
+<h3 id="六、1-对-Redux-的理解"><a href="#六、1-对-Redux-的理解" class="headerlink" title="六、1 对 Redux 的理解"></a>六、1 对 Redux 的理解</h3><p>Redux 是一个使用叫做“action”的事件来管理和更新应用状态的模式和工具库 它以集中式Store（centralized store）的方式对整个应用中使用的状态进行集中管理，其规则确保状态只能以可预测的方式更新。</p>
+<p>React 状态管理的问题：</p>
+<ul>
+<li>项目越来越庞大复杂时，管理数据的事件和回调函数越来越多，并且改变状态可能会导致多个组件的view更新（也即不清楚什么操作会改变什么状态，这个状态改变又会导致什么view变化）</li>
+<li>兄弟组件、跨级组件都依赖某个状态时，实现起来比较繁琐（状态提升、state 通过 props 层层传递）</li>
+</ul>
+<p>redux 的作用：</p>
+<ul>
+<li><p>Redux 帮你管理<strong>全局状态</strong>。哪些组件依赖哪些状态进行更新，这种关系表达的很清楚，并且实现起来比较方便</p>
+</li>
+<li><p>Redux 让我们更容易理解应用程序中的状态何时、何地、为什么以及如何更新，以及当这些更改发生时您的应用程序逻辑将如何表现. Redux 有助于编写<strong>可预测和可测试</strong>的代码</p>
+</li>
+</ul>
+<p>这比组件之间互相传递数据清晰明朗的多</p>
+<h3 id="六、2-Redux-的工作流程"><a href="#六、2-Redux-的工作流程" class="headerlink" title="六、2 Redux 的工作流程"></a>六、2 Redux 的工作流程</h3><p>基本库使用简述</p>
+<ul>
+<li><code>const store= createStore(fn)</code>生成 store 和 初始化状态</li>
+<li>action: <code>&#123;type: Symble(&#39;action01), payload:&#39;payload&#39; &#125;</code> 定义行为</li>
+<li>dispatch action：<code>store.dispatch(doSomething(&#39;action001&#39;))</code></li>
+<li>reducer：处理 action，返回新的 state</li>
+<li>UI Binding Library 帮助组件发起 dispatch 和 订阅 store 状态更新</li>
+</ul>
+<p>借助 redux-toolkit 来构建 redux 应用</p>
+<p>详见：<a target="_blank" rel="noopener" href="https://wuchaojie.top/2022/03/03/React%E6%A1%86%E6%9E%B6%E8%AE%AD%E7%BB%83/#%E5%BA%94%E7%94%A8%E7%BB%93%E6%9E%84">Redux 应用结构 笔记</a></p>
+<h3 id="八、1-对虚拟DOM的理解"><a href="#八、1-对虚拟DOM的理解" class="headerlink" title="八、1 对虚拟DOM的理解"></a>八、1 对虚拟DOM的理解</h3><p>VDOM 本质是什么</p>
+<p>VDOM 做了什么</p>
+<ul>
+<li>将要渲染的元素转换成对象（VDOM），它描述了真实DOM的结构</li>
+<li>数据发生变化时，缓存一份虚拟DOM，变化时候得到新的VDOM，React 内置的 Diffing 算法就会对这两个 VDOM 进行对比，得到其差异的部分</li>
+<li>将有差别的部分更新到真实的DOM</li>
+</ul>
+<p>这样做的好处</p>
+<ul>
+<li>保证性能下限。一是减少了DOM操作次数（本身费时），二是将多次DOM操作一次性处理减少了回流和重绘</li>
+<li>提高开发效率。直接通过JS修改视图，而不用繁琐的DOM接口</li>
+<li>跨平台</li>
+</ul>
+<h3 id="八、2"><a href="#八、2" class="headerlink" title="八、2"></a>八、2</h3><p><a target="_blank" rel="noopener" href="https://vue3js.cn/interview/React/diff.html">Diff 算法原理</a></p>
 <h2 id="手写代码"><a href="#手写代码" class="headerlink" title="手写代码"></a>手写代码</h2><p>关于<code>Promise.all()</code>的实现，在期约初始化程序中写的<code>p.then()</code>，也可以理解成一种“异步操作”（类似于setTimeout）</p>
+<h3 id="一、8-9-防抖节流"><a href="#一、8-9-防抖节流" class="headerlink" title="一、8/9 防抖节流"></a>一、8/9 防抖节流</h3><ul>
+<li><p>防抖<br>原理：原方法延迟一段时间再执行，延时过程中再次调用包装方法的话则让原方法重新计时再延时执行；timer 有值就代表目前有一个定时器，对应一个待运行的操作<br>效果：两次操作间隔小于延时的话，只有最后一次操作生效</p>
+</li>
+<li><p>节流：<br>原理：原方法延迟一段时间再执行，延时过程中调用包装方法无效，等原方法延时执行完后再恢复包装方法的有效性；timer 有值就代表目前有一个定时器，对应一个待运行的操作<br>效果：多次快速的操作，实际生效两次操作之间的间隔大于或等于延时</p>
+</li>
+</ul>
+<h3 id="二、5-扁平化"><a href="#二、5-扁平化" class="headerlink" title="二、5 扁平化"></a>二、5 扁平化</h3><p>数组扁平化、对象的深拷贝，递归思路很类似</p>
+<p>关于递归：</p>
+<p>懂得代码运行顺序是其一，编写代码时能直接在递归产生的效果上思考是其二</p>
+<p>在<strong>适合递归的任务</strong>中（使用递归，首先我们要将任务建模为适合递归的任务，以下的做法才能有效）</p>
+<ul>
+<li><p>在当前层次，思考我们要在这一层做什么：单独的操作、调用下一层递归 &amp; 利用下一层递归的结果</p>
+</li>
+<li><p>每层的递归操作意义都是相同的，或者说幂等的。比如扁平数组，我们可以直接认为调用<code>flatten()</code>就能得到一个扁平的数组，然后将其拼接到总的结果上就好</p>
+</li>
+<li><p>然后则是思考递归种终止的条件，即递归到最底层的情况</p>
+</li>
+</ul>
+<h3 id="二、13-千分位逗号"><a href="#二、13-千分位逗号" class="headerlink" title="二、13 千分位逗号"></a>二、13 千分位逗号</h3><p>补充：</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions">正则表达式 MDN</a></p>
+<p>代码中 <code>\d&#123;3&#125;</code> 表示连着的三个数字、<code>/g</code>表示字符串全局范围</p>
 
       
     </div>
