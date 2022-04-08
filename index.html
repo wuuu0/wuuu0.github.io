@@ -129,7 +129,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -174,6 +174,132 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/24/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/miao.gif">
+      <meta itemprop="name" content="Wu Chaojie">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/03/24/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8/" class="post-title-link" itemprop="url">前端安全</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-24 15:03:34" itemprop="dateCreated datePublished" datetime="2022-03-24T15:03:34+08:00">2022-03-24</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-04-07 12:03:01" itemprop="dateModified" datetime="2022-04-07T12:03:01+08:00">2022-04-07</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Front-end/" itemprop="url" rel="index"><span itemprop="name">Front-end</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="前端鉴权——Cookie-Session-Token"><a href="#前端鉴权——Cookie-Session-Token" class="headerlink" title="前端鉴权——Cookie/Session/Token"></a>前端鉴权——Cookie/Session/Token</h2><h3 id="深入学习-cookie"><a href="#深入学习-cookie" class="headerlink" title="深入学习 cookie"></a>深入学习 cookie</h3><p>参考资料：<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000004556040">聊一聊 cookie</a></p>
+<p><strong>cookie 的 Same Site 属性</strong></p>
+<p>Same Site 属性规定了跨站请求时是否携带目标网站 cookie（这种第三方网站引导发出的 Cookie，称为第三方 Cookie）。注意我们的用词是<strong>跨站</strong>，这包含了两种情况：</p>
+<ul>
+<li><p>网站 b 被用户访问后，通过 <code>&lt;img&gt;</code>、<code>&lt;form&gt;</code>、<code>&lt;a&gt;</code> 等不受同源策略限制的方式向被另一个网站 a 发送跨站请求</p>
+</li>
+<li><p>跨域请求，即用户访问网站 b 通过 Ajax 等 js 脚本设置跨域后向网站 a 发送的跨站请求（因为同源策略只限制 js，所以在 js 情况下我们才称跨站为跨域）</p>
+</li>
+<li><p>在 CSRF 中，网站 b 一般对应恶意网站，网站 a 对应被攻击网站</p>
+</li>
+</ul>
+<p><strong>区分携带第三方 cookie 和 跨域获取 cookie</strong></p>
+<h3 id="前端鉴权"><a href="#前端鉴权" class="headerlink" title="前端鉴权"></a>前端鉴权</h3><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6898630134530752520">前端鉴权的兄弟们：cookie、session、token、jwt、单点登录</a></p>
+<h2 id="XSS-CSRF-跨站攻击实例"><a href="#XSS-CSRF-跨站攻击实例" class="headerlink" title="XSS/CSRF 跨站攻击实例"></a>XSS/CSRF 跨站攻击实例</h2><p>要先区分：浏览器地址栏输入 url（访问网站）、页面中带有 url 的标签、Js 脚本向 url 发出请求（三者都是发出 Http 请求）</p>
+<h3 id="XSS-实例"><a href="#XSS-实例" class="headerlink" title="XSS 实例"></a>XSS 实例</h3><p><strong>概念/大致流程</strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1s5411s7qd?from=search&seid=3968350037173219363&spm_id_from=333.337.0.0">B站 XSS原理和攻防 （讲的比较清晰）</a><br><a target="_blank" rel="noopener" href="https://juejin.cn/post/6912030758404259854">XSS攻击-攻击流程图</a></p>
+<p><strong>实例</strong></p>
+<p>XSS 反射型、存储型 实例：<a target="_blank" rel="noopener" href="https://github.com/dwqs/blog/issues/68">浅说 XSS 和 CSRF</a></p>
+<p>XSS DOM 型 实例：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903781704925191">XSS攻击与CSRF攻击</a>、<a target="_blank" rel="noopener" href="https://www.cnblogs.com/mysticbinary/p/12542695.html">DOM-XSS攻击原理与防御</a></p>
+<p><strong>深入理解 XSS 的本质/原理</strong></p>
+<p>一、不论何种 XSS 类型</p>
+<p>都是用户<strong>访问</strong>目标（正常）服务器 a 时（无论反射、存储、DOM型，恶意脚本都是在浏览器访问 a 的时候执行的），执行了意外的脚本（并非由 a 生成的脚本）</p>
+<p>二、如何诱导用户触发攻击：</p>
+<ul>
+<li>存储型：恶意脚本就存储在正常服务器 a 中，用户正常访问就会执行</li>
+<li>反射型：构造参数中包括恶意脚本的 URL，诱导用户点击；这个恶意 URL 可以在正常网站 a 中（比较难实现），也可以在恶意网站 b 中（比较容易实现，但得是链接，让用户访问a）<br>存储型：构造参数中包括恶意脚本的 URL，诱导用户点击；同样，这个恶意 URL 可以在正常网站 a 中（比较难实现），也可以在恶意网站 b 中（比较容易实现，但得是链接，让用户访问a）</li>
+</ul>
+<p>三、攻击脚本如何被执行：</p>
+<ul>
+<li><p>存储型、反射性：仅存在于服务端渲染情况下由服务端取出恶意代码拼接到 HTML 中返回给浏览器，由浏览器解析执行</p>
+</li>
+<li><p>DOM 型：纯粹是靠浏览器执行前端JS代码来实现。</p>
+<ul>
+<li>正常服务器a的页面，js代码写的不严谨，绑定了某些事件处理函数可能执行<strong>输入</strong>的标签中的内容中的脚本（比如点击按钮，对应处理函数可能取出<code>&lt;input&gt;</code>标签中的包含脚本的字符串，放到<code>eval()</code>、<code>innerHTML</code>、<code>document.write()</code>中执行）。</li>
+<li>构造 URL，包含 <code>#javascript</code>，访问后直接执行脚本</li>
+<li>以上两种情况，恶意脚本都没有被发送给服务器a</li>
+<li>可能的情况是，用户访问恶意网站b，被诱导点击了包含 <code>#javascript</code>的网站a的URL。但其他情况，用户在访问网站 a 的时候，网站a怎么会有恶意的URL呢？或者用户为什么会自己输入恶意脚本然后点击按钮执行呢？那就要看攻击者如何想办法污染网站a了，然后诱导用户触发攻击了</li>
+</ul>
+</li>
+</ul>
+<p>四、攻击脚本是什么内容&amp;如何实现攻击效果</p>
+<h3 id="CSRF-实例"><a href="#CSRF-实例" class="headerlink" title="CSRF 实例"></a>CSRF 实例</h3><p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000024490213">CSRF攻击原理和防范措施</a>  </p>
+<h3 id="XSS-CSRF-和-跨域"><a href="#XSS-CSRF-和-跨域" class="headerlink" title="XSS/CSRF 和 跨域"></a>XSS/CSRF 和 跨域</h3><p><a target="_blank" rel="noopener" href="https://catcat.cc/post/2020-06-23/">循序渐进理解：跨源跨域，再到 XSS 和 CSRF</a></p>
+<p>XSS/CSRF 的含义中，我们用的是“跨站”的概念，其实太关心同源策略或者跨域。</p>
+<p>XSS 的跨站：恶意脚本总是在用户访问正常网站 a 的时候被执行。跨站的含义是：用户可能是从恶意网站 b 转到网站 a 中（攻击者也可能在网站 a 已经构造好了陷阱，用户只访问了 a 也会触发攻击）；攻击结果可能是，将用户关于网站 a 的信息发送给网站 b</p>
+<p>CSRF 的跨站：用户访问恶意网站 b 时，向正常网站 a 发送了请求（而非浏览器访问网站 a）</p>
+<p>这就是名字中“跨站”的含义，我们并不关心这个跨站是否需要实现跨域</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -451,7 +577,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-03-11 21:16:32" itemprop="dateModified" datetime="2022-03-11T21:16:32+08:00">2022-03-11</time>
+        <time title="修改时间：2022-04-07 11:31:46" itemprop="dateModified" datetime="2022-04-07T11:31:46+08:00">2022-04-07</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -514,7 +640,7 @@
 <li>该共同所有者组件或者比它层级更高的组件应该拥有该 state。</li>
 <li>如果你找不到一个合适的位置来存放该 state，就可以直接创建一个新的组件来存放该 state，并将这一新组件置于高于共同所有者组件层级的位置。</li>
 </ul>
-<p>针对状态，稍微细分一下组件，其实有 <strong>状态设置者</strong>（一般就是状态提升前的状态所有者，此处是<code>SerchBar</code>） 和 <strong>状态响应者</strong>（此处是<code>ProductTable</code>） 之分。在这个例子中，状态提升后，两者需要从父组件获取状态——设置者需要即使更新显示当前的设置状态，响应者自然就是需要响应状态。</p>
+<p>针对状态，稍微细分一下组件，其实有 <strong>状态设置者</strong>（一般就是状态提升前的状态所有者，此处是<code>SerchBar</code>） 和 <strong>状态响应者</strong>（此处是<code>ProductTable</code>） 之分。在这个例子中，状态提升后，两者需要从父组件获取状态——设置者需要及时更新显示当前的设置状态，响应者自然就是需要响应状态。</p>
 <p><strong>第五步：添加反向数据流</strong></p>
 <p>在创建状态的组件上，定义“伪”事件处理函数，然后将它们通过<code>props</code>传递给对应的子组件</p>
 <p>子组件拿到父组件的“伪”事件处理函数，自己定义真的事件处理函数，挂载到元素上去，实现反向数据流：</p>
@@ -601,13 +727,15 @@
 <p>不足：不能自动播放；组后一张图继续往下，会切换到第一张图，效果比较生硬（直接往回滚到第一张）</p>
 <p>补充：</p>
 <p><a target="_blank" rel="noopener" href="https://qa.icopy.site/questions/49291442/react-children-map-vs-children-map-whats-the-different">React.Children.map vs children.map，有什么不同？</a>、<a target="_blank" rel="noopener" href="https://www.kancloud.cn/cris/react/660148">React.Children和props.children</a></p>
-<ul>
-<li>进阶版</li>
-</ul>
-<p>月影大佬 原生JS写轮播图 JS设计模式</p>
+<h4 id="进阶版"><a href="#进阶版" class="headerlink" title="进阶版"></a>进阶版</h4><p><a target="_blank" rel="noopener" href="https://forum.juejin.cn/youthcamp/post/7054115780656381959">跟着月影学 JavaScript 笔记 —— 组件封装</a></p>
 <p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903939159277576">纯js-普通轮播图、卡片式轮播图、堆叠式轮播图</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/xiaolin/react-image-gallery">React Image Gallery</a></p>
-<h2 id="React-组件设计实践——组件的组织"><a href="#React-组件设计实践——组件的组织" class="headerlink" title="React 组件设计实践——组件的组织"></a>React 组件设计实践——组件的组织</h2><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903842392309768">React组件设计实践总结</a> 宝藏系列，主要是文字经验总结，有空细读</p>
+<hr>
+<h2 id="React-组件设计思想"><a href="#React-组件设计思想" class="headerlink" title="React 组件设计思想"></a>React 组件设计思想</h2><p><a target="_blank" rel="noopener" href="https://dmitripavlutin.com/7-architectural-attributes-of-a-reliable-react-component/">7 Architectural Attributes of a Reliable React Component</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903910809813005">可靠React组件设计的7个准则之组合和复用</a></p>
+<h2 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h2><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903842392309768">React组件设计实践总结</a> 宝藏系列，主要是文字经验总结，有空细读</p>
+<h2 id="复用"><a href="#复用" class="headerlink" title="复用"></a>复用</h2><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904162472247304">React组件逻辑复用的那些事儿（Mixins -&gt; HOC+render props -&gt; Hooks）</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6913788953971654663">使用mono-repo实现跨项目组件共享</a></p>
 
       
     </div>
@@ -634,7 +762,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/10/%E5%85%A8%E7%90%83%E6%96%B0%E9%97%BB%E5%8F%91%E5%B8%83%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/10/NewsHub%20%E6%96%B0%E9%97%BB%E5%8F%91%E5%B8%83%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/miao.gif">
@@ -647,7 +775,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/02/10/%E5%85%A8%E7%90%83%E6%96%B0%E9%97%BB%E5%8F%91%E5%B8%83%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE/" class="post-title-link" itemprop="url">新闻发布管理系统实战——React全家桶前端+轻服务后端</a>
+          <a href="/2022/02/10/NewsHub%20%E6%96%B0%E9%97%BB%E5%8F%91%E5%B8%83%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE/" class="post-title-link" itemprop="url">NewsHub 项目——React全家桶前端+轻服务后端</a>
         </h2>
 
         <div class="post-meta-container">
@@ -665,7 +793,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-03-16 15:41:53" itemprop="dateModified" datetime="2022-03-16T15:41:53+08:00">2022-03-16</time>
+        <time title="修改时间：2022-04-07 14:05:11" itemprop="dateModified" datetime="2022-04-07T14:05:11+08:00">2022-04-07</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1265,6 +1393,9 @@
 <h3 id="后台实现"><a href="#后台实现" class="headerlink" title="后台实现"></a>后台实现</h3><h2 id="项目难点"><a href="#项目难点" class="headerlink" title="项目难点"></a>项目难点</h2><p>用户管理、用户列表——添加角色 UserForm、UserList 的预设状态、和状态切换细节<br>NewsUpdate、NewsEditor 根据后台数据，显示已有的内容</p>
 <p>部署上线后 NewsUpdate 写新闻，content（字段内容是一堆HTML标签）post 不上去。json-server 和 字节轻服务后台的 区别？防止 xss？——后端news模型忘记写content了。。</p>
 <p>Redux 持久化</p>
+<p>axios 拦截</p>
+<p>自定义 hook</p>
+<p>React 组件复用——content内的table，组织结构和内容很类似</p>
 
       
     </div>
@@ -1322,7 +1453,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-03-18 11:26:53" itemprop="dateModified" datetime="2022-03-18T11:26:53+08:00">2022-03-18</time>
+        <time title="修改时间：2022-04-07 22:11:17" itemprop="dateModified" datetime="2022-04-07T22:11:17+08:00">2022-04-07</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1388,8 +1519,6 @@
 </li>
 <li><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903715921477640">setState异步、同步与进阶</a></p>
 </li>
-<li><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903636749778958">你真的理解setState吗？（硬核，从原理上和setTimeout对比）</a></p>
-</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">incrementCount</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">  <span class="comment">// 注意：这样 *不会* 像预期的那样工作。</span></span><br><span class="line">  <span class="built_in">this</span>.setState(&#123;<span class="attr">count</span>: <span class="built_in">this</span>.state.count + <span class="number">1</span>&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">handleSomething</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">  <span class="comment">// 假设 `this.state.count` 从 0 开始。</span></span><br><span class="line">  <span class="built_in">this</span>.incrementCount();</span><br><span class="line">  <span class="built_in">this</span>.incrementCount();</span><br><span class="line">  <span class="built_in">this</span>.incrementCount();</span><br><span class="line">  <span class="comment">// 如果你现在在这里读取 `this.state.count`，它还是会为 0。</span></span><br><span class="line">  <span class="comment">// 当 React 重新渲染该组件时，`this.state.count` 会变为 1，而不是你期望的 3。</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 这是因为上面的 `incrementCount()` 函数是从 `this.state.count` 中读取数据的，</span></span><br><span class="line">  <span class="comment">// 但是 React 不会更新 `this.state.count`，直到该组件被重新渲染。</span></span><br><span class="line">  <span class="comment">// 所以最终 `incrementCount()` 每次读取 `this.state.count` 的值都是 0，并将它设为 1。</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -1429,7 +1558,7 @@
 <li><p>第五步：添加反向数据流</p>
 </li>
 </ul>
-<p>详细的笔记见 <a href="">React 组件设计</a></p>
+<p>详细的笔记见 <a target="_blank" rel="noopener" href="https://wuchaojie.top/2022/03/03/React%E7%BB%84%E4%BB%B6%E8%AE%BE%E8%AE%A1/">React 组件设计</a></p>
 <h2 id="React-高阶指引"><a href="#React-高阶指引" class="headerlink" title="React 高阶指引"></a>React 高阶指引</h2><p><a target="_blank" rel="noopener" href="https://react.docschina.org/docs/accessibility.html">官方文档——高阶指引</a></p>
 <p>在通常情况下，我们就是在抽象的、逻辑的层面，从流程上，来<strong>理解和使用 React 的各种特性</strong>。比如 ReactDom.render 就是将组件对应的 DOM 挂载到 html 根节点上、组件就是一个返回一定UI元素的封装-它先初步挂载渲染+更新后渲染，组件 render 就是它所对应显示的内容等，可以先不管它们具体底层是怎么实现的。</p>
 <p>但要知道，最终 React 项目也都是要归为 html、css、js，在浏览器上运行。所以，适当从浏览器的运行原理的层次、从 React 的底层设计和实现（原生JS，毕竟React本身只是一个JS库） 来思考 React 运作也是必要的。但也要注意下潜到什么层次。至于后者，React 概念、特性、使用、效果（命令式编程） —&gt; React 底层的逻辑、工作流程/数据流、其设计的类和函数的作用概括、和浏览器的配合等 —&gt; React JS 源码、最细节的代码实现。目前来说，看到第二层就好。</p>
@@ -1493,7 +1622,7 @@
 <h4 id="自定义-Hook"><a href="#自定义-Hook" class="headerlink" title="自定义 Hook"></a>自定义 Hook</h4><p>当我们想在两个函数之间共享逻辑时，我们会把它提取到第三个函数中。而组件和 Hook 都是函数，所以也同样适用这种方式。自定义 Hook 是一个函数，其名称以 “use” 开头，函数内部可以调用其他的 Hook。</p>
 <p>要理解自定义 Hook 有什么用，有什么特性/效果，首先要理解什么是 Hook。（看之前的介绍）</p>
 <p>可以理解为，自定义 Hook 就是封装了 useState、useEffect和一些逻辑+数据的 函数，它也是用来给我们的函数组件添加状态、生命周期等特性，但是对它们进行了一定的逻辑处理和封装。从各种方面来说，它就像一个正常的函数。（我们不要忘了一些普遍适用的规则）</p>
-<h4 id="Hook-原理"><a href="#Hook-原理" class="headerlink" title="Hook 原理"></a>Hook 原理</h4><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6891577820821061646">React Hooks原理探究，看完不懂，你打我</a></p>
+<h4 id="Hook-原理"><a href="#Hook-原理" class="headerlink" title="Hook 原理"></a>Hook 原理</h4><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6891577820821061646">React Hooks原理探究，看完不懂，你打我</a><br><a target="_blank" rel="noopener" href="https://juejin.cn/post/6944863057000529933">一文吃透react-hooks原理</a></p>
 <h3 id="React-原理"><a href="#React-原理" class="headerlink" title="React 原理"></a>React 原理</h3><h4 id="React-组件的生命周期"><a href="#React-组件的生命周期" class="headerlink" title="React 组件的生命周期"></a>React 组件的生命周期</h4><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/514fe21b9914">React 组件的生命周期</a></p>
 <p>深入了解组件的生命周期，能让我们初探 React 的底层原理。</p>
 <div align="center">
@@ -1501,7 +1630,12 @@
 </div>
 
 <p>后面将详细介绍 组件生命周期 中的流程细节。此图反映单个组件的生命周期，不反映父子/嵌套组件的关系（即某个组件整体，不考虑其内部细节）。</p>
-<h4 id="虚拟DOM-和-Diff算法"><a href="#虚拟DOM-和-Diff算法" class="headerlink" title="虚拟DOM 和 Diff算法"></a>虚拟DOM 和 Diff算法</h4><p><a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/faq-internals.html#gatsby-focus-wrapper">虚拟DOM</a> 和 <a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/reconciliation.html">Diff算法</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/318ffc6f4848">react 父子组件交互时什么周期的执行顺序</a></p>
+<p>总结来说，就是调用到 <code>render()</code> 后，子组件的生命周期才启动，父组件的生命周期暂停，是递归关系</p>
+<h4 id="setState-原理"><a href="#setState-原理" class="headerlink" title="setState 原理"></a>setState 原理</h4><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6997601527162470407">这一把子彻底搞懂 setState 原理</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904015524790279">浅谈 setState 更新机制</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903636749778958">你真的理解setState吗？（硬核，从原理上和setTimeout对比）</a></p>
+<h4 id="JSX-和-React-createElement"><a href="#JSX-和-React-createElement" class="headerlink" title="JSX 和 React.createElement"></a>JSX 和 React.createElement</h4><h4 id="虚拟DOM-和-Diff算法"><a href="#虚拟DOM-和-Diff算法" class="headerlink" title="虚拟DOM 和 Diff算法"></a>虚拟DOM 和 Diff算法</h4><p><a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/faq-internals.html#gatsby-focus-wrapper">虚拟DOM</a> 和 <a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/reconciliation.html">Diff算法</a></p>
 <p>这一小节相当于是对 组件生命周期 的 <code>render 阶段</code> - 构建虚拟DOM + diffing 比较、<code>commit 阶段</code> - diffing patch 以及 后续的浏览器渲染 的细节补充。</p>
 <p><strong>虚拟 DOM (VDOM) 的动机</strong></p>
 <p>首先我们要知道，为什么我们没办法直接知道增量的 DOM操作 呢？直接知道的话，就按增量去操作 真实DOM 不就好了？——问题就在于现实应用情况中我们无法直接获知，或者这种直接增量 操作DOM 不便于我们编程思考。比如 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1wy4y1D7JT?p=1">虚拟DOM 尚硅谷</a> 中展示的，我们经常获取的是全新的 json 数据；比如，我们组件更新时，是 <code>render()</code> 返回一整块<code>React元素</code>的可能仅局部更新了的 React 元素。在下图的情况中，若没有 虚拟 DOM，我们就得重新再对新的列表中的三个表项各进行一次 DOM操作 即 3次 JS操作真实DOM；而有 虚拟 DOM 的话，我们就只需要有 1次 JS操作真实DOM。</p>
@@ -1513,8 +1647,9 @@
 <blockquote>
 <p>这个元素会挂载默认的styles、得到这个元素的computed属性、注册相应的Event Listener、DOM Breakpoints以及大量的properties，这些属性、方法的注册肯定是需要h耗费大量时间的。<br>尤其是在 <strong>js操作DOM</strong> 的过程中，不仅有dom本身的繁重，js的操作也需要浪费时间，我们认为js和DOM之间有一座桥，如果你频繁的在桥两边走动，显然效率是很低的，如果你的JavaScript操作DOM的方式还非常不合理，那么显然就会更糟糕了。<br>而 React 的虚拟DOM就是解决这个问题的！ 虽然它解决不了DOM自身的繁重，但是虚拟DOM可以对JavaScript操作DOM这一部分内容进行优化。</p>
 </blockquote>
-<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6994959998283907102">15张图，20分钟吃透Diff算法核心原理</a> 除了更少地 <strong>js操作DOM</strong>，在浏览器渲染的角度是否也有优化？该博客下面的评论中讨论了这个问题。有人认为一次 真实DOM操作 就会导致一次浏览器回流（即重新渲染一次DOM，是对全部DOM还是局部DOM重新渲染，得看具体浏览器的实现，暂时不确定），那么减少了 <strong>js操作真实DOM</strong> 的次数，也减少了渲染的成本；但也有人说浏览器会“攒”一定数量的 真实DOM操作 再进行渲染。<mark>这一块不是很清楚。——浏览器针对回流与重绘进行了自身的优化：渲染队列，就是会定期积攒一定时间段的回流重绘操作，然后一波处理。但需要注意的是，操作DOM和回流重绘并非严格的一一对应，即便是将密集的的DOM操作打包在一起仅进行一次回流重绘，但实际上DOM操作可能还是进行了那么多次；亦或DOM操作的代价在于获取DOM而不在修改DOM？。（不确定，待核实）</mark></p>
-<h4 id="React-的-渲染流程细节（初步探讨）"><a href="#React-的-渲染流程细节（初步探讨）" class="headerlink" title="React 的 渲染流程细节（初步探讨）"></a>React 的 渲染流程细节（初步探讨）</h4><p><mark>可以确定的是：</mark><br>VDOM 的本质就是一个数据结构与 DOM 一一对应的 JS 对象。如果是首次渲染，我们先得到 VDOM，然后 基于 VDOM 将内容转化成 真实DOM，然后渲染；当我们的 UI-View 需要发生改变（更新）时，我们先构建一个新的 VDOM ——这个“简单”易操作的 JS 对象——这一步代价比较小，然后将新的到的 VDOM 与 之前的 VDOM 进行比较，得出差异，然后对 真实DOM 进行增量操作。</p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6994959998283907102">15张图，20分钟吃透Diff算法核心原理</a> 除了更少地 <strong>js操作DOM</strong>，在浏览器渲染的角度是否也有优化？该博客下面的评论中讨论了这个问题。有人认为一次 真实DOM操作 就会导致一次浏览器回流重绘，那么减少了 <strong>js操作真实DOM</strong> 的次数，也减少了渲染的成本；但也有人说浏览器会“攒”一定数量的 真实DOM操作 再进行渲染。<mark>浏览器针对回流与重绘进行了自身的优化：渲染队列，就是会定期积攒一定时间段的回流重绘操作，然后一波处理。但需要注意的是，操作DOM和回流重绘并非严格的一一对应，即便是将密集的的DOM操作打包在一起仅进行一次回流重绘（createDocumentFragment也有类似作用），但实际上DOM操作可能还是进行了那么多次；亦或DOM操作的代价在于获取DOM而不在修改DOM？。（不确定，待核实）</mark>（得具体看 diff 后得到的差异 VDOM 如何通过 DOM 操作更新到 DOM 中。比如 React key 可以重用 DOM 节点，也就是将删除和新增 DOM 节点转换成代价更小的更新 DOM 节点）</p>
+<h4 id="React-的-渲染流程细节"><a href="#React-的-渲染流程细节" class="headerlink" title="React 的 渲染流程细节"></a>React 的 渲染流程细节</h4><p><strong>初步探索</strong></p>
+<p><mark>可以确定的是：</mark><br>VDOM 的本质就是一个数据结构与 DOM 一一对应的 JS 对象。如果是首次渲染，我们先得到 VDOM，然后 基于 VDOM 将内容转化成 真实DOM，然后渲染；当我们的 UI-View 需要发生改变（更新）时，我们先构建一个新的 VDOM ——这个“简单”易操作的 JS 对象——这一步代价比较小，然后将新的到的 VDOM 与 之前的 VDOM 进行比较，得出差异，然后对 真实DOM 进行增量操作。</p>
 <p>React 的渲染可分为<strong>两种情况</strong>：首次渲染 和 更新渲染，分别对应组件生命周期 挂载时 和 更新时。</p>
 <p>结合上上一小节的生命周期，总结：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">需要渲染时：ReactDOM.render() or setState()</span><br><span class="line">⬇</span><br><span class="line">构建 VDOM：上小节 render() 方法 + JSX 语法编译后的相关方法（但更新时如何得到完整的 VDOM 还不是很清楚）</span><br><span class="line">⬇（更新）                             ⬇（首次渲染）</span><br><span class="line">比较 VDOM：Diffing 算法 - 比较         操作真 DOM</span><br><span class="line">⬇                                    ⬇</span><br><span class="line">操作 真DOM：Diffing 算法 - patch       渲染</span><br><span class="line">⬇</span><br><span class="line">渲染：浏览器 非 JS 的工作</span><br></pre></td></tr></table></figure>
@@ -1528,16 +1663,33 @@
 <p>参考资料：<a target="_blank" rel="noopener" href="https://react.docschina.org/docs/react-dom.html#render">ReactDOM API 官方文档</a>、<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/8dc8e59844c9">react渲染原理分析（侧重 ReactDOM.render 生成 fiber-tree）</a>、<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/45091185">React渲染原理（侧重 ReactDOM.render 遍历组件的过程）</a></p>
 <ul>
 <li><p><code>ReactDOM.render()</code> 和 <code>render()</code> 是什么关系？<code>ReactDOM.render()</code>的原理？</p>
-<p>生命周期图中的各组件的挂载时，各组件的 <code>render()</code> 应该是在 <code>ReactDOM.render()</code> 中被一一调用；那更新时，是否也意味着再次调用 <code>ReactDOM.render()</code> ——就算是，行为也不一样，详见补充的两个链接——“当首次调用时，容器节点里的所有 DOM 元素都会被替换，后续的调用则会使用 React 的 DOM 差分算法（DOM diffing algorithm）进行高效的更新。来自 <code>ReactDOM.render()</code> 官方文档” 。</p>
+<p>生命周期图中的各组件的挂载时，各组件的 <code>render()</code> 应该是在 <code>ReactDOM.render()</code> 中被一一调用；那更新时，是否也意味着再次调用 <code>ReactDOM.render()</code> ——就算是，行为也不一样，详见补充的两个链接——“当首次调用时，容器节点里的所有 DOM 元素都会被替换，后续的调用则会使用 React 的 DOM 差分算法（DOM diffing algorithm）进行高效的更新。”（来自 <code>ReactDOM.render()</code> 官方文档” ）</p>
 <p><code>Component</code> 中定义的 <code>render()</code>，也即生命周期中的 <code>render()</code>，仅返回 React 元素对象（实质上是调用了内置方法，构建了 Virtual DOM 的一部分）。<code>ReactDOM.render()</code>则负责更多的事情，其行为根据 挂载时 和 更新时 进行区分。比如，它在挂载时以递归的方式不断调用组件（树状结构）的render，得到 VDOM碎片 然后依次转换成 真实DOM；在更新时，构建 VDOM，Diff 比较，更新 真实DOM。</p>
 </li>
 <li><p>挂载时，零碎的 组件render 如何生成完整的 VDOM 树？更新时，会生成一颗新的完整的 VDOM 树吗？（也即diff比较的是完整的 VDOM 树还是不完整的？）更新时，<code>ReactDOM.render()</code>的行为如何？</p>
 <p>部分组件更新时（以变动 State 的组件为节点，逻辑上会向下传播得到一个更新的子树），我们得到的 Virtual DOM 是完整的还是仅覆盖状态变更的组件的？——可以确定的是仅满足生命周期图中的三个条件的组件才会按生命周期往下走，进而调用 <code>render()</code>——<a target="_blank" rel="noopener" href="https://react.docschina.org/docs/rendering-elements.html">官方文档 元素渲染</a> 中最后说道：“尽管每一秒我们都会新建一个描述整个 UI 树的元素，React DOM 只会更新实际改变了的内容，也就是例子中的文本节点。”</p>
 </li>
+<li><p>组件的生命周期中，子组件完整生命周期走完才会回到父组件中，这不是意味着子组件已经更新了真实 DOM ？和此前我们说的得到完整子树的 VDOM 再 Diff 更新的理解有出入</p>
+</li>
 <li><p>React的在浏览器下的渲染时机</p>
 <p>好奇的一点是，render 构建出最终的 DOM 后，（在浏览器运行视角）渲染进程的主进程的控制权是否需要从 运行js 交由 渲染DOM（估计是的），具体的流程是怎样的（类似的问题 在浏览器原理部分提到过 <a href="###%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8E%9F%E7%90%86">原生 JS 写DOM</a>）。</p>
-<p>详细的得看更大的 <a target="_blank" rel="noopener" href="http://www.ayqy.net/blog/dive-into-react-fiber/">React Fiber</a>。</p>
+<p>详细的过程得看的 <a target="_blank" rel="noopener" href="http://www.ayqy.net/blog/dive-into-react-fiber/">React Fiber</a>。</p>
 </li>
+</ul>
+<p>以上问题，归根结底，就是不清楚</p>
+<ul>
+<li>组件的生命周期在父子组件的嵌套情况下的表现</li>
+<li><code>render()</code> 如何层层调用，构建 VDOM 树。构建出来的 VDOM 树包括哪些节点？</li>
+</ul>
+<p>个人推测：</p>
+<ul>
+<li><code>setState()</code> 调用后，以被更新的节点为根节点，递归调用 <code>render()</code> 构造 VDOM 子树。递归过程中，判断子节点 <code>props</code> 和 <code>shouldComponentUpdate</code> 情况，决定是否调用其 <code>render()</code> （也即是否将其添加到 VDOM）。最后，以被更新节点为根节点的，经过剪枝，通过递归构造的 VDOM，就是我们拿来 Diffing 的 VDOM</li>
+<li>在构造新的 VDOM 树中，被剪枝的部分不会被拿来和旧 VDOM 进行 Diffing（我就是因为它们不要更新才不render出来的，拿去比较的话，岂不是认为我们新的 VDOM 相比旧 VDOM 缺少了这一块，反而要对真 DOM 进行删除操作？）</li>
+</ul>
+<p><strong>完整的 React 渲染流程</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6923073253988810765">React渲染 - 流程概述</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6959120891624030238">React 渲染流程</a></li>
 </ul>
 <p><strong>我们平常使用 React 可以这样偷懒地想</strong>，部分的组件更新，React 只会局部更新 DOM 并重新渲染。</p>
 <h4 id="React-的事件机制"><a href="#React-的事件机制" class="headerlink" title="React 的事件机制"></a>React 的事件机制</h4>
@@ -1597,7 +1749,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-03-18 19:42:12" itemprop="dateModified" datetime="2022-03-18T19:42:12+08:00">2022-03-18</time>
+        <time title="修改时间：2022-04-07 13:35:22" itemprop="dateModified" datetime="2022-04-07T13:35:22+08:00">2022-04-07</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1742,7 +1894,7 @@
 <td>相比当前元素的字体大小</td>
 <td>相比父级元素的字体大小</td>
 <td>相比父级元素的盒子width</td>
-<td>相对于自身元素border内的大小·</td>
+<td>相对于自身元素border内的大小</td>
 </tr>
 <tr>
 <td>em</td>
@@ -1786,12 +1938,15 @@
 </div>
 
 <p>关于css-clear属性的解释，看 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/clear">MDN clear</a>：<br>“clear CSS 属性指定一个元素是否必须移动(清除浮动后)到在它之前的浮动元素下面。”。重点在于“之前”，且应该指的是“所有的”浮动元素。</p>
-<h3 id="三-4"><a href="#三-4" class="headerlink" title="三.4"></a>三.4</h3><p>对于同级元素，通过 hidden 触发 BFC 能够撑起高度，但是不能解决 margin 重叠问题。(将 outer1 和 outer2 调换顺序，即让底部块 hidden 触发 BFC 也不行)</p>
+<h3 id="三-4"><a href="#三-4" class="headerlink" title="三.4"></a>三.4</h3><p>对于同级元素，通过 hidden 触发 BFC 能够撑起高度，但是不能解决 margin 重叠问题。(将 outer1 和 outer2 调换顺序，即让底部块 hidden 触发 BFC 也不行)（BFC只能保证内部外部互不干扰，但不能保证BFC元素本身不影响兄弟）</p>
 <div align="center">
     <img src="https://s2.loli.net/2021/12/26/9ZCRy3UkN2x8hnA.png" width="70%">
 </div>
 
-<p>一种情况是：想让兄弟元素的 margin 不重叠，就需要将一个兄弟放到一个 BFC 上下文中（而不是让它自己触发 BFC）。参考资料：<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000012265930">边距重叠与BFC</a></p>
+<p>一种做法：可以将一个兄弟包装到一个div块中</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;outer&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;inner1&quot;</span>&gt;</span>111<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- &lt;div class=&quot;inner1&quot;&gt;111&lt;/div&gt; --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;inner2&quot;</span>&gt;</span>111<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>参考资料：<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000012265930">边距重叠与BFC</a></p>
 <p>其他情况是：将顶部/底部兄弟元素设置<code>display: inline-block</code>；将底部兄弟元素设置浮动、和绝对定位</p>
 <p>关于父子元素的 margin 重叠问题 &amp; 子元素 margin 溢出父元素问题，参考 <a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000039093635">子元素margin-top导致父元素移动的问题</a>。</p>
 <h3 id="四-1"><a href="#四-1" class="headerlink" title="四.1"></a>四.1</h3><p>利用 border 来绘制各种图形——border的绘制规则</p>
@@ -1871,7 +2026,7 @@
 </tbody></table>
 <h3 id="一-3-总结类型判断"><a href="#一-3-总结类型判断" class="headerlink" title="一.3 总结类型判断"></a>一.3 总结类型判断</h3><p>获取数据的原型、构造函数（原始数据类型会被隐式转换成包装类型），然后再对比判断</p>
 <ol>
-<li><code>Object.prototype.getString.call(obj)</code> 返回字符串</li>
+<li><code>Object.prototype.toString.call(obj)</code> 返回字符串</li>
 <li><code>obj._proto_</code> &lt;=&gt; <code>Object.getPrototypeOf(obj)</code> 返回原型对象</li>
 <li><code>obj.constructor</code> 返回构造函数</li>
 </ol>
@@ -1881,6 +2036,10 @@
 <li><code>Array.prototype.isPrototypeOf(obj)</code></li>
 <li><code>obj instanceof Array</code></li>
 </ol>
+<p>基础数据类型</p>
+<ul>
+<li><code>typeof</code></li>
+</ul>
 <h3 id="二、ES6"><a href="#二、ES6" class="headerlink" title="二、ES6"></a>二、ES6</h3><ul>
 <li><p>解决原有语法的缺陷和不足<br>let const 块级作用域、Symbol数据类型</p>
 </li>
@@ -1952,7 +2111,7 @@
 <td>组合继承</td>
 <td>综合了原型链和盗用构造函数：<br>用原型链继承原型上的属性和方法<br>用盗用构造函数继承实例属性</td>
 <td>集中两者优点：<br>1.子类可以访问父类原型的属性和方法<br>2.每个实例都有自己的属性，且继承了父类实例属性</td>
-<td>存在效率问题：父类构造函数会被调用两次</td>
+<td>存在效率问题：父类构造函数会被调用两次，；并且子类实例属性和原型属性会有重复</td>
 </tr>
 <tr>
 <td>原型式继承</td>
@@ -1973,6 +2132,7 @@
 <td></td>
 </tr>
 </tbody></table>
+<p>PS：原型引用值被共享不可避免，只能说我们尽量将数据属性放在实例中实现，而函数属性则放在原型中共享</p>
 <div align="center">
     <img src="https://s2.loli.net/2022/02/25/IYh5r12yGN8vUgB.jpg" width="70%">
 </div>
@@ -1990,11 +2150,7 @@
 </thead>
 <tbody><tr>
 <td>一.1/2</td>
-<td>补充：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903781704925191">XSS攻击与CSRF攻击</a><br>补充：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6912030758404259854">XSS攻击-攻击流程图</a><br>补充：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1s5411s7qd?from=search&seid=3968350037173219363&spm_id_from=333.337.0.0">B站 XSS原理和攻防 （讲的比较清晰）</a><br>补充：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/mysticbinary/p/12542695.html">DOM-XSS攻击原理与防御</a> <br><strong>答题总结</strong>：<br>是什么、有什么危害、分类及其攻击流程-构造/用户访问/执行恶意代码/实现攻击效果<br>为什么、如何防范<br><br>DOM XSS：不经过服务器（使用本地已有/缓存的html、js等），且需要前端代码中本身存在一定的问题，然后攻击者根据这些问题针对性地构造出某种的恶意的输入（url、input等），让浏览器用有问题的参数运行js代码实现XSS攻击。</td>
-</tr>
-<tr>
-<td>一.3/4</td>
-<td>补充：<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000024490213">CSRF攻击原理和防范措施</a></td>
+<td><strong>答题总结</strong>：<br>是什么、有什么危害、分类及其攻击流程-构造/用户访问/执行恶意代码/实现攻击效果<br>如何防范</td>
 </tr>
 <tr>
 <td>二.2</td>
@@ -2007,10 +2163,6 @@
 <tr>
 <td>五.2.4</td>
 <td>问题：documentFragment和渲染队列，做的事情很像，有何区别？它们最后将一波DOM操作一次性更新到DOM的操作，只触发一次重新渲染，但是本质上是否仍多次操作DOM？</td>
-</tr>
-<tr>
-<td>七.1</td>
-<td>补充：<a target="_blank" rel="noopener" href="https://catcat.cc/post/2020-06-23/">循序渐进理解：跨源跨域，再到 XSS 和 CSRF</a></td>
 </tr>
 <tr>
 <td>八.9</td>
@@ -2035,6 +2187,12 @@
 <li>渲染进程的对布局树进行分层，分别栅格化每一层，并得到合成帧</li>
 <li>渲染进程将合成帧信息发送给GPU进程显示到页面中</li>
 </ul>
+<h3 id="六-3-Cookie、LocalStorage、SessionStorage区别"><a href="#六-3-Cookie、LocalStorage、SessionStorage区别" class="headerlink" title="六.3 Cookie、LocalStorage、SessionStorage区别"></a>六.3 Cookie、LocalStorage、SessionStorage区别</h3><p>作用、存储大小、生存时间、同源策略</p>
+<h3 id="补充：Cookie-和-Session-关系和区别"><a href="#补充：Cookie-和-Session-关系和区别" class="headerlink" title="补充：Cookie 和 Session 关系和区别"></a>补充：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903575684907016">Cookie 和 Session 关系和区别</a></h3><blockquote>
+<p>链接：<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/5a2d287965824d3ca93921bf89f8654c">https://www.nowcoder.com/questionTerminal/5a2d287965824d3ca93921bf89f8654c</a></p>
+</blockquote>
+<p>cookie实际上是一小段的文本信息。客户端请求服务器，如果服务器需要记录该用户的状态，就使用response向客户端浏览器颁发一个cookie。客户端浏览器会把cookie保存起来。当浏览器再次请求该网站时，浏览器就会把请求地址和cookie一同给服务器。服务器检查该cookie，从而判断用户的身份和状态。服务器还可以根据需要修改cookie的内容。<br>session是另一种记录客户状态的机制。不同的是cookie保存在客户端浏览器中，而session保存在服务器上。客户端浏览器访问服务器的时候，服务器把客户端信息以某种形式记录在服务器上，这就是session。客户端浏览器再次访问时只需要从该session中查找该客户的状态就可以了。<br>如果说cookie机制是通过检查客户身上的“通行证”，那么session机制就是通过检查服务器上的“客户明细表”来确认客户身份。</p>
+<h3 id="七-2-跨域方法总结"><a href="#七-2-跨域方法总结" class="headerlink" title="七.2 跨域方法总结"></a>七.2 跨域方法总结</h3><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903767226351623">九种跨域方式实现原理（完整版）</a></p>
 <h3 id="七-3"><a href="#七-3" class="headerlink" title="七.3"></a>七.3</h3><div align="center">
     <img src="https://s2.loli.net/2022/03/12/R6GyIPpe8VT25t9.png" width="80%">
 </div>
@@ -2054,10 +2212,8 @@
 <li><p>正向代理和反向代理的作用和目的不同。正向代理主要是用来解决访问限制问题。而反向代理则是提供负载均衡、安全防护等作用。二者均能提高访问速度。</p>
 </li>
 </ul>
-<h3 id="补充：Cookie-和-Session-关系和区别"><a href="#补充：Cookie-和-Session-关系和区别" class="headerlink" title="补充：Cookie 和 Session 关系和区别"></a>补充：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903575684907016">Cookie 和 Session 关系和区别</a></h3><blockquote>
-<p>链接：<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/5a2d287965824d3ca93921bf89f8654c">https://www.nowcoder.com/questionTerminal/5a2d287965824d3ca93921bf89f8654c</a></p>
-</blockquote>
-<p>cookie实际上是一小段的文本信息。客户端请求服务器，如果服务器需要记录该用户的状态，就使用response向客户端浏览器颁发一个cookie。客户端浏览器会把cookie保存起来。当浏览器再次请求该网站时，浏览器就会把请求地址和cookie一同给服务器。服务器检查该cookie，从而判断用户的身份和状态。服务器还可以根据需要修改cookie的内容。<br>session是另一种记录客户状态的机制。不同的是cookie保存在客户端浏览器中，而session保存在服务器上。客户端浏览器访问服务器的时候，服务器把客户端信息以某种形式记录在服务器上，这就是session。客户端浏览器再次访问时只需要从该session中查找该客户的状态就可以了。<br>如果说cookie机制是通过检查客户身上的“通行证”，那么session机制就是通过检查服务器上的“客户明细表”来确认客户身份。</p>
+<h3 id="八、6-对事件循环的理解"><a href="#八、6-对事件循环的理解" class="headerlink" title="八、6 对事件循环的理解"></a>八、6 对事件循环的理解</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">js 单线程 </span><br><span class="line">---&gt; 函数执行上下文+执行栈，确保代码有序执行</span><br><span class="line">---&gt; 异步操作不会等待执行-回调/用户进行操作-处理函数 不会立刻执行</span><br><span class="line">---&gt; 触发的异步操作的回调函数和事件处理函数，会进入任务队列</span><br><span class="line">---&gt; 同步代码全部执行完后，开始从任务队列中取出任务到执行栈中执行</span><br><span class="line">---&gt; 任务队列分为微任务队列、宏任务队列。同步代码执行完后，先执行完微任务，再执行宏任务</span><br></pre></td></tr></table></figure>
+
 <h2 id="前端知识之性能优化篇"><a href="#前端知识之性能优化篇" class="headerlink" title="前端知识之性能优化篇"></a>前端知识之性能优化篇</h2><p>2022.1.21 - 2022. </p>
 <table>
 <thead>
@@ -2092,14 +2248,19 @@
 <h3 id="二-13-怎么配置单页面应用？怎么配置多页面应用？"><a href="#二-13-怎么配置单页面应用？怎么配置多页面应用？" class="headerlink" title="二.13 怎么配置单页面应用？怎么配置多页面应用？"></a>二.13 怎么配置单页面应用？怎么配置多页面应用？</h3><p>待补充总结性内容</p>
 <h2 id="前端知识之计算机网络篇"><a href="#前端知识之计算机网络篇" class="headerlink" title="前端知识之计算机网络篇"></a>前端知识之计算机网络篇</h2><h3 id="一-1-GET和POST的请求的区别"><a href="#一-1-GET和POST的请求的区别" class="headerlink" title="一.1 GET和POST的请求的区别"></a>一.1 GET和POST的请求的区别</h3><ul>
 <li><strong>作用</strong>：GET 方法请求一个指定资源的表示形式，使用GET的请求应该只被用于获取数据；POST 方法用于将实体提交到指定的资源，通常导致在服务器上的状态变化或副作用</li>
-<li><strong>请求编码</strong>：GET 请求只能进行url编码，而 POST 支持多种编码方式</li>
 <li><strong>缓存</strong>：GET 请求会被浏览器主动缓存，而 POST 不会</li>
 <li><strong>历史记录</strong>：GET 请求参数会被完整保留在浏览器历史记录里，而 POST 不会</li>
 <li><strong>参数</strong>：<ul>
 <li>传递方式：GET 请求参数是通过 URL 传递的，多个参数以&amp;连接，POST 请求放在 request body 中</li>
-<li>编码：GET 只接受 ASCII 字符，而 POST 没有限制</li>
+<li>编码：url 中的字符只能是 ASCII 字符（非 ASCII 字符的转换称为 url 编码）。故 GET 的参数最终都得转换成 ASCII 字符，而 POST 参数放在请求体中没有这个限制</li>
 </ul>
 </li>
+</ul>
+<p>PS：</p>
+<ul>
+<li>POST 请求体的类型： Content-type，更侧重描述文档类型/传输内容的格式，而非字符的编码</li>
+<li>字符数据最终都得变成二进制数据在网络中进行传输，这才是字符编码的意义</li>
+<li>文本传输协议 和 二进制传输协议，最终都是转换成二进制数据进行传输，只是转换方式（编码方式）不同，不要被误导 <a target="_blank" rel="noopener" href="https://www.i4k.xyz/article/andrew57/8784678">文本传输与二进制传输</a></li>
 </ul>
 <h3 id="一-4-补充"><a href="#一-4-补充" class="headerlink" title="一.4 补充"></a>一.4 补充</h3><p>HTTP的常用方法</p>
 <ul>
@@ -2258,7 +2419,7 @@
 <h3 id="八、1-对虚拟DOM的理解"><a href="#八、1-对虚拟DOM的理解" class="headerlink" title="八、1 对虚拟DOM的理解"></a>八、1 对虚拟DOM的理解</h3><p>VDOM 本质是什么</p>
 <p>VDOM 做了什么</p>
 <ul>
-<li>将要渲染的元素转换成对象（VDOM），它描述了真实DOM的结构</li>
+<li>将要渲染的元素转换成 JS 对象（VDOM），它描述了真实DOM的结构</li>
 <li>数据发生变化时，缓存一份虚拟DOM，变化时候得到新的VDOM，React 内置的 Diffing 算法就会对这两个 VDOM 进行对比，得到其差异的部分</li>
 <li>将有差别的部分更新到真实的DOM</li>
 </ul>
@@ -2309,99 +2470,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/miao.gif">
-      <meta itemprop="name" content="Wu Chaojie">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/12/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98/" class="post-title-link" itemprop="url">数据结构与算法刷题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-12-20 15:44:34" itemprop="dateCreated datePublished" datetime="2021-12-20T15:44:34+08:00">2021-12-20</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-03-11 21:32:00" itemprop="dateModified" datetime="2022-03-11T21:32:00+08:00">2022-03-11</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Front-end/" itemprop="url" rel="index"><span itemprop="name">Front-end</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="JavaScript-数据结构与算法-刷题计划"><a href="#JavaScript-数据结构与算法-刷题计划" class="headerlink" title="JavaScript 数据结构与算法 刷题计划"></a>JavaScript 数据结构与算法 刷题计划</h2><ul>
-<li>（理论/实践）数据结构和算法（C++描述） + 学习JavaScript数据结构与算法</li>
-<li>（实践 - 后台/C++实现）<a target="_blank" rel="noopener" href="https://interviewguide.cn/#/Doc/Knowledge/%E7%AE%97%E6%B3%95/%E5%B8%A6%E4%BD%A0%E5%BF%AB%E9%80%9F%E5%88%B7%E5%AE%8C67%E9%81%93%E5%89%91%E6%8C%87offer/README?id=%e5%b8%a6%e4%bd%a0%e5%bf%ab%e9%80%9f%e5%88%b7%e5%ae%8c67%e9%81%93%e5%89%91%e6%8c%87offer">带你快速刷完67道剑指offer</a>、<a target="_blank" rel="noopener" href="https://codetop.cc/home">CodeTop 企业题库</a>、<a target="_blank" rel="noopener" href="https://github.com/MisterBooo/LeetCodeAnimation">LeetCode Animation</a>、<a target="_blank" rel="noopener" href="https://github.com/youngyangyang04/leetcode-master">LeetCode 刷题攻略</a></li>
-<li>（实践 - 前端/JS实现）<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903919722692621">前端该如何准备数据结构和算法？</a> + <a target="_blank" rel="noopener" href="https://github.com/ConardLi/awesome-coding-js">awesome-coding-js 2.5k 🌟</a>、<a target="_blank" rel="noopener" href="https://juejin.cn/post/6847009772500156429#heading-15">写给前端的算法进阶指南</a>+<a target="_blank" rel="noopener" href="https://github.com/sl1673495/leetcode-javascript/issues?page=1&q=is:issue+is:open">对应100道前端精选算法题 1.2k 🌟</a>、<a target="_blank" rel="noopener" href="https://www.nowcoder.com/discuss/101711?type=5">JS版剑指offer</a>、<a target="_blank" rel="noopener" href="https://www.cnblogs.com/lilicat/p/15491755.html">【75题】剑指 Offer 题解 （JavaScript版本）</a>、<a target="_blank" rel="noopener" href="https://github.com/sisterAn/JavaScript-Algorithms">适用于前端的数据结构与算法系列 3.3k 🌟</a>、<a target="_blank" rel="noopener" href="https://github.com/trekhleb/javascript-algorithms">JavaScript Algorithms and Data Structures</a>;</li>
-</ul>
-<p>刷题策略：分门别类、快速多遍、总结回顾</p>
-<p>刷题顺序：剑指经典、前端企业题库 Top100、LeetCode hot100</p>
-<h2 id="沐神的刷题教程"><a href="#沐神的刷题教程" class="headerlink" title="沐神的刷题教程"></a>沐神的刷题教程</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1GZ4y1A7Lv">LeetCode入门教学视频</a> </p>
-<h2 id="剑指-Offer-70-题"><a href="#剑指-Offer-70-题" class="headerlink" title="剑指 Offer 70+题"></a>剑指 Offer 70+题</h2><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/b39568569fd8">剑指 Offer 题目分类</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/lilicat/p/15491755.html">【75题】剑指 Offer 题解 （JavaScript版本）</a></p>
-<h2 id="适用于前端的数据结构与算法系列-80-题"><a href="#适用于前端的数据结构与算法系列-80-题" class="headerlink" title="适用于前端的数据结构与算法系列 80+题"></a>适用于前端的数据结构与算法系列 80+题</h2><p><a target="_blank" rel="noopener" href="https://github.com/sisterAn/JavaScript-Algorithms">适用于前端的数据结构与算法系列 3.3k 🌟</a></p>
-<h2 id="CodeTop-企业题库-前端100题"><a href="#CodeTop-企业题库-前端100题" class="headerlink" title="CodeTop 企业题库 前端100题"></a>CodeTop 企业题库 前端100题</h2><p><a target="_blank" rel="noopener" href="https://codetop.cc/home">CodeTop 企业题库</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 </div>

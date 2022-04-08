@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="前端鉴权——Cookie&#x2F;Session&#x2F;Token深入学习 cookie参考资料：聊一聊 cookie cookie 的 Same Site 属性 Same Site 属性规定了跨站请求时是否携带目标网站 cookie（这种第三方网站引导发出的 Cookie，称为第三方 Cookie）。注意我们的用词是跨站，这包含了两种情况：  网站 b 被用户访问后，通过 &lt;img&gt;、&lt;fo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端安全">
+<meta property="og:url" content="http://example.com/2022/03/24/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8/index.html">
+<meta property="og:site_name" content="Wu&#39;s Blog">
+<meta property="og:description" content="前端鉴权——Cookie&#x2F;Session&#x2F;Token深入学习 cookie参考资料：聊一聊 cookie cookie 的 Same Site 属性 Same Site 属性规定了跨站请求时是否携带目标网站 cookie（这种第三方网站引导发出的 Cookie，称为第三方 Cookie）。注意我们的用词是跨站，这包含了两种情况：  网站 b 被用户访问后，通过 &lt;img&gt;、&lt;fo">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-03-24T07:03:34.000Z">
+<meta property="article:modified_time" content="2022-04-07T04:03:01.415Z">
+<meta property="article:author" content="Wu Chaojie">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2022/03/24/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/03/24/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8/","path":"2022/03/24/前端安全/","title":"前端安全"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>前端安全 | Wu's Blog</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Wu's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">CS Tech</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E9%89%B4%E6%9D%83%E2%80%94%E2%80%94Cookie-Session-Token"><span class="nav-number">1.</span> <span class="nav-text">前端鉴权——Cookie&#x2F;Session&#x2F;Token</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0-cookie"><span class="nav-number">1.1.</span> <span class="nav-text">深入学习 cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E9%89%B4%E6%9D%83"><span class="nav-number">1.2.</span> <span class="nav-text">前端鉴权</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XSS-CSRF-%E8%B7%A8%E7%AB%99%E6%94%BB%E5%87%BB%E5%AE%9E%E4%BE%8B"><span class="nav-number">2.</span> <span class="nav-text">XSS&#x2F;CSRF 跨站攻击实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#XSS-%E5%AE%9E%E4%BE%8B"><span class="nav-number">2.1.</span> <span class="nav-text">XSS 实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSRF-%E5%AE%9E%E4%BE%8B"><span class="nav-number">2.2.</span> <span class="nav-text">CSRF 实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XSS-CSRF-%E5%92%8C-%E8%B7%A8%E5%9F%9F"><span class="nav-number">2.3.</span> <span class="nav-text">XSS&#x2F;CSRF 和 跨域</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Wu Chaojie"
+      src="/images/miao.gif">
+  <p class="site-author-name" itemprop="name">Wu Chaojie</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wuuu0" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wuuu0" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/24/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/miao.gif">
+      <meta itemprop="name" content="Wu Chaojie">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          前端安全
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-24 15:03:34" itemprop="dateCreated datePublished" datetime="2022-03-24T15:03:34+08:00">2022-03-24</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-04-07 12:03:01" itemprop="dateModified" datetime="2022-04-07T12:03:01+08:00">2022-04-07</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Front-end/" itemprop="url" rel="index"><span itemprop="name">Front-end</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="前端鉴权——Cookie-Session-Token"><a href="#前端鉴权——Cookie-Session-Token" class="headerlink" title="前端鉴权——Cookie/Session/Token"></a>前端鉴权——Cookie/Session/Token</h2><h3 id="深入学习-cookie"><a href="#深入学习-cookie" class="headerlink" title="深入学习 cookie"></a>深入学习 cookie</h3><p>参考资料：<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000004556040">聊一聊 cookie</a></p>
+<p><strong>cookie 的 Same Site 属性</strong></p>
+<p>Same Site 属性规定了跨站请求时是否携带目标网站 cookie（这种第三方网站引导发出的 Cookie，称为第三方 Cookie）。注意我们的用词是<strong>跨站</strong>，这包含了两种情况：</p>
+<ul>
+<li><p>网站 b 被用户访问后，通过 <code>&lt;img&gt;</code>、<code>&lt;form&gt;</code>、<code>&lt;a&gt;</code> 等不受同源策略限制的方式向被另一个网站 a 发送跨站请求</p>
+</li>
+<li><p>跨域请求，即用户访问网站 b 通过 Ajax 等 js 脚本设置跨域后向网站 a 发送的跨站请求（因为同源策略只限制 js，所以在 js 情况下我们才称跨站为跨域）</p>
+</li>
+<li><p>在 CSRF 中，网站 b 一般对应恶意网站，网站 a 对应被攻击网站</p>
+</li>
+</ul>
+<p><strong>区分携带第三方 cookie 和 跨域获取 cookie</strong></p>
+<h3 id="前端鉴权"><a href="#前端鉴权" class="headerlink" title="前端鉴权"></a>前端鉴权</h3><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6898630134530752520">前端鉴权的兄弟们：cookie、session、token、jwt、单点登录</a></p>
+<h2 id="XSS-CSRF-跨站攻击实例"><a href="#XSS-CSRF-跨站攻击实例" class="headerlink" title="XSS/CSRF 跨站攻击实例"></a>XSS/CSRF 跨站攻击实例</h2><p>要先区分：浏览器地址栏输入 url（访问网站）、页面中带有 url 的标签、Js 脚本向 url 发出请求（三者都是发出 Http 请求）</p>
+<h3 id="XSS-实例"><a href="#XSS-实例" class="headerlink" title="XSS 实例"></a>XSS 实例</h3><p><strong>概念/大致流程</strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1s5411s7qd?from=search&seid=3968350037173219363&spm_id_from=333.337.0.0">B站 XSS原理和攻防 （讲的比较清晰）</a><br><a target="_blank" rel="noopener" href="https://juejin.cn/post/6912030758404259854">XSS攻击-攻击流程图</a></p>
+<p><strong>实例</strong></p>
+<p>XSS 反射型、存储型 实例：<a target="_blank" rel="noopener" href="https://github.com/dwqs/blog/issues/68">浅说 XSS 和 CSRF</a></p>
+<p>XSS DOM 型 实例：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903781704925191">XSS攻击与CSRF攻击</a>、<a target="_blank" rel="noopener" href="https://www.cnblogs.com/mysticbinary/p/12542695.html">DOM-XSS攻击原理与防御</a></p>
+<p><strong>深入理解 XSS 的本质/原理</strong></p>
+<p>一、不论何种 XSS 类型</p>
+<p>都是用户<strong>访问</strong>目标（正常）服务器 a 时（无论反射、存储、DOM型，恶意脚本都是在浏览器访问 a 的时候执行的），执行了意外的脚本（并非由 a 生成的脚本）</p>
+<p>二、如何诱导用户触发攻击：</p>
+<ul>
+<li>存储型：恶意脚本就存储在正常服务器 a 中，用户正常访问就会执行</li>
+<li>反射型：构造参数中包括恶意脚本的 URL，诱导用户点击；这个恶意 URL 可以在正常网站 a 中（比较难实现），也可以在恶意网站 b 中（比较容易实现，但得是链接，让用户访问a）<br>存储型：构造参数中包括恶意脚本的 URL，诱导用户点击；同样，这个恶意 URL 可以在正常网站 a 中（比较难实现），也可以在恶意网站 b 中（比较容易实现，但得是链接，让用户访问a）</li>
+</ul>
+<p>三、攻击脚本如何被执行：</p>
+<ul>
+<li><p>存储型、反射性：仅存在于服务端渲染情况下由服务端取出恶意代码拼接到 HTML 中返回给浏览器，由浏览器解析执行</p>
+</li>
+<li><p>DOM 型：纯粹是靠浏览器执行前端JS代码来实现。</p>
+<ul>
+<li>正常服务器a的页面，js代码写的不严谨，绑定了某些事件处理函数可能执行<strong>输入</strong>的标签中的内容中的脚本（比如点击按钮，对应处理函数可能取出<code>&lt;input&gt;</code>标签中的包含脚本的字符串，放到<code>eval()</code>、<code>innerHTML</code>、<code>document.write()</code>中执行）。</li>
+<li>构造 URL，包含 <code>#javascript</code>，访问后直接执行脚本</li>
+<li>以上两种情况，恶意脚本都没有被发送给服务器a</li>
+<li>可能的情况是，用户访问恶意网站b，被诱导点击了包含 <code>#javascript</code>的网站a的URL。但其他情况，用户在访问网站 a 的时候，网站a怎么会有恶意的URL呢？或者用户为什么会自己输入恶意脚本然后点击按钮执行呢？那就要看攻击者如何想办法污染网站a了，然后诱导用户触发攻击了</li>
+</ul>
+</li>
+</ul>
+<p>四、攻击脚本是什么内容&amp;如何实现攻击效果</p>
+<h3 id="CSRF-实例"><a href="#CSRF-实例" class="headerlink" title="CSRF 实例"></a>CSRF 实例</h3><p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000024490213">CSRF攻击原理和防范措施</a>  </p>
+<h3 id="XSS-CSRF-和-跨域"><a href="#XSS-CSRF-和-跨域" class="headerlink" title="XSS/CSRF 和 跨域"></a>XSS/CSRF 和 跨域</h3><p><a target="_blank" rel="noopener" href="https://catcat.cc/post/2020-06-23/">循序渐进理解：跨源跨域，再到 XSS 和 CSRF</a></p>
+<p>XSS/CSRF 的含义中，我们用的是“跨站”的概念，其实太关心同源策略或者跨域。</p>
+<p>XSS 的跨站：恶意脚本总是在用户访问正常网站 a 的时候被执行。跨站的含义是：用户可能是从恶意网站 b 转到网站 a 中（攻击者也可能在网站 a 已经构造好了陷阱，用户只访问了 a 也会触发攻击）；攻击结果可能是，将用户关于网站 a 的信息发送给网站 b</p>
+<p>CSRF 的跨站：用户访问恶意网站 b 时，向正常网站 a 发送了请求（而非浏览器访问网站 a）</p>
+<p>这就是名字中“跨站”的含义，我们并不关心这个跨站是否需要实现跨域</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/03/03/React%E6%A1%86%E6%9E%B6%E8%AE%AD%E7%BB%83/" rel="prev" title="React 系列训练">
+                  <i class="fa fa-chevron-left"></i> React 系列训练
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wu Chaojie</span>
+</div>
+  <div class="powered-by">
+  <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+    本站访客量:<span id="busuanzi_value_site_pv"></span>
+  </span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
